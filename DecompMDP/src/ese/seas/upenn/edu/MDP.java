@@ -329,7 +329,7 @@ public class MDP
 		//pij(a) = State(i).getTransitions().getTransitions(j) where action=a;
 		
 		//create pfij(a) = sum over all a in A(i) (f(i,a)*pfij(a))\
-				
+				 
 		A=new SparseMatrixHolder();
 		
 		for(Map.Entry<String, SortedSet<String>> ki : kernels.entrySet())

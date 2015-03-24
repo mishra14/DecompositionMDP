@@ -4,7 +4,7 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		MDP testMDP=new MDP();
+		MDP testMDP=new MDP(); 
 		try 
 		{
 			testMDP.buildFromPrismExplicit("testMDP2.txt");

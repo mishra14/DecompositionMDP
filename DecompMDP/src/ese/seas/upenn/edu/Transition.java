@@ -4,7 +4,7 @@ public class Transition
 {
 	private float probability;
 	private String toStateLabel;
-	private String action;
+	private String action; 
 	
 	public Transition(float probability, String toStateLabel, String action)
 	{

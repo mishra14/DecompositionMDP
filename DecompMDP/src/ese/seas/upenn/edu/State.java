@@ -9,7 +9,7 @@ public class State
 	private LinkedHashMap<String, Transition> transitions;
 	private boolean isInital;
 	private LinkedHashMap<String, Integer> actionCounts;
-	
+	 
 	public State(String label, LinkedHashMap<String, Transition> transitions, boolean isInital) 
 	{
 		super();
