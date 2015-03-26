@@ -2,6 +2,8 @@ package ese.seas.upenn.edu;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class State 
 {
@@ -120,6 +122,19 @@ public class State
 			return (float)actionCounts.get(actionLabel)/transitions.size();
 		}
 		return 0;
+	}
+	
+	Set<String> getNextStates()
+	{
+		Set<String> nextStates =new TreeSet<String>();
+		if(!transitions.isEmpty())
+		{
+			for(Map.Entry<String, Transition> transition : transitions.entrySet())
+			{
+				nextStates.add(transition.getValue().getToState());
+			}
+		}
+		return nextStates;
 	}
 	
 	@Override

@@ -4,15 +4,15 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		MDP testMDP=new MDP(); 
+		MDP testMDP=new MDP();  
 		try 
 		{
-			testMDP.buildFromPrismExplicit("testMDP2.txt");
+			testMDP.buildFromFile("testMDP.txt");
 			testMDP.createKernels();
 			System.out.println(testMDP);
 			
 			long start=System.nanoTime();
-			testMDP.createLPQuick();				//creating A vector
+			testMDP.createLP();				//creating A vector
 			long end=System.nanoTime();
 			
 			System.out.println("\nA matrix : (index format - toThenFrom) \n"+testMDP.getA());
@@ -20,6 +20,8 @@ public class Main
 			//testMDP.createAMatrix();		//TODO converting A vector into Matrix
 			
 			System.out.println("Time taken for LP creation : "+(float)((end-start)/(1000))+" uSec");
+			
+			PlanarSeparator.BFSLayerGeneration("s0", testMDP);
 		}
 		catch (Exception e) 
 		{

@@ -84,7 +84,7 @@ public class MDP
 		return states.put(s.getLabel(),s);
 	}
 	
-	public void buildFromPrismExplicit(String filename) throws Exception
+	public void buildFromFile(String filename) throws Exception
 	{
 		BufferedReader in;
 		String line, ss[];
