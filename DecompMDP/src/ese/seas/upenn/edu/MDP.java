@@ -3,6 +3,7 @@ package ese.seas.upenn.edu;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -10,6 +11,9 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import com.jmatio.io.MatFileWriter;
+import com.jmatio.types.MLArray;
+import com.jmatio.types.MLDouble;
 
 public class MDP 
 {
@@ -344,18 +348,18 @@ public class MDP
 						State s= states.get(stateKj);
 						for(Map.Entry<String, Integer> action : s.getActionCounts().entrySet())
 						{
-							System.out.println("\n\nstateKi : "+stateKi);
+							/*System.out.println("\n\nstateKi : "+stateKi);
 							System.out.println("stateKj : "+stateKj);
 							System.out.println("Action : "+action.getKey());
-							System.out.println("transition from "+s.getLabel()+" to "+stateKi);
+							System.out.println("transition from "+s.getLabel()+" to "+stateKi);*/
 							if(stateKi.equals(stateKj))
 							{
-								System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
+								//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
 								temp.put(stateKi+action.getKey()+stateKj,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
 							}
 							else
 							{
-								System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
+								//System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
 								temp.put(stateKi+action.getKey()+stateKj,(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
 							}
 						}
@@ -396,18 +400,18 @@ public class MDP
 						State s= states.get(stateKj);
 						for(Map.Entry<String, Integer> action : s.getActionCounts().entrySet())
 						{
-							System.out.println("\n\nstateKi : "+stateKi);
+							/*System.out.println("\n\nstateKi : "+stateKi);
 							System.out.println("stateKj : "+stateKj);
 							System.out.println("Action : "+action.getKey());
-							System.out.println("transition from "+s.getLabel()+" to "+stateKi);
+							System.out.println("transition from "+s.getLabel()+" to "+stateKi);*/
 							if(stateKi.equals(stateKj))
 							{
-								System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
+								//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
 								temp.put(stateKi+action.getKey()+stateKj,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
 							}
 							else
 							{
-								System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
+								//System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
 								temp.put(stateKi+action.getKey()+stateKj,(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
 							}
 						}
@@ -434,18 +438,47 @@ public class MDP
 	
 	public void createAMatrix()
 	{
+		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
 		for(Map.Entry<String, LinkedHashMap<String, Float>> matrix : A.getMatrixHolder().entrySet() )
 		{
 			String Ki,Kj;
 			Ki=matrix.getKey().substring(0, 2);
 			Kj=matrix.getKey().substring(2);
 			System.out.println(matrix.getKey()+" - "+Ki+" "+Kj);
-			//int m=kernels.get(Ki).size();
-			//int n=getStateActionPairCount(Kj);
-			for(String stateKi : kernels.get(Ki))
+			int m=kernels.get(Ki).size();
+			int n=getStateActionPairCount(Kj);
+			double src[][]=new double[m][n];
+			int i,j;
+			i=0;
+			j=0;
+			System.out.println("Hash Length : "+matrix.getValue().size()+" Array Size : "+m+" x "+n+"="+(m*n));
+			System.out.println(matrix.getValue());
+			for(Map.Entry<String, Float> entry : matrix.getValue().entrySet() )
 			{
-				System.out.println(stateKi);
+				src[i][j]=entry.getValue();
+				System.out.print(src[i][j]);
+				if(j<n-1)
+				{
+					System.out.print("\t");
+					j++;
+				}
+				else
+				{
+					System.out.println();
+					j=0;
+					i++;
+				}
 			}
+			MLDouble mlDouble = new MLDouble(Ki.substring(1,2)+Kj.substring(1,2),src);
+			list.add(mlDouble);
+		}
+		try 
+		{
+			new MatFileWriter( "A.mat", list );
+		} 
+		catch (IOException e) 
+		{
+			System.out.println(e.toString());
 		}
 	}
 	
