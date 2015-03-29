@@ -1,8 +1,5 @@
 package ese.seas.upenn.edu;
 
-import com.jmatio.io.MatFileWriter;
-
-
 public class Main 
 {
 	public static void main(String[] args) 
@@ -20,7 +17,7 @@ public class Main
 			
 			System.out.println("\nA matrix : (index format - toThenFrom) \n"+testMDP.getA());
 			
-			testMDP.createAMatrix();		//TODO converting A vector into Matrix
+			testMDP.createAMatrix();		//Convert A Matrix into Mat File
 			
 			System.out.println("Time taken for LP creation : "+(float)((end-start)/(1000))+" uSec");
 			

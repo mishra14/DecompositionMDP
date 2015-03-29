@@ -444,27 +444,21 @@ public class MDP
 			String Ki,Kj;
 			Ki=matrix.getKey().substring(0, 2);
 			Kj=matrix.getKey().substring(2);
-			System.out.println(matrix.getKey()+" - "+Ki+" "+Kj);
 			int m=kernels.get(Ki).size();
 			int n=getStateActionPairCount(Kj);
 			double src[][]=new double[m][n];
 			int i,j;
 			i=0;
 			j=0;
-			System.out.println("Hash Length : "+matrix.getValue().size()+" Array Size : "+m+" x "+n+"="+(m*n));
-			System.out.println(matrix.getValue());
 			for(Map.Entry<String, Float> entry : matrix.getValue().entrySet() )
 			{
 				src[i][j]=entry.getValue();
-				System.out.print(src[i][j]);
 				if(j<n-1)
 				{
-					System.out.print("\t");
 					j++;
 				}
 				else
 				{
-					System.out.println();
 					j=0;
 					i++;
 				}
