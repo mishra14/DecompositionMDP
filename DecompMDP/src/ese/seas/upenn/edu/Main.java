@@ -14,7 +14,7 @@ public class Main
 			long start=System.nanoTime();
 			testMDP.createLP();				//creating A vector
 			
-			System.out.println("\nA matrix : (index format - toThenFrom) \n"+testMDP.getA());
+			System.out.println("\nA matrix : (index format - toThenFrom) \n"+testMDP.getA()); 
 			
 			testMDP.createSparseAMatrix();		//Convert A Matrix into Mat File
 			
