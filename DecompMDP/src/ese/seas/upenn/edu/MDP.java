@@ -463,7 +463,7 @@ public class MDP
 					i++;
 				}
 			}
-			MLDouble mlDouble = new MLDouble(Ki.substring(1,2)+Kj.substring(1,2),src);
+			MLDouble mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2),src);
 			list.add(mlDouble);
 		}
 		try 
@@ -475,6 +475,99 @@ public class MDP
 			System.out.println(e.toString());
 		}
 	}
+	
+	public void createSparseAMatrix()
+	{
+		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
+		for(Map.Entry<String, LinkedHashMap<String, Float>> matrix : A.getMatrixHolder().entrySet() )
+		{
+			String Ki,Kj;
+			Ki=matrix.getKey().substring(0, 2);
+			Kj=matrix.getKey().substring(2);
+			int m=kernels.get(Ki).size();
+			int n=getStateActionPairCount(Kj);
+			int size=0;
+			for(Map.Entry<String, Float> entry : matrix.getValue().entrySet() )
+			{
+				if(entry.getValue()!=0)
+				{
+					size++;
+				}
+			}
+			double[] rowVector=new double[size];
+			double columnVector[]=new double[size];
+			double valueVector[]=new double[size];
+			double rowCount[]=new double[1];
+			double columnCount[]=new double[1];
+			rowCount[0]=m;
+			columnCount[0]=n;
+			int i,j,k;
+			i=0;
+			j=0;
+			k=0;
+			for(Map.Entry<String, Float> entry : matrix.getValue().entrySet() )
+			{
+				if(entry.getValue()!=0)
+				{
+					rowVector[k]=i;
+					columnVector[k]=j;
+					valueVector[k]= entry.getValue();
+					//System.out.println(valueVector[k]+" "+rowVector[k]+" "+columnVector[k]);
+					//System.out.println(entry.getValue()+" "+i+" "+j+" "+k);
+					k++;
+
+				}
+				if(j<n-1)
+				{
+					j++;
+				}
+				else
+				{
+					j=0;
+					i++;
+				}
+			}		
+			System.out.println("A"+Ki.substring(1,2)+Kj.substring(1,2) + " m*n = "+(m*n)+" k = "+k);
+			System.out.print("Row Vector : ");
+			for(int l=0;l<k;l++)
+			{
+				System.out.print(rowVector[l]+"\t");
+			}
+			System.out.println();
+			System.out.print("Column Vector : ");
+			for(int l=0;l<k;l++)
+			{
+				System.out.print(columnVector[l]+"\t");
+			}
+			System.out.println();
+			System.out.print("Value Vector : ");
+			for(int l=0;l<k;l++)
+			{
+				System.out.print(valueVector[l]+"\t");
+			}
+			System.out.println();
+			//System.out.println("m * n = "+(m*n)+"\t k = "+k);
+			MLDouble mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"i",rowVector,1);
+			list.add(mlDouble);
+			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"j",columnVector,1);
+			list.add(mlDouble);
+			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"v",valueVector,1);
+			list.add(mlDouble);
+			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"row",rowCount,1);
+			list.add(mlDouble);
+			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"col",columnCount,1);
+			list.add(mlDouble);
+		}
+		try 
+		{
+			new MatFileWriter( "A.mat", list );
+		} 
+		catch (IOException e) 
+		{
+			System.out.println(e.toString());
+		}
+	}
+	
 	
 	@Override
 	public String toString()
