@@ -8,7 +8,6 @@ public class Main
 		try 
 		{
 			testMDP.buildFromFile("testMDP.txt");
-			testMDP.createKernels();
 			System.out.println(testMDP);
 			
 			long start=System.nanoTime();
@@ -21,7 +20,6 @@ public class Main
 			long end=System.nanoTime();
 			System.out.println("Time taken for LP creation : "+(float)((end-start)/(1000))+" uSec");
 			
-			PlanarSeparator.BFSLayerGeneration("s0", testMDP);		//BFS layering with S0 as the initial state
 						
 		}
 		catch (Exception e) 

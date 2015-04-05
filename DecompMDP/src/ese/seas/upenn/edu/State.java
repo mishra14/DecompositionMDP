@@ -11,7 +11,9 @@ public class State
 	private LinkedHashMap<String, Transition> transitions;
 	private boolean isInital;
 	private LinkedHashMap<String, Integer> actionCounts;
-	 
+	private String regionLabel;
+	private String kernelLabel;
+	
 	public State(String label, LinkedHashMap<String, Transition> transitions, boolean isInital) 
 	{
 		super();
@@ -19,14 +21,18 @@ public class State
 		this.transitions = transitions;
 		this.isInital = isInital;
 		this.actionCounts=new LinkedHashMap<String, Integer>();
+		this.kernelLabel=new String();
+		this.regionLabel=new String();
 	}
-	public State(String label, LinkedHashMap<String, Transition> transitions,boolean isInital, LinkedHashMap<String, Integer> actionCounts) 
+	public State(String label, LinkedHashMap<String, Transition> transitions,boolean isInital, LinkedHashMap<String, Integer> actionCounts, String regionLabel, String kernelLabel) 
 	{
 		super();
 		this.label = label;
 		this.transitions = transitions;
 		this.isInital = isInital;
 		this.actionCounts = actionCounts;
+		this.kernelLabel=kernelLabel;
+		this.regionLabel=regionLabel;
 	}
 	public State(String label) 
 	{
@@ -35,6 +41,8 @@ public class State
 		this.transitions=new LinkedHashMap<String, Transition>();
 		this.isInital=false;
 		this.actionCounts=new LinkedHashMap<String, Integer>();
+		this.kernelLabel=new String();
+		this.regionLabel=new String();
 	}
 
 	public State(State state) 
@@ -44,6 +52,8 @@ public class State
 		this.transitions = state.transitions;
 		this.isInital = state.isInital;
 		this.actionCounts = state.actionCounts;
+		this.kernelLabel=state.kernelLabel;
+		this.regionLabel=state.regionLabel;
 	}
 	public String getLabel() 
 	{
@@ -56,7 +66,19 @@ public class State
 	}
 
 	
-
+	
+	public String getRegionLabel() {
+		return regionLabel;
+	}
+	public void setRegionLabel(String regionLabel) {
+		this.regionLabel = regionLabel;
+	}
+	public String getKernelLabel() {
+		return kernelLabel;
+	}
+	public void setKernelLabel(String kernelLabel) {
+		this.kernelLabel = kernelLabel;
+	}
 	public Map<String, Transition> getTransitions() {
 		return transitions;
 	}
@@ -88,9 +110,7 @@ public class State
 
 	@Override
 	public String toString() {
-		return "State [label=" + label + ", transitions=" + printAllTransitions()
-				+ ", isInital=" + isInital + ", actionCounts=" + actionCounts
-				+ "]\n";
+		return "State [label=" + label + ", isInital=" + isInital + ", actionCounts=" + actionCounts + ", \nRegionLabel="+regionLabel+" KernelLabel="+ kernelLabel +", \ntransitions=" + printAllTransitions() + "]\n";
 	}
 
 	String printAllTransitions()

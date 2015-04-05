@@ -36,7 +36,7 @@ public class Transition
 	@Override
 	public String toString() 
 	{
-		return "Transition [probability=" + probability + ", toState="+ toStateLabel + ", action=" + action + "]\n";
+		return "Transition [probability=" + probability + ", toState="+ toStateLabel + ", action=" + action + "]";
 	}
 	@Override
 	public int hashCode() {

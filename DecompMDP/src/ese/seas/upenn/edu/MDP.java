@@ -6,10 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 import com.jmatio.io.MatFileWriter;
 import com.jmatio.types.MLArray;
@@ -18,8 +17,8 @@ import com.jmatio.types.MLDouble;
 public class MDP 
 {
 	private Map<String, State> states;
-	private Map<String, SortedSet<String>> regions;
-	private Map<String, SortedSet<String>> kernels;
+	private Map<String, LinkedHashSet<String>> regions;
+	private Map<String, LinkedHashSet<String>> kernels;
 	private ArrayList<String> actions;
 	private Map<String, LinkedHashMap<String,LinkedHashMap<String, Float>>> XVector;
 	private SparseMatrixHolder A;
@@ -29,8 +28,8 @@ public class MDP
 	{
 		super();
 		states=new LinkedHashMap<String, State>();
-		regions=new LinkedHashMap<String,  SortedSet<String>>();
-		kernels=new LinkedHashMap<String,  SortedSet<String>>();
+		regions=new LinkedHashMap<String,  LinkedHashSet<String>>();
+		kernels=new LinkedHashMap<String,  LinkedHashSet<String>>();
 		actions=new ArrayList<String>();
 		XVector=new LinkedHashMap<String, LinkedHashMap<String,LinkedHashMap<String,Float>>>();
 	}
@@ -43,19 +42,19 @@ public class MDP
 		this.states = states;
 	}
 	
-	public Map<String,  SortedSet<String>> getRegions() {
+	public Map<String,  LinkedHashSet<String>> getRegions() {
 		return regions;
 	}
 
-	public void setRegions(Map<String,  SortedSet<String>> regions) {
+	public void setRegions(Map<String,  LinkedHashSet<String>> regions) {
 		this.regions = regions;
 	}
 
-	public Map<String,  SortedSet<String>> getKernels() {
+	public Map<String,  LinkedHashSet<String>> getKernels() {
 		return kernels;
 	}
 
-	public void setKernels(Map<String,  SortedSet<String>> kernels) {
+	public void setKernels(Map<String,  LinkedHashSet<String>> kernels) {
 		this.kernels = kernels;
 	}
 
@@ -108,6 +107,7 @@ public class MDP
 			{
 				line=in.readLine();
 			}
+			//create states			
 			line=line.replaceAll("\\s+","");
 			ss=line.subSequence(line.indexOf("{")+1, line.indexOf("}")).toString().split(",");
 			for(String stateLabel : ss)
@@ -127,6 +127,7 @@ public class MDP
 			{
 				line=in.readLine();
 			}
+			//create transitions
 			while(!(line = in.readLine()).toLowerCase().contains("end")) 
 			{
 		        
@@ -161,6 +162,18 @@ public class MDP
 			{
 				line=in.readLine();
 			}
+			//create regions
+			PlanarSeparator.init();							//reset the static variables for Planar Separator 
+			PlanarSeparator.DFSDecomposition("s0", this, 1);	// create regions // TODO remove hard coding of s0  
+			regions=PlanarSeparator.getLayers();
+			//createKernels();		//create kernels based on the regions generated
+			
+			PlanarSeparator.improveDecomposition(this);
+			createKernels();
+			
+			/*
+			 * Part of code to read regions from the text file
+			 * 
 			while(!(line = in.readLine()).toLowerCase().contains("end")) 
 			{
 				line=line.replaceAll("\\s+","");
@@ -216,6 +229,7 @@ public class MDP
 				}
 				
 		    }
+		    */
 			// Close file
 			in.close();
 		} 
@@ -229,10 +243,10 @@ public class MDP
 	
 	void createKernels()
 	{
-		Set<String> k0=new TreeSet<String>();
-		kernels.put("K0",(SortedSet<String>) k0);
+		Set<String> k0=new LinkedHashSet<String>();
+		kernels.put("K0",(LinkedHashSet<String>) k0);
 		String kernelName="";
-		for (Map.Entry<String,  SortedSet<String>> region : regions.entrySet())
+		for (Map.Entry<String,  LinkedHashSet<String>> region : regions.entrySet())
 		{
 			for(String s: region.getValue())
 			{
@@ -247,6 +261,7 @@ public class MDP
 						if(!k0.contains(transition.getValue().getToState()))
 						{
 							k0.add(transition.getValue().getToState());
+							states.get(transition.getValue().getToState()).setKernelLabel("k0");
 						}
 						else
 						{
@@ -256,14 +271,14 @@ public class MDP
 				}
 			}
 			kernelName=region.getKey().replace('r', 'k');
-			kernels.put(kernelName, new TreeSet<String>(region.getValue()));
+			kernels.put(kernelName, new LinkedHashSet<String>(region.getValue()));
 			
 		}
-		kernels.put("K0",(SortedSet<String>) k0);
+		kernels.put("K0",(LinkedHashSet<String>) k0);
 		
 		for(String state : k0)
 		{
-			for (Map.Entry<String,  SortedSet<String>> region : regions.entrySet())
+			for (Map.Entry<String,  LinkedHashSet<String>> region : regions.entrySet())
 			{
 				kernelName=region.getKey().replace('r', 'k');
 				//System.out.println("Kernel : "+kernels.get(kernelName));
@@ -288,7 +303,7 @@ public class MDP
 		//TODO remove the display part
 		
 		String result="X = \n";
-		for(Map.Entry<String, SortedSet<String>> kernel : kernels.entrySet() )
+		for(Map.Entry<String, LinkedHashSet<String>> kernel : kernels.entrySet() )
 		{
 			
 			XVector.put(kernel.getKey(),  new LinkedHashMap<String, LinkedHashMap<String, Float>>());
@@ -336,9 +351,9 @@ public class MDP
 				 
 		A=new SparseMatrixHolder();
 		
-		for(Map.Entry<String, SortedSet<String>> ki : kernels.entrySet())
+		for(Map.Entry<String, LinkedHashSet<String>> ki : kernels.entrySet())
 		{
-			for(Map.Entry<String, SortedSet<String>> kj : kernels.entrySet())
+			for(Map.Entry<String, LinkedHashSet<String>> kj : kernels.entrySet())
 			{
 				LinkedHashMap<String,Float> temp=new LinkedHashMap<String,Float>();
 				for(String stateKi : ki.getValue())
@@ -388,9 +403,9 @@ public class MDP
 				
 		A=new SparseMatrixHolder();
 		
-		for(Map.Entry<String, SortedSet<String>> ki : kernels.entrySet())
+		for(Map.Entry<String, LinkedHashSet<String>> ki : kernels.entrySet())
 		{
-			for(Map.Entry<String, SortedSet<String>> kj : kernels.entrySet())
+			for(Map.Entry<String, LinkedHashSet<String>> kj : kernels.entrySet())
 			{
 				LinkedHashMap<String,Float> temp=new LinkedHashMap<String,Float>();
 				for(String stateKi : ki.getValue())
@@ -435,6 +450,7 @@ public class MDP
 		}
 		return result;
 	}
+	
 	
 	public void createAMatrix()
 	{
@@ -527,7 +543,7 @@ public class MDP
 					i++;
 				}
 			}		
-			System.out.println("A"+Ki.substring(1,2)+Kj.substring(1,2) + " m*n = "+(m*n)+" k = "+k);
+			/*System.out.println("A"+Ki.substring(1,2)+Kj.substring(1,2) + " m*n = "+(m*n)+" k = "+k);
 			System.out.print("Row Vector : ");
 			for(int l=0;l<k;l++)
 			{
@@ -545,7 +561,7 @@ public class MDP
 			{
 				System.out.print(valueVector[l]+"\t");
 			}
-			System.out.println();
+			System.out.println();*/
 			//System.out.println("m * n = "+(m*n)+"\t k = "+k);
 			MLDouble mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"i",rowVector,1);
 			list.add(mlDouble);
@@ -577,7 +593,7 @@ public class MDP
 		{
 			result+=entry.getValue().toString();
 		}
-		for (Map.Entry<String,  SortedSet<String>> entry : regions.entrySet())
+		for (Map.Entry<String,  LinkedHashSet<String>> entry : regions.entrySet())
 		{
 			result+=entry.getKey()+"\n";
 			for(String s : entry.getValue())
@@ -587,7 +603,7 @@ public class MDP
 			result+="\n";
 		
 		}
-		for (Map.Entry<String,  SortedSet<String>> entry : kernels.entrySet())
+		for (Map.Entry<String,  LinkedHashSet<String>> entry : kernels.entrySet())
 		{
 			result+=entry.getKey()+"\n";
 			for(String s : entry.getValue())
