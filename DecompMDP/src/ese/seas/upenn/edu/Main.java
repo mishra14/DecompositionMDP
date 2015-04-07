@@ -11,11 +11,11 @@ public class Main
 			System.out.println(testMDP);
 			
 			long start=System.nanoTime();
-			testMDP.createLP();				//creating A vector
+			testMDP.createLP();				//creating Sparse A Matrix
 			
 			System.out.println("\nA matrix : (index format - toThenFrom) \n"+testMDP.getA()); 
 			
-			testMDP.createSparseAMatrix();		//Convert A Matrix into Mat File
+			testMDP.createSparseAMatrix();		//Convert A Matrix into Sparse Mat File
 			
 			long end=System.nanoTime();
 			System.out.println("Time taken for LP creation : "+(float)((end-start)/(1000))+" uSec");

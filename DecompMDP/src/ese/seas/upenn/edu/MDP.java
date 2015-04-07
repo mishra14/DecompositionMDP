@@ -23,7 +23,7 @@ public class MDP
 	private Map<String, LinkedHashMap<String,LinkedHashMap<String, Float>>> XVector;
 	private SparseMatrixHolder A;
 	private final float gamma=(float)0.9;
-	
+	private int regionCount;
 	public MDP() 
 	{
 		super();
@@ -32,7 +32,30 @@ public class MDP
 		kernels=new LinkedHashMap<String,  LinkedHashSet<String>>();
 		actions=new ArrayList<String>();
 		XVector=new LinkedHashMap<String, LinkedHashMap<String,LinkedHashMap<String,Float>>>();
+		regionCount=0;
 	}
+	public MDP(MDP mdp) 
+	{
+		super();
+		states=mdp.states;
+		regions=mdp.regions;
+		kernels=mdp.kernels;
+		actions=mdp.actions;
+		XVector=mdp.XVector;
+		regionCount=mdp.regionCount;
+	}
+	public int getRegionCount() {
+		return regionCount;
+	}
+
+	public void setRegionCount(int regionCount) {
+		this.regionCount = regionCount;
+	}
+
+	public float getGamma() {
+		return gamma;
+	}
+
 	public Map<String, State> getStates() 
 	{
 		return states;
@@ -162,15 +185,81 @@ public class MDP
 			{
 				line=in.readLine();
 			}
+			line=line.replaceAll("\\s+","");
+			//System.out.println(line);
+			ss=line.split("=");
+			//System.out.println(ss[1]);
+			try
+			{
+				regionCount=new Integer(ss[1]);
+			}
+			catch(NumberFormatException e)
+			{
+				System.out.println(e.toString());
+				System.out.println("Region Count is not an Integer - Exiting....");
+				System.exit(1);
+			}
+			catch (Exception e) 
+			{
+				System.out.println(e.toString());
+				System.exit(1);
+			}
+			System.out.println(regionCount);
 			//create regions
 			PlanarSeparator.init();							//reset the static variables for Planar Separator 
-			PlanarSeparator.DFSDecomposition("s0", this, 1);	// create regions // TODO remove hard coding of s0  
+			PlanarSeparator.DFSDecomposition("s0", this, 1);	// create regions // TODO remove hard coding of s0
 			regions=PlanarSeparator.getLayers();
-			//createKernels();		//create kernels based on the regions generated
+			System.out.println(regions);
+			createKernels();				//create kernels based on the regions generated
+			System.out.println(kernels);
 			
-			PlanarSeparator.improveDecomposition(this);
-			createKernels();
-			
+			Map<String, LinkedHashSet<String>> newRegionsOne=new LinkedHashMap<String,  LinkedHashSet<String>>();
+			Map<String, LinkedHashSet<String>> newRegionsTwo=new LinkedHashMap<String,  LinkedHashSet<String>>();
+			Map<String, LinkedHashSet<String>> newRegionsThree=new LinkedHashMap<String,  LinkedHashSet<String>>();
+			MDP tempMDP=new MDP(this);
+			//creating a deep copy of the original mdp regions
+			while(true)
+			{
+				for(Map.Entry<String, LinkedHashSet<String>> region : tempMDP.getRegions().entrySet())
+				{
+					String key=new String(region.getKey());
+					LinkedHashSet<String> value=new LinkedHashSet<String>();
+					for(String s : region.getValue())
+					{
+						value.add(new String(s));
+					}
+					newRegionsOne.put(key, value);
+				}
+				newRegionsTwo=PlanarSeparator.improveDecomposition(tempMDP);
+				if(newRegionsTwo.equals(newRegionsOne))
+				{
+					regions=newRegionsOne;
+					break;
+				}
+				tempMDP.setRegions(newRegionsTwo);
+				newRegionsThree=PlanarSeparator.improveDecomposition(tempMDP);
+				if(newRegionsThree.equals(newRegionsTwo))
+				{
+					regions=newRegionsThree;
+					break;
+				}
+				else if(newRegionsThree.equals(newRegionsOne))
+				{
+					//assign the region which gives smaller k0
+					int countTwo,countThree;
+					tempMDP.setRegions(newRegionsTwo);
+					tempMDP.createKernels();
+					countTwo=tempMDP.getKernels().get("k0").size();
+					tempMDP.setRegions(newRegionsThree);
+					tempMDP.createKernels();
+					countThree=tempMDP.getKernels().get("k0").size();
+					regions=(countTwo<=countThree)?newRegionsTwo:newRegionsThree;
+					break;
+				}
+				tempMDP.setRegions(newRegionsThree);
+			}
+			createKernels();				//create kernels based on the improved regions generated
+			System.out.println(kernels);
 			/*
 			 * Part of code to read regions from the text file
 			 * 
@@ -244,7 +333,7 @@ public class MDP
 	void createKernels()
 	{
 		Set<String> k0=new LinkedHashSet<String>();
-		kernels.put("K0",(LinkedHashSet<String>) k0);
+		kernels.put("k0",(LinkedHashSet<String>) k0);
 		String kernelName="";
 		for (Map.Entry<String,  LinkedHashSet<String>> region : regions.entrySet())
 		{
@@ -256,8 +345,8 @@ public class MDP
 					if(!region.getValue().contains(transition.getValue().getToState()))
 					{
 						//System.out.println(transition.getValue()+ " from state "+state.getLabel()+" crosses region "+region.getKey());
-						//check if state already in K0						
-						//add ToState to K0
+						//check if state already in k0						
+						//add ToState to k0
 						if(!k0.contains(transition.getValue().getToState()))
 						{
 							k0.add(transition.getValue().getToState());
@@ -265,7 +354,7 @@ public class MDP
 						}
 						else
 						{
-							System.out.println("State "+transition.getValue().getToState()+" already in K0");
+							System.out.println("State "+transition.getValue().getToState()+" already in k0");
 						}
 					}
 				}
@@ -274,7 +363,7 @@ public class MDP
 			kernels.put(kernelName, new LinkedHashSet<String>(region.getValue()));
 			
 		}
-		kernels.put("K0",(LinkedHashSet<String>) k0);
+		kernels.put("k0",(LinkedHashSet<String>) k0);
 		
 		for(String state : k0)
 		{
@@ -593,6 +682,7 @@ public class MDP
 		{
 			result+=entry.getValue().toString();
 		}
+		result+="Regions - \n";
 		for (Map.Entry<String,  LinkedHashSet<String>> entry : regions.entrySet())
 		{
 			result+=entry.getKey()+"\n";
@@ -603,6 +693,7 @@ public class MDP
 			result+="\n";
 		
 		}
+		result+="Kernels - \n";
 		for (Map.Entry<String,  LinkedHashSet<String>> entry : kernels.entrySet())
 		{
 			result+=entry.getKey()+"\n";

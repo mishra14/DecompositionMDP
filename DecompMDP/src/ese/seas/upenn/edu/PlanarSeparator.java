@@ -84,7 +84,7 @@ public class PlanarSeparator
 			current=new LinkedHashSet<String>(next);
 			next=new LinkedHashSet<String>();
 		}
-		System.out.println(layers);
+		//System.out.println(layers);
 	}
 	
 	static void DFSDecomposition(String initialState, MDP mdp, int region)
@@ -98,7 +98,7 @@ public class PlanarSeparator
 		next=s.getNextStates();
 		seenStates.add(initialState);
 		//System.out.println(initialState);
-		if(layers.containsKey("r"+region) && layers.get("r"+region).size()>mdp.getStates().size()/2)
+		if(layers.containsKey("r"+region) && layers.get("r"+region).size()>mdp.getStates().size()/mdp.getRegionCount())
 		{
 			region++;
 		}
@@ -128,12 +128,22 @@ public class PlanarSeparator
 		//System.out.println(layers);
 	}
 
-	public static void improveDecomposition(MDP mdp) 
+	public static Map<String, LinkedHashSet<String>> improveDecomposition(MDP mdp) 
 	{
 		Map<String,LinkedHashMap<String,Integer>> stateReachability=new LinkedHashMap<String,LinkedHashMap<String, Integer>>();
 		Map<String,LinkedHashMap<String,Integer>> stateReachabilitySmall=new LinkedHashMap<String,LinkedHashMap<String, Integer>>();
-		//Map<String, LinkedHashSet<String>> newRegions=new LinkedHashMap<String,  LinkedHashSet<String>>(mdp.getRegions());
-		Map<String, LinkedHashSet<String>> newRegions=mdp.getRegions();
+		Map<String, LinkedHashSet<String>> newRegions=new LinkedHashMap<String,  LinkedHashSet<String>>();
+		//creating a deep copy of the original mdp regions
+		for(Map.Entry<String, LinkedHashSet<String>> region : mdp.getRegions().entrySet())
+		{
+			String key=new String(region.getKey());
+			LinkedHashSet<String> value=new LinkedHashSet<String>();
+			for(String s : region.getValue())
+			{
+				value.add(new String(s));
+			}
+			newRegions.put(key, value);
+		}
 		for(Map.Entry<String, LinkedHashSet<String>> region : newRegions.entrySet())
 		{
 			for(String s : region.getValue())
@@ -202,7 +212,7 @@ public class PlanarSeparator
 						maxRegion=regionCounterSmall.getKey();
 					}
 				}
-				if(!maxRegion.equalsIgnoreCase(mdp.getStates().get(state.getKey()).getRegionLabel()))
+				if(!maxRegion.equalsIgnoreCase(mdp.getStates().get(state.getKey()).getRegionLabel()) && !(mdp.getRegions().get(mdp.getStates().get(state.getKey()).getRegionLabel()).size()<=1))
 				{	
 					System.out.println("Changing region from "+mdp.getStates().get(state.getKey()).getRegionLabel()+" to "+maxRegion);
 					newRegions.get(mdp.getStates().get(state.getKey()).getRegionLabel()).remove(state.getKey());
@@ -211,7 +221,10 @@ public class PlanarSeparator
 				}
 			}
 		}
+		System.out.println("Original"+mdp.getRegions());
+		System.out.println("New"+newRegions);
 		//System.out.println(stateReachabilitySmall);
+		return newRegions;
 	}
 	
 }

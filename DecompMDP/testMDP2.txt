@@ -9,7 +9,7 @@ transitions
 {s2, b, 0.5, s2}
 {s2, b, 0.5, s1}
 end 
-regions
+regions=2
 r1 = {s0,s1}
 r2 = {s2}
 end
