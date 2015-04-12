@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['gamma',['gamma',['../classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#aaf5ea15587eab978e973ffad523ffc16',1,'ese::seas::upenn::edu::MDP']]],
   ['geta',['getA',['../classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#abcf776de607259732ac95c18ab83610f',1,'ese::seas::upenn::edu::MDP']]],
   ['getaction',['getAction',['../classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a1cbeb959023673cae243d638c0434844',1,'ese::seas::upenn::edu::Transition']]],
   ['getactioncounts',['getActionCounts',['../classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a5cab4a963a7af4b95809de7fa106d02c',1,'ese::seas::upenn::edu::State']]],
