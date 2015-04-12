@@ -4,5 +4,5 @@ Jie Fu, Shuo Han, Ankit Mishra and Ufuk Topcu
 
 A Java based toolbox to prove the results in the original paper -
 
-Optimal Control in Markov Decision Processes via Distributed Optimization
+Optimal Control in Markov Decision Processes via Distributed Optimization by
 Jie Fu, Shuo Han and Ufuk Topcu
