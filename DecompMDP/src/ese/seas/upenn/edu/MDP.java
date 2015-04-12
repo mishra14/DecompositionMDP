@@ -518,7 +518,10 @@ public class MDP
 //		return states.get(stateName).getActionProbability(actionlabel);
 //	}
 	/** 
-	* @brief This is a cpoy constructor of the MDP class
+	* @brief This method is used to create A sparse matrix which is used to solve the MDP via LP
+	* 
+	* This method creates a SparseMatrixHolder to hold the A matrix for the LP of the MDP. The SparseMatrixHolder is created such that it has a map of maps,
+	* where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.
 	* 
 	**/
 	void createLP()
@@ -572,7 +575,11 @@ public class MDP
 	}
 	
 	/** 
-	* @brief This is a cpoy constructor of the MDP class
+	* @brief This method is used to create A sparse matrix which is used to solve the MDP via LP
+	* 
+	* This method creates a SparseMatrixHolder to hold the A matrix for the LP of the MDP. The SparseMatrixHolder is created such that it has a map of maps,
+	* where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.<br>
+	* This method replaces createLP() method as an optimized method.
 	* 
 	**/
 	public void createLPQuick()
@@ -627,7 +634,7 @@ public class MDP
 	
 	}
 	/** 
-	* @brief This is a cpoy constructor of the MDP class
+	* @brief This method returns the number of integer count of the number of state-action pairs in a kernel.
 	* 
 	**/
 	public int getStateActionPairCount(String kernel)
@@ -641,7 +648,7 @@ public class MDP
 	}
 	
 	/** 
-	* @brief This is a cpoy constructor of the MDP class
+	* @brief This method converts the SparseMatrixHolder A into a .Mat file.
 	* 
 	**/
 	public void createAMatrix()
@@ -684,7 +691,7 @@ public class MDP
 		}
 	}
 	/** 
-	* @brief This is a cpoy constructor of the MDP class
+	* @brief This method converts the SparseMatrixHolder A into a .Mat file with sparse matrix representation used in MATLAB.
 	* 
 	**/
 	public void createSparseAMatrix()
@@ -780,7 +787,7 @@ public class MDP
 	}
 	
 	/** 
-	* @brief This is a cpoy constructor of the MDP class
+	* @brief This method converts the MDP object into a String object for convinient displaying on the console/GUI.
 	* 
 	**/
 	@Override

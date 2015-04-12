@@ -7,44 +7,86 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+/** 
+* @file PlanarSeparator.java 
+* 
+* @brief This file contains the source code for the BFS and DFS based MDP decomposition
+* 
+* @author Ankit Mishra
+*
+* @date May, 1 2015
+* 
+**/
+
+/** 
+* @class PlanarSeparator
+* 
+* @brief This class contains the source code for the BFS and DFS based MDP decomposition
+* 
+**/
 
 public class PlanarSeparator 
 {
 	private static HashSet<String> seenStates;
 	private static LinkedHashMap<String, LinkedHashSet<String>> layers;
 	private static int layerCount;
-	
+	/** 
+	* @brief This method is a getter for the seenState HashMap
+	* 
+	**/
 	public static HashSet<String> getSeenStates() {
 		return seenStates;
 	}
-
+	/** 
+	* @brief This method is a setter for the seenState HashMap
+	* 
+	**/
 	public static void setSeenStates(HashSet<String> seenStates) {
 		PlanarSeparator.seenStates = seenStates;
 	}
-
+	/** 
+	* @brief This method is a getter for the Layers HashMap that returns the resultant decompositon
+	* 
+	**/
 	public static LinkedHashMap<String, LinkedHashSet<String>> getLayers() {
 		return layers;
 	}
-
+	/** 
+	* @brief This method is a setter for the Layers HashMap 
+	* 
+	**/
 	public static void setLayers(LinkedHashMap<String, LinkedHashSet<String>> layers) {
 		PlanarSeparator.layers = layers;
 	}
-
+	/** 
+	* @brief This method is a getter for the Layer Count 
+	* 
+	**/
 	public static int getLayerCount() {
 		return layerCount;
 	}
-
+	/** 
+	* @brief This method is a setter for the Layer Count 
+	* 
+	**/
 	public static void setLayerCount(int layerCount) {
 		PlanarSeparator.layerCount = layerCount;
 	}
-
+	/** 
+	* @brief This method is used to reset the static variables of the PlanarSeparator class
+	* 
+	**/
 	static void init()
 	{
 		seenStates=new HashSet<String>();
 		layers=new LinkedHashMap<String, LinkedHashSet<String>>();	
 		layerCount=0;
 	}
-	
+	/** 
+	* @brief This method creates BFS layers of the given MDP
+	* 
+	* Note - This method is currently unused.
+	**/
 	static void BFSLayerGeneration(String initialState, MDP mdp)
 	{
 		init();
@@ -86,7 +128,14 @@ public class PlanarSeparator
 		}
 		//System.out.println(layers);
 	}
-	
+	/** 
+	* @brief This method creates DFS based decomposition of the given MDP
+	* 
+	* This method creates a decomposition by using a count based heuristic. 
+	* Starting from the supplied initial State Label, the method places each newly discovered State into the current Region.<br>
+	* When the State count inthe current region exceeds the total of Vertex Count / Region Count, then the Region count is incremented.<br>
+	* This process is continued till all the states are explored via DFS and placed in a region. The final decomposition is placed in the Layers.
+	**/	
 	static void DFSDecomposition(String initialState, MDP mdp, int region)
 	{
 		Set<String> next=new TreeSet<String>();
@@ -127,7 +176,14 @@ public class PlanarSeparator
 		}
 		//System.out.println(layers);
 	}
-
+	/** 
+	* @brief This method improves the basic DFS/BFS based decomposition of the given MDP
+	* 
+	* This method improves the decomposition by using an heuristic that a State should belong to the Region To and From which it has the maximum number of Transition.<br>
+	* The method goes through each State in the nested Map that contains Key=State and Value=Map of {Key = Region and Value = Count of Transition to and From that Region to that State}<br>
+	* Then the resultant Map is checked to return the Dominant Region of every State and if the State does not belong to that Region then its Region is changed to that Region.
+	* Finally the resultant decomposition is returned to the calling method.
+	**/	
 	public static Map<String, LinkedHashSet<String>> improveDecomposition(MDP mdp) 
 	{
 		Map<String,LinkedHashMap<String,Integer>> stateReachability=new LinkedHashMap<String,LinkedHashMap<String, Integer>>();
