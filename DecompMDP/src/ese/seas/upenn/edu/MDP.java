@@ -14,16 +14,36 @@ import com.jmatio.io.MatFileWriter;
 import com.jmatio.types.MLArray;
 import com.jmatio.types.MLDouble;
 
+/** 
+* @file MDP.java 
+* 
+* @brief This file contains the source code for the MDP bean and Util methods
+* 
+* @author Ankit Mishra
+*
+* @date May, 1 2015
+* 
+**/
+
+/** 
+* @class MDP 
+* 
+* @brief This class contains the source code for the MDP bean and Util methods
+* 
+**/
 public class MDP 
 {
 	private Map<String, State> states;
 	private Map<String, LinkedHashSet<String>> regions;
 	private Map<String, LinkedHashSet<String>> kernels;
 	private ArrayList<String> actions;
-	private Map<String, LinkedHashMap<String,LinkedHashMap<String, Float>>> XVector;
 	private SparseMatrixHolder A;
 	private final float gamma=(float)0.9;
 	private int regionCount;
+	/** 
+	* @brief This is a default constructor of the MDP class
+	* 
+	**/
 	public MDP() 
 	{
 		super();
@@ -31,9 +51,12 @@ public class MDP
 		regions=new LinkedHashMap<String,  LinkedHashSet<String>>();
 		kernels=new LinkedHashMap<String,  LinkedHashSet<String>>();
 		actions=new ArrayList<String>();
-		XVector=new LinkedHashMap<String, LinkedHashMap<String,LinkedHashMap<String,Float>>>();
 		regionCount=0;
 	}
+	/** 
+	* @brief This is a copy constructor of the MDP class that creates a new MDP object which is a deep copy of the first argument
+	* 
+	**/
 	public MDP(MDP mdp) 
 	{
 		super();
@@ -41,75 +64,136 @@ public class MDP
 		regions=mdp.regions;
 		kernels=mdp.kernels;
 		actions=mdp.actions;
-		XVector=mdp.XVector;
 		regionCount=mdp.regionCount;
 	}
+	/** 
+	* @brief This method is a getter for the number of regions in the decomposition
+	* 
+	**/
 	public int getRegionCount() {
 		return regionCount;
 	}
-
+	/** 
+	* @brief This method is a setter for the number of regions in the decomposition
+	* 
+	**/
 	public void setRegionCount(int regionCount) {
 		this.regionCount = regionCount;
 	}
-
+	/** 
+	* @brief This method is a getter for gamma variable
+	* 
+	**/
 	public float getGamma() {
 		return gamma;
 	}
-
+	/** 
+	* @brief This method is a getter for states in the MDP
+	* 
+	**/
 	public Map<String, State> getStates() 
 	{
 		return states;
 	}
+	/** 
+	* @brief This method is a setter for states in the MDP
+	* 
+	**/
 	public void setStates(Map<String, State> states) 
 	{
 		this.states = states;
 	}
-	
+	/** 
+	* @brief This method is a getter for the regions in the decomposition of the MDP
+	* 
+	**/
 	public Map<String,  LinkedHashSet<String>> getRegions() {
 		return regions;
 	}
-
+	/** 
+	* @brief This method is a setter for the regions in the decomposition of the MDP
+	* 
+	**/
 	public void setRegions(Map<String,  LinkedHashSet<String>> regions) {
 		this.regions = regions;
 	}
-
+	/** 
+	* @brief This method is a getter for the generated kernels in the decomposition of the MDP
+	* 
+	**/
 	public Map<String,  LinkedHashSet<String>> getKernels() {
 		return kernels;
 	}
-
+	/** 
+	* @brief This method is a setter for the generated kernels in the decomposition of the MDP
+	* 
+	**/
 	public void setKernels(Map<String,  LinkedHashSet<String>> kernels) {
 		this.kernels = kernels;
 	}
-
+	/** 
+	* @brief This method is a getter for the action set in the MDP
+	* 
+	**/
 	public ArrayList<String> getActions() {
 		return actions;
 	}
-
+	/** 
+	* @brief This method is a getter for the action set in the MDP
+	* 
+	**/
 	public void setActions(ArrayList<String> actions) {
 		this.actions = actions;
 	}
-	
-	public Map<String, LinkedHashMap<String, LinkedHashMap<String, Float>>> getXVector() {
-		return XVector;
-	}
-
-	public void setXVector(
-			Map<String, LinkedHashMap<String, LinkedHashMap<String, Float>>> xVector) {
-		XVector = xVector;
-	}
+	/** 
+	* @brief This method is a getter for the sparse matrix A used for the LP bsed solution of the MDP
+	* 
+	**/
 	public SparseMatrixHolder getA() {
 		return A;
 	}
+	/** 
+	* @brief This method is a setter for the sparse matrix A used for the LP bsed solution of the MDP
+	* 
+	**/
 	public void setA(SparseMatrixHolder a) {
 		A = a;
 	}
+	/** 
+	* @brief This method adds the argument State s in the Map of States of the MDP
+	* 
+	**/
 	
 	//Util code begins
 	public State addState(State s)
 	{
 		return states.put(s.getLabel(),s);
 	}
-	
+	/** 
+	* @brief This method is used to create an MDP object based a txt file
+	* 
+	* This method creates an MDP object by reading a txt file of the following format - <br>
+	* 1. States of the MDP<br>
+	* states {s0, s1}<br>
+	* 2. Transitions in the MDP<br>
+	* transitions<br>
+	*{s0, a, 1, s1}<br>
+	*{s1, b, 1, s0s}<br>
+	*end<br>
+	*Where each transition has the format - {fromState, action, probabilityOfTransition, ResultState}<br>
+	* 3. Decomposition count<br>
+	* Regions=2<br>
+	* <br>
+	* 
+	* Initially the txt file is parsed till the keyword <b>States</b> is encounterd. Then the Line is parsed to consctruct the states in the MDP.<br>
+	* Then the file is parsed till the keyword <b>Transitions</b> is detected. 
+	* Then onwards each new line is parsed to contruct a new transition and added to the Map of transitions of the state from which the transition begins.
+	* This continues till the keyword <b>end</b> is detected.<br>
+	* Then the file is parsed till the keyword <b>Regions</b> is detected. This is used to denote the number of regions wanted in the MDP decomposition.<br>
+	* Based on the above information, the MDP is the decomposed into regions via a DFS based interative algorithm.<br>
+	* Further, based on the decomposition the MDP kernels are generated.<br>
+	* At last the txt file is closed.<br>
+	*/ 
 	public void buildFromFile(String filename) throws Exception
 	{
 		BufferedReader in;
@@ -259,7 +343,6 @@ public class MDP
 				tempMDP.setRegions(newRegionsThree);
 			}
 			createKernels();				//create kernels based on the improved regions generated
-			System.out.println(kernels);
 			/*
 			 * Part of code to read regions from the text file
 			 * 
@@ -329,7 +412,14 @@ public class MDP
 		} 
 
 	}
-	
+	/** 
+	* @brief This method creates Kernels based on the Decomposition of the MDP
+	* Kernels are created such that each region is associated with its own kernel and all the states that are in a region, by default become a part of the corresponding kernel<br>
+	* But each state that has incoming transitions from any other region besides its own regions is removed from its original kernel and placed into a base kernel <b>K0</b>.<br>
+	* 
+	* 
+	* 
+	**/
 	void createKernels()
 	{
 		Set<String> k0=new LinkedHashSet<String>();
@@ -385,48 +475,52 @@ public class MDP
 		}
 
 	}
-	
-	//TODO check if this func is used
-	String createXia()
-	{
-		//TODO remove the display part
-		
-		String result="X = \n";
-		for(Map.Entry<String, LinkedHashSet<String>> kernel : kernels.entrySet() )
-		{
-			
-			XVector.put(kernel.getKey(),  new LinkedHashMap<String, LinkedHashMap<String, Float>>());
-			result+=kernel.getKey()+" = ";
-			for(Map.Entry<String, State> state : states.entrySet())
-			{
-				LinkedHashMap<String, Float> temp = new LinkedHashMap<String, Float>();
-				for(String actionLabel : actions)
-				{
-					if(kernel.getValue().contains(state.getKey()))
-					{
-						temp.put(actionLabel, returnXia(state.getValue().getLabel(), actionLabel));
-						result+="("+state.getValue().getLabel()+","+actionLabel+") = ";
-						result+=returnXia(state.getValue().getLabel(), actionLabel)+" ";
-					}
-					else
-					{
-						temp.put(actionLabel, (float)0);
-						result+="("+state.getValue().getLabel()+","+actionLabel+") = ";
-						result+="0.0 ";
-					}
-				}
-				XVector.get(kernel.getKey()).put(state.getKey(),temp);
-			}
-			result+="\n";
-		}
-		return result;
-	}
-	
-	float returnXia(String stateName, String actionlabel)
-	{
-		return states.get(stateName).getActionProbability(actionlabel);
-	}
-	
+//	
+//	String createXia()
+//	{
+//		
+//		String result="X = \n";
+//		for(Map.Entry<String, LinkedHashSet<String>> kernel : kernels.entrySet() )
+//		{
+//			
+//			XVector.put(kernel.getKey(),  new LinkedHashMap<String, LinkedHashMap<String, Float>>());
+//			result+=kernel.getKey()+" = ";
+//			for(Map.Entry<String, State> state : states.entrySet())
+//			{
+//				LinkedHashMap<String, Float> temp = new LinkedHashMap<String, Float>();
+//				for(String actionLabel : actions)
+//				{
+//					if(kernel.getValue().contains(state.getKey()))
+//					{
+//						temp.put(actionLabel, returnXia(state.getValue().getLabel(), actionLabel));
+//						result+="("+state.getValue().getLabel()+","+actionLabel+") = ";
+//						result+=returnXia(state.getValue().getLabel(), actionLabel)+" ";
+//					}
+//					else
+//					{
+//						temp.put(actionLabel, (float)0);
+//						result+="("+state.getValue().getLabel()+","+actionLabel+") = ";
+//						result+="0.0 ";
+//					}
+//				}
+//				XVector.get(kernel.getKey()).put(state.getKey(),temp);
+//			}
+//			result+="\n";
+//		}
+//		return result;
+//	}
+//	/** 
+//	* @brief This is a cpoy constructor of the MDP class
+//	* s
+//	**/
+//	float returnXia(String stateName, String actionlabel)
+//	{
+//		return states.get(stateName).getActionProbability(actionlabel);
+//	}
+	/** 
+	* @brief This is a cpoy constructor of the MDP class
+	* 
+	**/
 	void createLP()
 	{
 		//create f(i,a) = (prob of taking action a from state i) for each state
@@ -477,7 +571,10 @@ public class MDP
 		}		
 	}
 	
-	
+	/** 
+	* @brief This is a cpoy constructor of the MDP class
+	* 
+	**/
 	public void createLPQuick()
 	{
 
@@ -529,7 +626,10 @@ public class MDP
 		}		
 	
 	}
-	
+	/** 
+	* @brief This is a cpoy constructor of the MDP class
+	* 
+	**/
 	public int getStateActionPairCount(String kernel)
 	{
 		int result=0;
@@ -540,7 +640,10 @@ public class MDP
 		return result;
 	}
 	
-	
+	/** 
+	* @brief This is a cpoy constructor of the MDP class
+	* 
+	**/
 	public void createAMatrix()
 	{
 		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
@@ -580,7 +683,10 @@ public class MDP
 			System.out.println(e.toString());
 		}
 	}
-	
+	/** 
+	* @brief This is a cpoy constructor of the MDP class
+	* 
+	**/
 	public void createSparseAMatrix()
 	{
 		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
@@ -673,7 +779,10 @@ public class MDP
 		}
 	}
 	
-	
+	/** 
+	* @brief This is a cpoy constructor of the MDP class
+	* 
+	**/
 	@Override
 	public String toString()
 	{
