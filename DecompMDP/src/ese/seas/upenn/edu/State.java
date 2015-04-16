@@ -233,7 +233,7 @@ public class State
 	* @brief This is a default constructor of the MDP class
 	* 
 	**/
-	Set<String> getNextStates()
+	public Set<String> getNextStates()
 	{
 		Set<String> nextStates =new TreeSet<String>();
 		if(!transitions.isEmpty())

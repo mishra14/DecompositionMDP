@@ -1,0 +1,33 @@
+<jwrapper>
+<BuildOutputFolder>C:\Users\Ankit\Documents\GitHub\DecompositionMDP\JWrapperBuild</BuildOutputFolder>
+<BundleName>MDPDecompositionTool</BundleName>
+<SplashPNG>C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete\resources\jwlogo256.png</SplashPNG>
+<BundleLogoPNG>C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete\resources\jwlogo256.png</BundleLogoPNG>
+<InstallType>CurrentUser</InstallType>
+<App>
+  <Name>DecompMDP</Name>
+  <LogoPNG>C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete\resources\jwlogo256.png</LogoPNG>
+  <MainClass>Main.java</MainClass>
+</App>
+<SupportedLanguages>en</SupportedLanguages>
+<Windows32JRE>C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete</Windows32JRE>
+<Windows64JRE>C:\Program Files\Java\jre1.8.0_31</Windows64JRE>
+<Linux32JRE>C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete</Linux32JRE>
+<Linux64JRE>C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete</Linux64JRE>
+<Mac64JRE>C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete</Mac64JRE>
+<WindowsElevation>None</WindowsElevation>
+<WindowsElevationUiAccess>true</WindowsElevationUiAccess>
+<File classpath='yes'>C:\Users\Ankit\Documents\GitHub\DecompositionMDP\DecompMDP\.classpath</File>
+<File>C:\Users\Ankit\Documents\GitHub\DecompositionMDP\DecompMDP\src\ese\seas\upenn\edu\Main.java</File>
+<File>C:\Users\Ankit\Documents\GitHub\DecompositionMDP\DecompMDP\src\ese\seas\upenn\edu\MDP.java</File>
+<File>C:\Users\Ankit\Documents\GitHub\DecompositionMDP\DecompMDP\src\ese\seas\upenn\edu\PlanarSeparator.java</File>
+<File>C:\Users\Ankit\Documents\GitHub\DecompositionMDP\DecompMDP\src\ese\seas\upenn\edu\SparseMatrixHolder.java</File>
+<File>C:\Users\Ankit\Documents\GitHub\DecompositionMDP\DecompMDP\src\ese\seas\upenn\edu\State.java</File>
+<File>C:\Users\Ankit\Documents\GitHub\DecompositionMDP\DecompMDP\src\ese\seas\upenn\edu\Transition.java</File>
+<JvmOptions>
+<JvmOption>-Xmx256m</JvmOption>
+</JvmOptions>
+<!-- IMPORTANT place custom content BELOW this comment for compatibility with JW App -->
+
+
+</jwrapper>

@@ -76,7 +76,7 @@ public class PlanarSeparator
 	* @brief This method is used to reset the static variables of the PlanarSeparator class
 	* 
 	**/
-	static void init()
+	public static void init()
 	{
 		seenStates=new HashSet<String>();
 		layers=new LinkedHashMap<String, LinkedHashSet<String>>();	
@@ -87,7 +87,7 @@ public class PlanarSeparator
 	* 
 	* Note - This method is currently unused.
 	**/
-	static void BFSLayerGeneration(String initialState, MDP mdp)
+	public static void BFSLayerGeneration(String initialState, MDP mdp)
 	{
 		init();
 		int vertexCount=mdp.getStates().size();
@@ -136,7 +136,7 @@ public class PlanarSeparator
 	* When the State count inthe current region exceeds the total of Vertex Count / Region Count, then the Region count is incremented.<br>
 	* This process is continued till all the states are explored via DFS and placed in a region. The final decomposition is placed in the Layers.
 	**/	
-	static void DFSDecomposition(String initialState, MDP mdp, int region)
+	public static void DFSDecomposition(String initialState, MDP mdp, int region)
 	{
 		Set<String> next=new TreeSet<String>();
 		if(!mdp.getStates().containsKey(initialState))

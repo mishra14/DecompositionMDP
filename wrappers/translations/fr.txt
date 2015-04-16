@@ -1,0 +1,2 @@
+#Français
+#NOTE: all translation files are UTF-8 and require a UTF-8 editor

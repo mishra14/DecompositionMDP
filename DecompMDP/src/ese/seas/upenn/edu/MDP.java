@@ -420,7 +420,7 @@ public class MDP
 	* 
 	* 
 	**/
-	void createKernels()
+	public void createKernels()
 	{
 		Set<String> k0=new LinkedHashSet<String>();
 		kernels.put("k0",(LinkedHashSet<String>) k0);
@@ -524,7 +524,7 @@ public class MDP
 	* where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.
 	* 
 	**/
-	void createLP()
+	public void createLP()
 	{
 		//create f(i,a) = (prob of taking action a from state i) for each state
 		//done under State-action count

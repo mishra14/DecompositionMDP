@@ -1,5 +1,7 @@
 package ese.seas.upenn.edu;
 
+import java.util.Scanner;
+
 /** 
 * @mainpage  Toolbox for Optimal Control in Markov Decision Processes via Distributed Optimization 
 * 
@@ -47,9 +49,16 @@ public class Main
 	public static void main(String[] args) 
 	{
 		MDP testMDP=new MDP();  
+		String filename=new String("testMDP.txt");
 		try 
 		{
-			testMDP.buildFromFile("testMDP.txt");
+			//read the filename from the console
+			System.out.println("Please enter the MDP source file name : ");
+			Scanner scanIn = new Scanner(System.in);
+			//filename = scanIn.nextLine();
+		    scanIn.close();            
+
+		    testMDP.buildFromFile(filename);
 			System.out.println(testMDP);
 			
 			long start=System.nanoTime();
