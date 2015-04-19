@@ -1,0 +1,55 @@
+JWrapperCompiler started
+[Config] Building file is jwrapper.xml
+[Updates] Checking for updates...
+[Updates] Update check: 35090611 vs 33253833 (online)
+[App 1 of 2] App (user:true) "DecompMDP" = Main.java [any further args]
+[App 2 of 2] App (user:false) "JWrapper Service Management App" = jwrapper.jwutils.service.ManageService [any further args]
+[Config] Build Folder: C:\Users\Ankit\Documents\GitHub\DecompositionMDP\JWrapperBuild
+[Config] UpdateURL: (no update URL specified)
+[Config] MainClass on update: (none specified)
+[Config] MainClass to verify JRE compatibility: (none specified)
+[Config] MainClass to run post-install: (none specified)
+[Config] MainClass to run pre-uninstall: (none specified)
+[Config] Minimum splash image time: 850ms
+[Config] Splash PNG: C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete\resources\jwlogo256.png
+[Config] Can Override Splash: false
+[Config] Bundle Logo PNG: C:\Users\Ankit\AppData\Roaming\JWrapper-JWrapperApp\JWrapper-JWrapperApp-00035090658-complete\resources\jwlogo256.png
+[Config] JVM Option: -Xmx256m
+[Config] Must Fork: false
+[Config] OSX TGZ Compression level: 0
+[Config] OSX 'App Nap' Allowed: false
+[Config] Will produce an UNSIGNED app for MacOS (note OS GateKeeper will block this on Mountain Lion (10.8) and later)
+[Config] Will produce an UNSIGNED app for Windows (note elevated apps will have a more severe warning and Antivirus programs may complain)
+[Config] *** WARNING, elevation for Windows specifies that app needs uiAccess but Windows requires the app to be signed for uiAccess
+[Config] Strip exception - keeping file /sunjce_provider.jar
+[Config] Strip exception - keeping file /jce.jar
+[Config] Pack200 exception - not packing file /sunjce_provider.jar
+[Config] Pack200 exception - not packing file /jce.jar
+[Config] Pack200 Effort is 9/9
+[Config] Will strip JRE
+[JRE] About to archive all JREs, **IMPORTANT** this can take a long time the first time, future builds will be much faster...
+[JRE] Archiving JRE Windows32JRE
+**********************************
+*          BUILD FAILED          *
+**********************************
+** Error Trace:
+
+java.lang.Exception: unpack200.exe not found in Windows JRE bin path
+	at jwrapper.JWrapperCompiler.main(JWrapperCompiler.java:1607)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at SecureRunner2.<init>(SecureRunner2.java:452)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at SecureRunner1.<init>(SecureRunner1.java:422)
+	at SecureRunner1.<init>(SecureRunner1.java:227)
+	at SecureRunner1.main(SecureRunner1.java:52)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at jwrapper.launch.JWCompiler.main(JWCompiler.java:112)
