@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class SparseMatrixHolder 
 {
-	private Map<String, LinkedHashMap<String, Float>> matrixHolder;
+	private Map<String, LinkedHashMap<String, Float>> matrixHolder ;
 	/** 
 	* @brief This is the default constructor of SparseMatrixHolder class 
 	* 

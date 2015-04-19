@@ -331,7 +331,7 @@ public class MDP
 				{
 					regions=newRegionsThree;
 					break;
-				}
+				} 
 				else if(newRegionsThree.equals(newRegionsOne))
 				{
 					//assign the region which gives smaller k0

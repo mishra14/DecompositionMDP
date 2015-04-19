@@ -18,7 +18,7 @@ package mdp.core;
 * @brief This class contains the source code for the Transition bean and Util methods
 * 
 **/
-
+ 
 
 public class Transition 
 {

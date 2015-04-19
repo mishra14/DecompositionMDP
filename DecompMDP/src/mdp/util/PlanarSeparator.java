@@ -31,7 +31,7 @@ import mdp.core.Transition;
 
 public class PlanarSeparator 
 {
-	private static HashSet<String> seenStates;
+	private static HashSet<String> seenStates ;
 	private static LinkedHashMap<String, LinkedHashSet<String>> layers;
 	private static int layerCount;
 	/** 

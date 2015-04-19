@@ -27,8 +27,13 @@ import mdp.core.MDP;
 *{s1, b, 1, s0s}<br>
 *end<br>
 *Where each transition has the format - {fromState, action, probabilityOfTransition, ResultState}<br>
-* 3. Decomposition count<br>
+* 3. Decomposition count or decomposition<br>
 * Regions=2<br>
+* or<br>
+* Regions<br>
+* r1={s0}<br>
+* r2={s1}<br>
+* end<br>
 * <br>
 * Then the MDP is first converted into an LP problem by constructing the A, B and C matrices, 
 * then generating a .Mat file that hols the sparse matric representation of the three matrices in a Matlab Sparse matrix format. 
