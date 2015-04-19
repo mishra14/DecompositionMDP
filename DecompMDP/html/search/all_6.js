@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['improvedecomposition',['improveDecomposition',['../classese_1_1seas_1_1upenn_1_1edu_1_1_planar_separator.html#a5ef2580d55968a79d965bcef4d535e03',1,'ese::seas::upenn::edu::PlanarSeparator']]],
-  ['isinital',['isInital',['../classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#aabc06e5afd914e3292820fd9fab31ceb',1,'ese.seas.upenn.edu.State.isInital()'],['../classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a79165c8a0e7d44b24de8d7bfcf9946a7',1,'ese.seas.upenn.edu.State.isInital()']]]
+  ['hashcode',['hashCode',['../classmdp_1_1core_1_1_state.html#aad74bf43336ba40cc3555f15387219d4',1,'mdp.core.State.hashCode()'],['../classmdp_1_1core_1_1_transition.html#a95eb3f4db22b6269d24a423929b4b45b',1,'mdp.core.Transition.hashCode()']]]
 ];

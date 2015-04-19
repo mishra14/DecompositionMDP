@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['equals',['equals',['../classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a06e902ef5ac632718ef1742752dcc926',1,'ese.seas.upenn.edu.State.equals()'],['../classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a704a4dd99037e7a33b79d1d785210d67',1,'ese.seas.upenn.edu.Transition.equals()']]]
+  ['dfsdecomposition',['DFSDecomposition',['../classmdp_1_1util_1_1_planar_separator.html#aed22231e85648a3dc2bd94b6523e985a',1,'mdp::util::PlanarSeparator']]]
 ];

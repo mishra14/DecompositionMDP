@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tostatelabel',['toStateLabel',['../classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a90ad793f29c7da83bccc4de524b9a28d',1,'ese::seas::upenn::edu::Transition']]],
-  ['transitions',['transitions',['../classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#aeac8f20207dd613d1b9f3524315d7ff3',1,'ese::seas::upenn::edu::State']]]
+  ['tostatelabel',['toStateLabel',['../classmdp_1_1core_1_1_transition.html#ac820d803424e51b25a3a6c895b94a33a',1,'mdp::core::Transition']]],
+  ['transitions',['transitions',['../classmdp_1_1core_1_1_state.html#a3c9b563199f7e235fe083b0d16da8cf3',1,'mdp::core::State']]]
 ];

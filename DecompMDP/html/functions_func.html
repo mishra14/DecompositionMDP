@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>OptimalControlinMDP: Class Members - Functions</title>
+<title>MDPDecomposition: Class Members - Functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,8 +31,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">OptimalControlinMDP
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">MDPDecomposition
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -39,7 +47,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -80,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
@@ -90,6 +98,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_func.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -109,218 +131,243 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
 <li>addState()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a483e8c4fa59984e5b653686bc4a343c4">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a0956e730497b8c93b09675990a75f283">mdp.core.MDP</a>
 </li>
 <li>addTransition()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a01295ee4b9e3b27146805b44349c482b">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#acc75ae62e5e0fe543bf49b616f88359c">mdp.core.State</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>BFSLayerGeneration()
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#aa254f547af1e7d496f52956e647c96a1">mdp.util.PlanarSeparator</a>
+</li>
 <li>buildFromFile()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#ae5da8ca2a3ae73ffc832cb4626ed2ace">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a0565cd0a84c836dd11ba0d13e1eb5ffb">mdp.core.MDP</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>createAMatrix()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#aa2388cc570c1221db8965bd67ebce964">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#aab4fc6ad8c299f88d6619cfd059b3931">mdp.core.MDP</a>
+</li>
+<li>createKernels()
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#aa3d7c9f10aff03c993322d3ff7129dfb">mdp.core.MDP</a>
+</li>
+<li>createLP()
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ab2c6f9846cf9362a472f66e1c7fe4117">mdp.core.MDP</a>
 </li>
 <li>createLPQuick()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a23631cbc791e50769e7c5dff9e61fe0c">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#aa964b87d7f54679adc323141cd99bebc">mdp.core.MDP</a>
 </li>
 <li>createSparseAMatrix()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a51c6b56c16b57e8beb6e78f38909ab11">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ab378c6028d8b83259ee5f630736d183e">mdp.core.MDP</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>DFSDecomposition()
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#aed22231e85648a3dc2bd94b6523e985a">mdp.util.PlanarSeparator</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
 <li>equals()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a06e902ef5ac632718ef1742752dcc926">ese.seas.upenn.edu.State</a>
-, <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a704a4dd99037e7a33b79d1d785210d67">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#adfe8841b55dcba54efd73e50f47b3cfc">mdp.core.State</a>
+, <a class="el" href="classmdp_1_1core_1_1_transition.html#a2786cc2a671657f9c1b51c4f01e6be6e">mdp.core.Transition</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
 <li>getA()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#abcf776de607259732ac95c18ab83610f">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a7a940b009dbcc9f3e19794b7b315f47f">mdp.core.MDP</a>
 </li>
 <li>getAction()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a1cbeb959023673cae243d638c0434844">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_transition.html#aa326dda42cf7a74864153108cebf410e">mdp.core.Transition</a>
 </li>
 <li>getActionCounts()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a5cab4a963a7af4b95809de7fa106d02c">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a14947bea4d426d7b8665be0f07ed20c0">mdp.core.State</a>
 </li>
 <li>getActions()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a31ed86f0220c9f7be5ea0d94f6bed158">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a0e455b23780dd74403e1a610c2262652">mdp.core.MDP</a>
 </li>
 <li>getGamma()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#ad3bebff77c92d587d4cf2e54c606a6a2">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#af18af128ccbdc7b958e438660abe967c">mdp.core.MDP</a>
 </li>
 <li>getKernelLabel()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a91db5f49031a058a349fbec466a4af29">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a4711a7ffeeede0edcf72550c1eee52e2">mdp.core.State</a>
 </li>
 <li>getKernels()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a1d6bad6b1b89f769ba4b70e6785b552b">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a71454b47175a82f6ebbf7f5d644bba93">mdp.core.MDP</a>
 </li>
 <li>getLabel()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a9f0ff2c851cc79f1f785939b4559de99">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#af3bb33b1a7d6de482338e2b584a72c61">mdp.core.State</a>
 </li>
 <li>getLayerCount()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_planar_separator.html#a246f23da4501f0ad1219dfdc4e1233cd">ese.seas.upenn.edu.PlanarSeparator</a>
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#acec7d2aef5d6f3871e3881b46d09ef50">mdp.util.PlanarSeparator</a>
 </li>
 <li>getLayers()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_planar_separator.html#a431b40bb673f68e12c58b018e80a07ef">ese.seas.upenn.edu.PlanarSeparator</a>
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#a487dad33c51e930d2dcdcc6498f55b23">mdp.util.PlanarSeparator</a>
 </li>
 <li>getMatrixHolder()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_sparse_matrix_holder.html#af4939e0fb08c94f4449078f520bdede6">ese.seas.upenn.edu.SparseMatrixHolder</a>
+: <a class="el" href="classmdp_1_1util_1_1_sparse_matrix_holder.html#a8ac92ce5890ca5a09f44e336a22dd8e8">mdp.util.SparseMatrixHolder</a>
+</li>
+<li>getNextStates()
+: <a class="el" href="classmdp_1_1core_1_1_state.html#afa42873a5a6554333a18a052ec52f59e">mdp.core.State</a>
 </li>
 <li>getProbability()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a76913b9db35b0d64278d511489ce2361">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_transition.html#a95efd6064033a3846334bc951e695613">mdp.core.Transition</a>
 </li>
 <li>getRegionCount()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#ae39dcfbf933f2e5f390851e1a81c06af">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a657abf1dbe9942a7fe521048884d1a6b">mdp.core.MDP</a>
 </li>
 <li>getRegionLabel()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a54e81964af8ace7a52f049cb18b739a9">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a36812356307dc97bf793b2974a650583">mdp.core.State</a>
 </li>
 <li>getRegions()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a6b9a6199604bc5d63083d0b35b5c1bd5">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a59a4fec8be7362cdbb9cdfaf52a4d185">mdp.core.MDP</a>
 </li>
 <li>getSeenStates()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_planar_separator.html#a54e7709f8e3ce93f4ab73711ed5d6c44">ese.seas.upenn.edu.PlanarSeparator</a>
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#ac3598afe245825249dbd664802be6227">mdp.util.PlanarSeparator</a>
 </li>
 <li>getStateActionPairCount()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a701c0f156143fddf41c41d94b6df7bb5">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a597956fa2391fdd8ff1a3266d5e48688">mdp.core.MDP</a>
 </li>
 <li>getStates()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a368f9fd64246a2a066f98ae229ccc9ab">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a937094aab736609618fed718de7f6b89">mdp.core.MDP</a>
 </li>
 <li>getToState()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a8adc065ffa3b2d59144f3e1bc5334159">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_transition.html#ae7ef4a2d92e592e09f1987a90c84be1b">mdp.core.Transition</a>
 </li>
 <li>getTransitions()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#ada81ad54ed6e47f678fc64542453ad8d">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#ac681391ac0108f110904ed170911b3e1">mdp.core.State</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
 <li>hashCode()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#acf160eec0ee396407b972335c26196e3">ese.seas.upenn.edu.State</a>
-, <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a6ef52b94cb2f06593fff3144d9db61fb">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#aad74bf43336ba40cc3555f15387219d4">mdp.core.State</a>
+, <a class="el" href="classmdp_1_1core_1_1_transition.html#a95eb3f4db22b6269d24a423929b4b45b">mdp.core.Transition</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>improveDecomposition()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_planar_separator.html#a5ef2580d55968a79d965bcef4d535e03">ese.seas.upenn.edu.PlanarSeparator</a>
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#aeec687e272bec2cc865718530f585932">mdp.util.PlanarSeparator</a>
+</li>
+<li>init()
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#afe6c25d556ab1c467124ab3cd63da447">mdp.util.PlanarSeparator</a>
 </li>
 <li>isInital()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a79165c8a0e7d44b24de8d7bfcf9946a7">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a73d705b956da58cfedc4d9adf406a000">mdp.core.State</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>main()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_main.html#a88eabca25558235b5b46c105c11ca794">ese.seas.upenn.edu.Main</a>
+: <a class="el" href="classmdp_1_1main_1_1_main.html#a4330967cc550abcbd3885d4579f07f60">mdp.main.Main</a>
 </li>
 <li>MDP()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#af840f71801e34c9236b26a05e3633eb6">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#af11087e0e7e721fc8bc3d72ea8975827">mdp.core.MDP</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>setA()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a1d46e0b774323aa26cebd2b3c2f947dc">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a6c13511cfe8a2ead9e3b7dfecce5be78">mdp.core.MDP</a>
 </li>
 <li>setAction()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#aaa5a6e03b91e1a64bc5060e64ef49e5d">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_transition.html#a1113b616a2d05a3d7c79764a55c385b9">mdp.core.Transition</a>
 </li>
 <li>setActionCounts()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a6619cae7d9f2e5ce815f88d819d3eb84">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#aab391f1b09decdee9e3b74a51ad31520">mdp.core.State</a>
 </li>
 <li>setActions()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a52101821393d66680dcd69c7f7ef01a8">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a43bd240ed95657570b53b11bed0fa4a5">mdp.core.MDP</a>
 </li>
 <li>setInital()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a1d21608fbd6ac74fdc3c052b205d5a24">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a5bee145159ba3ab3bf501682a7d98d01">mdp.core.State</a>
 </li>
 <li>setKernelLabel()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a7e3024a79defcd36529d048f3862a9c7">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#ab89e4fdb360297c41b3f5ca27a1978fc">mdp.core.State</a>
 </li>
 <li>setKernels()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a9c2e3123d4e47d60f769cec148c91f57">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ad087ba3ecc5aac90d25b9022882ebdeb">mdp.core.MDP</a>
 </li>
 <li>setLabel()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a3f30d5f8386dbbb0e476d8340b473e12">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a0757d224557cb46cd981fd527545b2a9">mdp.core.State</a>
 </li>
 <li>setLayerCount()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_planar_separator.html#a3916f7362296694f146a4337591fc7df">ese.seas.upenn.edu.PlanarSeparator</a>
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#a0597008ab11cf56d41d4da13dc98566c">mdp.util.PlanarSeparator</a>
 </li>
 <li>setLayers()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_planar_separator.html#a4cfee899eb14ed85e85ac4005613f343">ese.seas.upenn.edu.PlanarSeparator</a>
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#aa025c1c44d3d9d3828ace982c6ed1092">mdp.util.PlanarSeparator</a>
 </li>
 <li>setMatrixHolder()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_sparse_matrix_holder.html#a20d7d37cfc84fb9468a1581a4f1168e0">ese.seas.upenn.edu.SparseMatrixHolder</a>
+: <a class="el" href="classmdp_1_1util_1_1_sparse_matrix_holder.html#aaabfe2c2e01ca5d1af831c409ff6db45">mdp.util.SparseMatrixHolder</a>
 </li>
 <li>setProbability()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#aad1a0ce12182468aceac85ea0262e0ba">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_transition.html#ab383baacd6f44a78b2e2ec2250557334">mdp.core.Transition</a>
 </li>
 <li>setRegionCount()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a37af1210f805afd89c3a047f2d0d88c9">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a83eac33ca62d6627b6a87a503428fd61">mdp.core.MDP</a>
 </li>
 <li>setRegionLabel()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#aeaa23bcd638d8771032963a71e1100ee">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#ad74414cd3ad16e4d10638d57856253a5">mdp.core.State</a>
 </li>
 <li>setRegions()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a38e59bfc73d139a836ec0f290d2972ac">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ae1e690f17a3fd4af8cbf50c8d258f8c5">mdp.core.MDP</a>
 </li>
 <li>setSeenStates()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_planar_separator.html#af92505f765082aa8bb7cbd2e77d5ef29">ese.seas.upenn.edu.PlanarSeparator</a>
+: <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#aabe861ae900f6aa09a2f0acbe14b1eae">mdp.util.PlanarSeparator</a>
 </li>
 <li>setStates()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#ab3157a2894a6adecd450820fe863048b">ese.seas.upenn.edu.MDP</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ad6e89cf2ed34e858dcbec4324c11884e">mdp.core.MDP</a>
 </li>
 <li>setToState()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a709ce1be87d6954becff885bfea20dea">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_transition.html#a33f909b166d36a9b648df8ee1f3c8abd">mdp.core.Transition</a>
 </li>
 <li>setTransitions()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a408bdbf6b39b1bba4be3e546a0673d98">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#af9bbbf26a131aa1f43d7fdf7003b5de1">mdp.core.State</a>
 </li>
 <li>SparseMatrixHolder()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_sparse_matrix_holder.html#a53e71fa302066a4bd438da07367a6f41">ese.seas.upenn.edu.SparseMatrixHolder</a>
+: <a class="el" href="classmdp_1_1util_1_1_sparse_matrix_holder.html#a684bbebe963a3cfcb5cb6b32907c3260">mdp.util.SparseMatrixHolder</a>
 </li>
 <li>State()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a46c6ce319257a9522f8427cc51b4beca">ese.seas.upenn.edu.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#ab15662127acf94e1bd1b6890310568e7">mdp.core.State</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
 <li>toString()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a737a653ca7246055a11983d4e2bbc915">ese.seas.upenn.edu.MDP</a>
-, <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_sparse_matrix_holder.html#aa236d3257451a1d086fb069abc0a1e32">ese.seas.upenn.edu.SparseMatrixHolder</a>
-, <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#a1724aba4281e960ec3be7d2d6848e5c0">ese.seas.upenn.edu.State</a>
-, <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#ae9e57256dc34d80b35316193f3d4807a">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#aeeeba49692fd6972b6833f511e07621b">mdp.core.MDP</a>
+, <a class="el" href="classmdp_1_1core_1_1_state.html#a4118e0f9a6d4b0b3cc32a3f0250f7bc9">mdp.core.State</a>
+, <a class="el" href="classmdp_1_1core_1_1_transition.html#a57da45810cd71407a3b388659e25fa67">mdp.core.Transition</a>
+, <a class="el" href="classmdp_1_1util_1_1_sparse_matrix_holder.html#a6f116c63e74de1050e05edf04a97b31f">mdp.util.SparseMatrixHolder</a>
 </li>
 <li>Transition()
-: <a class="el" href="classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#ae400900946cce4a3eed16807cc4c4aac">ese.seas.upenn.edu.Transition</a>
+: <a class="el" href="classmdp_1_1core_1_1_transition.html#a8ea1491b234d802511facf17a529cbae">mdp.core.Transition</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2015 19:30:33 for OptimalControlinMDP by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Sun Apr 19 2015 16:34:46 for MDPDecomposition by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

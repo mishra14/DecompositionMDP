@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>OptimalControlinMDP: src/ese/seas/upenn/edu/Main.java Source File</title>
+<title>MDPDecomposition: src/mdp/main/Main.java Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,8 +31,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">OptimalControlinMDP
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">MDPDecomposition
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -39,7 +47,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -66,6 +73,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="files.html"><span>File&#160;List</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_main_8java_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,67 +102,73 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_5f706c6dc4c7cc4b7ff79058c9a5007a.html">src</a></li><li class="navelem"><a class="el" href="dir_f90a03b2a88c64082d0002de29453574.html">ese</a></li><li class="navelem"><a class="el" href="dir_1116c9cfeb779b9498c556be2316d405.html">seas</a></li><li class="navelem"><a class="el" href="dir_bc7b90517da0c41c2ec12b427f7acd58.html">upenn</a></li><li class="navelem"><a class="el" href="dir_8f9295eef6f9cca4b9963fa475b47212.html">edu</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Main.java</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_main_8java.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceese_1_1seas_1_1upenn_1_1edu.html">    1</a></span>&#160;<span class="keyword">package </span>ese.seas.upenn.edu;</div>
+<a href="_main_8java.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacemdp_1_1main.html">    1</a></span>&#160;<span class="keyword">package </span>mdp.main;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.util.Scanner;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classese_1_1seas_1_1upenn_1_1edu_1_1_main.html">   41</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classese_1_1seas_1_1upenn_1_1edu_1_1_main.html">Main</a> </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classese_1_1seas_1_1upenn_1_1edu_1_1_main.html#a88eabca25558235b5b46c105c11ca794">   49</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classese_1_1seas_1_1upenn_1_1edu_1_1_main.html#a88eabca25558235b5b46c105c11ca794">main</a>(String[] args) </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html">MDP</a> testMDP=<span class="keyword">new</span> <a class="code" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html">MDP</a>();  </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        String filename=<span class="keyword">new</span> String();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">try</span> </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="comment">//read the filename from the console</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            Scanner scanIn = <span class="keyword">new</span> Scanner(System.in);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            filename = scanIn.nextLine();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            scanIn.close();            </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            testMDP.<a class="code" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#ae5da8ca2a3ae73ffc832cb4626ed2ace">buildFromFile</a>(filename);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            System.out.println(testMDP);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordtype">long</span> start=System.nanoTime();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            testMDP.createLP();             <span class="comment">//creating Sparse A Matrix</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            System.out.println(<span class="stringliteral">&quot;\nA matrix : (index format - toThenFrom) \n&quot;</span>+testMDP.<a class="code" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#abcf776de607259732ac95c18ab83610f">getA</a>()); </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            testMDP.<a class="code" href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a51c6b56c16b57e8beb6e78f38909ab11">createSparseAMatrix</a>();      <span class="comment">//Convert A Matrix into Sparse Mat File</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordtype">long</span> end=System.nanoTime();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            System.out.println(<span class="stringliteral">&quot;Time taken for LP creation : &quot;</span>+(<span class="keywordtype">float</span>)((end-start)/(1000))+<span class="stringliteral">&quot; uSec&quot;</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">catch</span> (Exception e) </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            e.printStackTrace();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="ttc" id="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p_html"><div class="ttname"><a href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html">ese.seas.upenn.edu.MDP</a></div><div class="ttdoc">This class contains the source code for the MDP bean and Util methods. </div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00034">MDP.java:34</a></div></div>
-<div class="ttc" id="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p_html_a51c6b56c16b57e8beb6e78f38909ab11"><div class="ttname"><a href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a51c6b56c16b57e8beb6e78f38909ab11">ese.seas.upenn.edu.MDP.createSparseAMatrix</a></div><div class="ttdeci">void createSparseAMatrix()</div><div class="ttdoc">This method converts the SparseMatrixHolder A into a .Mat file with sparse matrix representation used...</div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00697">MDP.java:697</a></div></div>
-<div class="ttc" id="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p_html_ae5da8ca2a3ae73ffc832cb4626ed2ace"><div class="ttname"><a href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#ae5da8ca2a3ae73ffc832cb4626ed2ace">ese.seas.upenn.edu.MDP.buildFromFile</a></div><div class="ttdeci">void buildFromFile(String filename)</div><div class="ttdoc">This method is used to create an MDP object based a txt file. </div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00197">MDP.java:197</a></div></div>
-<div class="ttc" id="classese_1_1seas_1_1upenn_1_1edu_1_1_main_html_a88eabca25558235b5b46c105c11ca794"><div class="ttname"><a href="classese_1_1seas_1_1upenn_1_1edu_1_1_main.html#a88eabca25558235b5b46c105c11ca794">ese.seas.upenn.edu.Main.main</a></div><div class="ttdeci">static void main(String[] args)</div><div class="ttdoc">This method is used to create an MDP object from a text file and create a decomposition within that o...</div><div class="ttdef"><b>Definition:</b> <a href="_main_8java_source.html#l00049">Main.java:49</a></div></div>
-<div class="ttc" id="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p_html_abcf776de607259732ac95c18ab83610f"><div class="ttname"><a href="classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#abcf776de607259732ac95c18ab83610f">ese.seas.upenn.edu.MDP.getA</a></div><div class="ttdeci">SparseMatrixHolder getA()</div><div class="ttdoc">This method is a getter for the sparse matrix A used for the LP bsed solution of the MDP...</div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00152">MDP.java:152</a></div></div>
-<div class="ttc" id="classese_1_1seas_1_1upenn_1_1edu_1_1_main_html"><div class="ttname"><a href="classese_1_1seas_1_1upenn_1_1edu_1_1_main.html">ese.seas.upenn.edu.Main</a></div><div class="ttdoc">This class is used to create an MDP object from a text file and create a decomposition within that ob...</div><div class="ttdef"><b>Definition:</b> <a href="_main_8java_source.html#l00041">Main.java:41</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> <a class="code" href="namespacemdp.html">mdp</a>.<a class="code" href="namespacemdp_1_1core.html">core</a>.<a class="code" href="classmdp_1_1core_1_1_m_d_p.html">MDP</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classmdp_1_1main_1_1_main.html">   49</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classmdp_1_1main_1_1_main.html">Main</a> </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classmdp_1_1main_1_1_main.html#a4330967cc550abcbd3885d4579f07f60">   57</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classmdp_1_1main_1_1_main.html#a4330967cc550abcbd3885d4579f07f60">main</a>(String[] args) </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="classmdp_1_1core_1_1_m_d_p.html">MDP</a> testMDP=<span class="keyword">new</span> <a class="code" href="classmdp_1_1core_1_1_m_d_p.html">MDP</a>();  </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        String filename=<span class="keyword">new</span> String(<span class="stringliteral">&quot;testMDP.txt&quot;</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">try</span> </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="comment">//read the filename from the console</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            System.out.println(<span class="stringliteral">&quot;Please enter the MDP source file name : &quot;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            Scanner scanIn = <span class="keyword">new</span> Scanner(System.in);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="comment">//filename = scanIn.nextLine();</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            scanIn.close();            </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            testMDP.<a class="code" href="classmdp_1_1core_1_1_m_d_p.html#a0565cd0a84c836dd11ba0d13e1eb5ffb">buildFromFile</a>(filename);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            System.out.println(testMDP);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordtype">long</span> start=System.nanoTime();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            testMDP.<a class="code" href="classmdp_1_1core_1_1_m_d_p.html#ab2c6f9846cf9362a472f66e1c7fe4117">createLP</a>();             <span class="comment">//creating Sparse A Matrix</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            System.out.println(<span class="stringliteral">&quot;\nA matrix : (index format - toThenFrom) \n&quot;</span>+testMDP.<a class="code" href="classmdp_1_1core_1_1_m_d_p.html#a7a940b009dbcc9f3e19794b7b315f47f">getA</a>()); </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            testMDP.<a class="code" href="classmdp_1_1core_1_1_m_d_p.html#ab378c6028d8b83259ee5f630736d183e">createSparseAMatrix</a>();      <span class="comment">//Convert A Matrix into Sparse Mat File</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">long</span> end=System.nanoTime();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            System.out.println(<span class="stringliteral">&quot;Time taken for LP creation : &quot;</span>+(<span class="keywordtype">float</span>)((end-start)/(1000))+<span class="stringliteral">&quot; uSec&quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">catch</span> (Exception e) </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            e.printStackTrace();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="ttc" id="classmdp_1_1core_1_1_m_d_p_html"><div class="ttname"><a href="classmdp_1_1core_1_1_m_d_p.html">mdp.core.MDP</a></div><div class="ttdoc">This class contains the source code for the MDP bean and Util methods. </div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00039">MDP.java:39</a></div></div>
+<div class="ttc" id="classmdp_1_1main_1_1_main_html"><div class="ttname"><a href="classmdp_1_1main_1_1_main.html">mdp.main.Main</a></div><div class="ttdoc">This class is used to create an MDP object from a text file and create a decomposition within that ob...</div><div class="ttdef"><b>Definition:</b> <a href="_main_8java_source.html#l00049">Main.java:49</a></div></div>
+<div class="ttc" id="namespacemdp_html"><div class="ttname"><a href="namespacemdp.html">mdp</a></div></div>
+<div class="ttc" id="classmdp_1_1core_1_1_m_d_p_html_a0565cd0a84c836dd11ba0d13e1eb5ffb"><div class="ttname"><a href="classmdp_1_1core_1_1_m_d_p.html#a0565cd0a84c836dd11ba0d13e1eb5ffb">mdp.core.MDP.buildFromFile</a></div><div class="ttdeci">void buildFromFile(String filename)</div><div class="ttdoc">This method is used to create an MDP object based a txt file. </div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00202">MDP.java:202</a></div></div>
+<div class="ttc" id="classmdp_1_1main_1_1_main_html_a4330967cc550abcbd3885d4579f07f60"><div class="ttname"><a href="classmdp_1_1main_1_1_main.html#a4330967cc550abcbd3885d4579f07f60">mdp.main.Main.main</a></div><div class="ttdeci">static void main(String[] args)</div><div class="ttdoc">This method is used to create an MDP object from a text file and create a decomposition within that o...</div><div class="ttdef"><b>Definition:</b> <a href="_main_8java_source.html#l00057">Main.java:57</a></div></div>
+<div class="ttc" id="classmdp_1_1core_1_1_m_d_p_html_a7a940b009dbcc9f3e19794b7b315f47f"><div class="ttname"><a href="classmdp_1_1core_1_1_m_d_p.html#a7a940b009dbcc9f3e19794b7b315f47f">mdp.core.MDP.getA</a></div><div class="ttdeci">SparseMatrixHolder getA()</div><div class="ttdoc">This method is a getter for the sparse matrix A used for the LP bsed solution of the MDP...</div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00157">MDP.java:157</a></div></div>
+<div class="ttc" id="classmdp_1_1core_1_1_m_d_p_html_ab378c6028d8b83259ee5f630736d183e"><div class="ttname"><a href="classmdp_1_1core_1_1_m_d_p.html#ab378c6028d8b83259ee5f630736d183e">mdp.core.MDP.createSparseAMatrix</a></div><div class="ttdeci">void createSparseAMatrix()</div><div class="ttdoc">This method converts the SparseMatrixHolder A into a .Mat file with sparse matrix representation used...</div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00702">MDP.java:702</a></div></div>
+<div class="ttc" id="namespacemdp_1_1core_html"><div class="ttname"><a href="namespacemdp_1_1core.html">mdp.core</a></div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00001">MDP.java:1</a></div></div>
+<div class="ttc" id="classmdp_1_1core_1_1_m_d_p_html_ab2c6f9846cf9362a472f66e1c7fe4117"><div class="ttname"><a href="classmdp_1_1core_1_1_m_d_p.html#ab2c6f9846cf9362a472f66e1c7fe4117">mdp.core.MDP.createLP</a></div><div class="ttdeci">void createLP()</div><div class="ttdoc">This is a cpoy constructor of the MDP class s. </div><div class="ttdef"><b>Definition:</b> <a href="_m_d_p_8java_source.html#l00532">MDP.java:532</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2015 19:30:33 for OptimalControlinMDP by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_02e299c19a8500551fa72d696b64fdf0.html">mdp</a></li><li class="navelem"><a class="el" href="dir_c0af3d29deab59b5b084cbd1f47bd53b.html">main</a></li><li class="navelem"><a class="el" href="_main_8java.html">Main.java</a></li>
+    <li class="footer">Generated on Sun Apr 19 2015 16:34:45 for MDPDecomposition by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

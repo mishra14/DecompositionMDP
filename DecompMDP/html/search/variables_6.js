@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['probability',['probability',['../classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html#a1972203fb78b0b9a43d758e5b127a04d',1,'ese::seas::upenn::edu::Transition']]]
+  ['probability',['probability',['../classmdp_1_1core_1_1_transition.html#a59ef462524ddda89b23c6974461a3ad5',1,'mdp::core::Transition']]]
 ];

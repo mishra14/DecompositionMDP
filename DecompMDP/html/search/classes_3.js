@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transition',['Transition',['../classese_1_1seas_1_1upenn_1_1edu_1_1_transition.html',1,'ese::seas::upenn::edu']]]
+  ['transition',['Transition',['../classmdp_1_1core_1_1_transition.html',1,'mdp::core']]]
 ];

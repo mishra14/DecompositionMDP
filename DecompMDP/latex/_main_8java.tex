@@ -1,5 +1,5 @@
-\hypertarget{_main_8java}{}\section{src/ese/seas/upenn/edu/\+Main.java File Reference}
-\label{_main_8java}\index{src/ese/seas/upenn/edu/\+Main.\+java@{src/ese/seas/upenn/edu/\+Main.\+java}}
+\hypertarget{_main_8java}{}\section{src/mdp/main/\+Main.java File Reference}
+\label{_main_8java}\index{src/mdp/main/\+Main.\+java@{src/mdp/main/\+Main.\+java}}
 
 
 This file is used to create an M\+D\+P object from a text file and create a decomposition within that object and output the results i a .Mat file.  
@@ -8,12 +8,12 @@ This file is used to create an M\+D\+P object from a text file and create a deco
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \hyperlink{classese_1_1seas_1_1upenn_1_1edu_1_1_main}{ese.\+seas.\+upenn.\+edu.\+Main}
-\begin{DoxyCompactList}\small\item\em This class is used to create an \hyperlink{classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p}{M\+D\+P} object from a text file and create a decomposition within that object and output the results i a .Mat file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \hyperlink{classmdp_1_1main_1_1_main}{mdp.\+main.\+Main}
+\begin{DoxyCompactList}\small\item\em This class is used to create an M\+D\+P object from a text file and create a decomposition within that object and output the results i a .Mat file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Packages}
 \begin{DoxyCompactItemize}
 \item 
-package \hyperlink{namespaceese_1_1seas_1_1upenn_1_1edu}{ese.\+seas.\+upenn.\+edu}
+package \hyperlink{namespacemdp_1_1main}{mdp.\+main}
 \end{DoxyCompactItemize}
 
 
@@ -33,8 +33,13 @@ The \hyperlink{_main_8java}{Main.\+Java} file encapsulates the flow of the tool 
  end~\newline
  Where each transition has the format -\/ \{from\+State, action, probability\+Of\+Transition, Result\+State\}~\newline
 
-\item Decomposition count~\newline
+\item Decomposition count or decomposition~\newline
  Regions=2~\newline
+ or~\newline
+ Regions~\newline
+ r1=\{s0\}~\newline
+ r2=\{s1\}~\newline
+ end~\newline
  ~\newline
  Then the M\+D\+P is first converted into an L\+P problem by constructing the A, B and C matrices, then generating a .Mat file that hols the sparse matric representation of the three matrices in a Matlab Sparse matrix format. 
 \end{DoxyEnumerate}

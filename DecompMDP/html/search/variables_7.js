@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['regioncount',['regionCount',['../classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#ab06e750b3f8875deaacb13a575fcde5e',1,'ese::seas::upenn::edu::MDP']]],
-  ['regionlabel',['regionLabel',['../classese_1_1seas_1_1upenn_1_1edu_1_1_state.html#aca85473fdbd47fcee944387b2f11b5ac',1,'ese::seas::upenn::edu::State']]],
-  ['regions',['regions',['../classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#a168a72d2ae768cb6a747e3124e008ed1',1,'ese::seas::upenn::edu::MDP']]]
+  ['regioncount',['regionCount',['../classmdp_1_1core_1_1_m_d_p.html#ae2644b9387e09a5c2ab096c0bb519f8d',1,'mdp::core::MDP']]],
+  ['regionlabel',['regionLabel',['../classmdp_1_1core_1_1_state.html#aa6f24dca5cb78d028e99f69b9e6ccb2c',1,'mdp::core::State']]],
+  ['regions',['regions',['../classmdp_1_1core_1_1_m_d_p.html#a79761e7b3bb0d7a083bee7183c992893',1,'mdp::core::MDP']]]
 ];

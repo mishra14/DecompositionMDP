@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gamma',['gamma',['../classese_1_1seas_1_1upenn_1_1edu_1_1_m_d_p.html#aaf5ea15587eab978e973ffad523ffc16',1,'ese::seas::upenn::edu::MDP']]]
+  ['gamma',['gamma',['../classmdp_1_1core_1_1_m_d_p.html#ab240c1d97d39d6f66cff0c8d06a57a69',1,'mdp::core::MDP']]]
 ];
