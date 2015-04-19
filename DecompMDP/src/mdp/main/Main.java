@@ -57,7 +57,7 @@ public class Main
 	public static void main(String[] args) 
 	{
 		MDP testMDP=new MDP();  
-		String filename=new String("testMDP.txt");
+		String filename=new String("testMDP2.txt");
 		try 
 		{
 			//read the filename from the console

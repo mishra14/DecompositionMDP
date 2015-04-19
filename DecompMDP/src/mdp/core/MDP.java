@@ -275,138 +275,145 @@ public class MDP
 				line=in.readLine();
 			}
 			line=line.replaceAll("\\s+","");
-			//System.out.println(line);
 			ss=line.split("=");
-			//System.out.println(ss[1]);
-			try
+			//System.out.println(line+" "+ss.length);
+			if(ss.length>1)
 			{
-				regionCount=new Integer(ss[1]);
-			}
-			catch(NumberFormatException e)
-			{
-				System.out.println(e.toString());
-				System.out.println("Region Count is not an Integer - Exiting....");
-				System.exit(1);
-			}
-			catch (Exception e) 
-			{
-				System.out.println(e.toString());
-				System.exit(1);
-			}
-			System.out.println(regionCount);
-			//create regions
-			PlanarSeparator.init();							//reset the static variables for Planar Separator 
-			PlanarSeparator.DFSDecomposition("s0", this, 1);	// create regions // TODO remove hard coding of s0
-			regions=PlanarSeparator.getLayers();
-			System.out.println(regions);
-			createKernels();				//create kernels based on the regions generated
-			System.out.println(kernels);
-			
-			Map<String, LinkedHashSet<String>> newRegionsOne=new LinkedHashMap<String,  LinkedHashSet<String>>();
-			Map<String, LinkedHashSet<String>> newRegionsTwo=new LinkedHashMap<String,  LinkedHashSet<String>>();
-			Map<String, LinkedHashSet<String>> newRegionsThree=new LinkedHashMap<String,  LinkedHashSet<String>>();
-			MDP tempMDP=new MDP(this);
-			//creating a deep copy of the original mdp regions
-			while(true)
-			{
-				for(Map.Entry<String, LinkedHashSet<String>> region : tempMDP.getRegions().entrySet())
+				//System.out.println(ss[1]);
+				try
 				{
-					String key=new String(region.getKey());
-					LinkedHashSet<String> value=new LinkedHashSet<String>();
-					for(String s : region.getValue())
+					regionCount=new Integer(ss[1]);
+				}
+				catch(NumberFormatException e)
+				{
+					System.out.println(e.toString());
+					System.out.println("Region Count is not an Integer - Exiting....");
+					System.exit(1);
+				}
+				catch (Exception e) 
+				{
+					System.out.println(e.toString());
+					System.exit(1);
+				}
+				System.out.println(regionCount);
+				//create regions
+				PlanarSeparator.init();							//reset the static variables for Planar Separator 
+				PlanarSeparator.DFSDecomposition("s0", this, 1);	// create regions // TODO remove hard coding of s0
+				regions=PlanarSeparator.getLayers();
+				System.out.println(regions);
+				createKernels();				//create kernels based on the regions generated
+				System.out.println(kernels);
+				
+				Map<String, LinkedHashSet<String>> newRegionsOne=new LinkedHashMap<String,  LinkedHashSet<String>>();
+				Map<String, LinkedHashSet<String>> newRegionsTwo=new LinkedHashMap<String,  LinkedHashSet<String>>();
+				Map<String, LinkedHashSet<String>> newRegionsThree=new LinkedHashMap<String,  LinkedHashSet<String>>();
+				MDP tempMDP=new MDP(this);
+				//creating a deep copy of the original mdp regions
+				while(true)
+				{
+					for(Map.Entry<String, LinkedHashSet<String>> region : tempMDP.getRegions().entrySet())
 					{
-						value.add(new String(s));
-					}
-					newRegionsOne.put(key, value);
-				}
-				newRegionsTwo=PlanarSeparator.improveDecomposition(tempMDP);
-				if(newRegionsTwo.equals(newRegionsOne))
-				{
-					regions=newRegionsOne;
-					break;
-				}
-				tempMDP.setRegions(newRegionsTwo);
-				newRegionsThree=PlanarSeparator.improveDecomposition(tempMDP);
-				if(newRegionsThree.equals(newRegionsTwo))
-				{
-					regions=newRegionsThree;
-					break;
-				} 
-				else if(newRegionsThree.equals(newRegionsOne))
-				{
-					//assign the region which gives smaller k0
-					int countTwo,countThree;
-					tempMDP.setRegions(newRegionsTwo);
-					tempMDP.createKernels();
-					countTwo=tempMDP.getKernels().get("k0").size();
-					tempMDP.setRegions(newRegionsThree);
-					tempMDP.createKernels();
-					countThree=tempMDP.getKernels().get("k0").size();
-					regions=(countTwo<=countThree)?newRegionsTwo:newRegionsThree;
-					break;
-				}
-				tempMDP.setRegions(newRegionsThree);
-			}
-			createKernels();				//create kernels based on the improved regions generated
-			/*
-			 * Part of code to read regions from the text file
-			 * 
-			while(!(line = in.readLine()).toLowerCase().contains("end")) 
-			{
-				line=line.replaceAll("\\s+","");
-				//System.out.println(line);
-				String regionLabel=line.subSequence(0, line.indexOf("=")).toString();
-				if(!regions.containsKey(regionLabel))
-				{
-					//System.out.println(regionLabel);
-					ss=line.subSequence(line.indexOf("{")+1, line.indexOf("}")).toString().split(",");
-					boolean flagStateInRegion=false;
-					Set<String> statesNotInAnyRegion=new TreeSet<String>();
-					for(String stateLabel : ss)
-					{
-						String parentRegion="NA";						
-						if(states.containsKey(stateLabel))
+						String key=new String(region.getKey());
+						LinkedHashSet<String> value=new LinkedHashSet<String>();
+						for(String s : region.getValue())
 						{
-							for (Map.Entry<String,  SortedSet<String>> entry : regions.entrySet())
+							value.add(new String(s));
+						}
+						newRegionsOne.put(key, value);
+					}
+					newRegionsTwo=PlanarSeparator.improveDecomposition(tempMDP);
+					if(newRegionsTwo.equals(newRegionsOne))
+					{
+						regions=newRegionsOne;
+						break;
+					}
+					tempMDP.setRegions(newRegionsTwo);
+					newRegionsThree=PlanarSeparator.improveDecomposition(tempMDP);
+					if(newRegionsThree.equals(newRegionsTwo))
+					{
+						regions=newRegionsThree;
+						break;
+					} 
+					else if(newRegionsThree.equals(newRegionsOne))
+					{
+						//assign the region which gives smaller k0
+						int countTwo,countThree;
+						tempMDP.setRegions(newRegionsTwo);
+						tempMDP.createKernels();
+						countTwo=tempMDP.getKernels().get("k0").size();
+						tempMDP.setRegions(newRegionsThree);
+						tempMDP.createKernels();
+						countThree=tempMDP.getKernels().get("k0").size();
+						regions=(countTwo<=countThree)?newRegionsTwo:newRegionsThree;
+						break;
+					}
+					tempMDP.setRegions(newRegionsThree);
+				}
+			}
+			else
+			{
+				/*
+				 * Part of code to read regions from the text file
+				 */
+				while(!(line = in.readLine()).toLowerCase().contains("end")) 
+				{
+					line=line.replaceAll("\\s+","");
+					//System.out.println(line);
+					String regionLabel=line.subSequence(0, line.indexOf("=")).toString();
+					if(!regions.containsKey(regionLabel))
+					{
+						//System.out.println(regionLabel);
+						ss=line.subSequence(line.indexOf("{")+1, line.indexOf("}")).toString().split(",");
+						boolean flagStateInRegion=false;
+						LinkedHashSet<String> statesNotInAnyRegion=new LinkedHashSet<String>();
+						for(String stateLabel : ss)
+						{
+							String parentRegion="NA";						
+							if(states.containsKey(stateLabel))
 							{
-								//System.out.println(entry.getKey()+" - "+entry.getValue() );
-								if(entry.getValue().contains(stateLabel))
+								for (Map.Entry<String,  LinkedHashSet<String>> entry : regions.entrySet())
 								{
-									flagStateInRegion=true;
-									parentRegion=entry.getKey();
-									break;
+									//System.out.println(entry.getKey()+" - "+entry.getValue() );
+									if(entry.getValue().contains(stateLabel))
+									{
+										flagStateInRegion=true;
+										parentRegion=entry.getKey();
+										break;
+									}
 								}
-							}
-							if(flagStateInRegion)
-							{
-								System.out.println(stateLabel+" Already present in "+parentRegion+"; Not Added");
+								if(flagStateInRegion)
+								{
+									System.out.println(stateLabel+" Already present in "+parentRegion+"; Not Added");
+								}
+								else
+								{
+									statesNotInAnyRegion.add(stateLabel);
+								}
 							}
 							else
 							{
-								statesNotInAnyRegion.add(stateLabel);
+								System.out.println(stateLabel+ " : Invalid State");
 							}
+						}
+						if(statesNotInAnyRegion.size()!=0)
+						{
+							regions.put(regionLabel, statesNotInAnyRegion);
 						}
 						else
 						{
-							System.out.println(stateLabel+ " : Invalid State");
+							System.out.println(regionLabel+ " Contains no new states");
 						}
-					}
-					if(statesNotInAnyRegion.size()!=0)
-					{
-						regions.put(regionLabel, (SortedSet<String>) statesNotInAnyRegion);
 					}
 					else
 					{
-						System.out.println(regionLabel+ " Contains no new states");
+						System.out.println(regionLabel+" Already Present");
 					}
-				}
-				else
-				{
-					System.out.println(regionLabel+" Already Present");
-				}
-				
-		    }
-		    */
+					
+			    }
+			}
+			createKernels();				//create kernels based on the improved regions generated
+			
+		    
 			// Close file
 			in.close();
 		} 
