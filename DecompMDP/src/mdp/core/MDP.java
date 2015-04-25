@@ -546,44 +546,70 @@ public class MDP
 		//pij(a) = State(i).getTransitions().getTransitions(j) where action=a;
 		
 		//create pfij(a) = sum over all a in A(i) (f(i,a)*pfij(a))\
-				 
+		//int n=0;
 		A=new SparseMatrixHolder();
 		
 		for(Map.Entry<String, LinkedHashSet<String>> ki : kernels.entrySet())
 		{
+			//System.out.print(ki.getKey()+" - " );
 			for(Map.Entry<String, LinkedHashSet<String>> kj : kernels.entrySet())
 			{
-				LinkedHashMap<String,Float> temp=new LinkedHashMap<String,Float>();
-				for(String stateKi : ki.getValue())
+				//System.out.print(kj.getKey()+" ");
+				if (ki.getKey().equals("k0") || kj.getKey().equals("k0") || ki.getKey().equals(kj.getKey()))
 				{
-					for(String stateKj : kj.getValue())
+					//System.out.println("calculating for  : "+ki.getKey()+" "+kj.getKey());
+					LinkedHashMap<String,Float> temp=new LinkedHashMap<String,Float>();
+					for(String stateKi : ki.getValue())
 					{
-						State s= states.get(stateKj);
-						for(Map.Entry<String, Integer> action : s.getActionCounts().entrySet())
+						for(String stateKj : kj.getValue())
 						{
-							/*System.out.println("\n\nstateKi : "+stateKi);
-							System.out.println("stateKj : "+stateKj);
-							System.out.println("Action : "+action.getKey());
-							System.out.println("transition from "+s.getLabel()+" to "+stateKi);*/
-							if(stateKi.equals(stateKj))
+							State s= states.get(stateKj);
+							for(Map.Entry<String, Integer> action : s.getActionCounts().entrySet())
 							{
-								//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
-								temp.put(stateKi+action.getKey()+stateKj,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
-							}
-							else
-							{
-								//System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
-								temp.put(stateKi+action.getKey()+stateKj,(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
+								/*System.out.println("\n\nstateKi : "+stateKi);
+								System.out.println("stateKj : "+stateKj);
+								System.out.println("Action : "+action.getKey());
+								System.out.println("transition from "+s.getLabel()+" to "+stateKi);
+								*/
+								//n++;
+								if(stateKi.equals(stateKj))
+								{
+									//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
+									temp.put(stateKi+action.getKey()+stateKj,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
+								}
+								else
+								{
+									//System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
+									temp.put(stateKi+action.getKey()+stateKj,(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
+								}
 							}
 						}
 					}
+					if(!temp.isEmpty())
+					{
+						A.getMatrixHolder().put((ki.getKey()+kj.getKey()), temp);
+					}
 				}
-				if(!temp.isEmpty())
+/*				if( !ki.getKey().equals("k0") && !kj.getKey().equals("k0") && !ki.getKey().equals(kj.getKey()))
 				{
-					A.getMatrixHolder().put((ki.getKey()+kj.getKey()), temp);
+
 				}
+				else
+				{
+				}*/
+				
 			}
-		}		
+			//System.out.println();
+		}
+		/*System.out.println(n);
+		System.out.println("Matrices : "+A.getElementCount(1));
+		System.out.println("Elements : "+A.getElementCount(2));
+		int count=0;
+		for (Map.Entry<String, State> entry : states.entrySet())
+		{
+			count+=entry.getValue().getTransitions().size();
+		}
+		System.out.println(count*states.size());*/
 	}
 	
 	/** 

@@ -65,6 +65,21 @@ public class SparseMatrixHolder
 		}
 		return result;
 	}
-	
+	public int getElementCount (int type)
+	{
+		int count=0;
+		for(Map.Entry<String, LinkedHashMap<String, Float>> matrix : matrixHolder.entrySet())
+		{
+			if(type==1)			//get only the matrix count
+			{
+				count++;
+			}
+			else				//get the inner element count
+			{
+				count+=matrix.getValue().size();
+			}
+		}
+		return count;
+	}
 	
 }
