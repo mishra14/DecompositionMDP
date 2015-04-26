@@ -572,7 +572,7 @@ public class MDP
 								System.out.println("transition from "+s.getLabel()+" to "+stateKi);
 								*/
 								//n++;
-								if(stateKi.equals(stateKj))
+								if(stateKi.equals(stateKj)) 
 								{
 									//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
 									temp.put(stateKi+action.getKey()+stateKj,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
