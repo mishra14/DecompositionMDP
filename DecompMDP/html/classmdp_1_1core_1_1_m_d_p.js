@@ -7,7 +7,6 @@ var classmdp_1_1core_1_1_m_d_p =
     [ "createAMatrix", "classmdp_1_1core_1_1_m_d_p.html#aab4fc6ad8c299f88d6619cfd059b3931", null ],
     [ "createKernels", "classmdp_1_1core_1_1_m_d_p.html#aa3d7c9f10aff03c993322d3ff7129dfb", null ],
     [ "createLP", "classmdp_1_1core_1_1_m_d_p.html#ab2c6f9846cf9362a472f66e1c7fe4117", null ],
-    [ "createLPQuick", "classmdp_1_1core_1_1_m_d_p.html#aa964b87d7f54679adc323141cd99bebc", null ],
     [ "createSparseAMatrix", "classmdp_1_1core_1_1_m_d_p.html#ab378c6028d8b83259ee5f630736d183e", null ],
     [ "getA", "classmdp_1_1core_1_1_m_d_p.html#a7a940b009dbcc9f3e19794b7b315f47f", null ],
     [ "getActions", "classmdp_1_1core_1_1_m_d_p.html#a0e455b23780dd74403e1a610c2262652", null ],

@@ -48,8 +48,6 @@ void \hyperlink{classmdp_1_1core_1_1_m_d_p_aa3d7c9f10aff03c993322d3ff7129dfb}{cr
  \end{DoxyCompactList}\item 
 void \hyperlink{classmdp_1_1core_1_1_m_d_p_ab2c6f9846cf9362a472f66e1c7fe4117}{create\+L\+P} ()
 \begin{DoxyCompactList}\small\item\em This is a cpoy constructor of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} class s. \end{DoxyCompactList}\item 
-void \hyperlink{classmdp_1_1core_1_1_m_d_p_aa964b87d7f54679adc323141cd99bebc}{create\+L\+P\+Quick} ()
-\begin{DoxyCompactList}\small\item\em This method is used to create A sparse matrix which is used to solve the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} via L\+P. \end{DoxyCompactList}\item 
 int \hyperlink{classmdp_1_1core_1_1_m_d_p_a597956fa2391fdd8ff1a3266d5e48688}{get\+State\+Action\+Pair\+Count} (String kernel)
 \begin{DoxyCompactList}\small\item\em This method returns the number of integer count of the number of state-\/action pairs in a kernel. \end{DoxyCompactList}\item 
 void \hyperlink{classmdp_1_1core_1_1_m_d_p_aab4fc6ad8c299f88d6619cfd059b3931}{create\+A\+Matrix} ()
@@ -206,7 +204,7 @@ This method converts the Sparse\+Matrix\+Holder A into a .Mat file.
 
 
 
-Definition at line 659 of file M\+D\+P.\+java.
+Definition at line 661 of file M\+D\+P.\+java.
 
 
 
@@ -227,7 +225,7 @@ This method creates Kernels based on the Decomposition of the \hyperlink{classmd
 
 
 
-Definition at line 428 of file M\+D\+P.\+java.
+Definition at line 471 of file M\+D\+P.\+java.
 
 
 
@@ -252,35 +250,15 @@ This method is used to create A sparse matrix which is used to solve the \hyperl
 
 This method creates a Sparse\+Matrix\+Holder to hold the A matrix for the L\+P of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. The Sparse\+Matrix\+Holder is created such that it has a map of maps, where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix. 
 
-Definition at line 532 of file M\+D\+P.\+java.
+Definition at line 575 of file M\+D\+P.\+java.
 
 
 
-References mdp.\+core.\+State.\+get\+Action\+Counts(), and mdp.\+util.\+Sparse\+Matrix\+Holder.\+get\+Matrix\+Holder().
+References mdp.\+core.\+State.\+get\+Action\+Counts(), mdp.\+core.\+State.\+get\+Label(), and mdp.\+util.\+Sparse\+Matrix\+Holder.\+get\+Matrix\+Holder().
 
 
 
 Referenced by mdp.\+main.\+Main.\+main().
-
-\hypertarget{classmdp_1_1core_1_1_m_d_p_aa964b87d7f54679adc323141cd99bebc}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!create\+L\+P\+Quick@{create\+L\+P\+Quick}}
-\index{create\+L\+P\+Quick@{create\+L\+P\+Quick}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
-\subsubsection[{create\+L\+P\+Quick}]{\setlength{\rightskip}{0pt plus 5cm}void mdp.\+core.\+M\+D\+P.\+create\+L\+P\+Quick (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classmdp_1_1core_1_1_m_d_p_aa964b87d7f54679adc323141cd99bebc}
-
-
-This method is used to create A sparse matrix which is used to solve the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} via L\+P. 
-
-This method creates a Sparse\+Matrix\+Holder to hold the A matrix for the L\+P of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. The Sparse\+Matrix\+Holder is created such that it has a map of maps, where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.~\newline
- This method replaces \hyperlink{classmdp_1_1core_1_1_m_d_p_ab2c6f9846cf9362a472f66e1c7fe4117}{create\+L\+P()} method as an optimized method. 
-
-Definition at line 590 of file M\+D\+P.\+java.
-
-
-
-References mdp.\+core.\+State.\+get\+Action\+Counts(), and mdp.\+util.\+Sparse\+Matrix\+Holder.\+get\+Matrix\+Holder().
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_ab378c6028d8b83259ee5f630736d183e}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!create\+Sparse\+A\+Matrix@{create\+Sparse\+A\+Matrix}}
 \index{create\+Sparse\+A\+Matrix@{create\+Sparse\+A\+Matrix}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -295,7 +273,7 @@ This method converts the Sparse\+Matrix\+Holder A into a .Mat file with sparse m
 
 
 
-Definition at line 702 of file M\+D\+P.\+java.
+Definition at line 704 of file M\+D\+P.\+java.
 
 
 
@@ -444,7 +422,7 @@ This method returns the number of integer count of the number of state-\/action 
 
 
 
-Definition at line 645 of file M\+D\+P.\+java.
+Definition at line 647 of file M\+D\+P.\+java.
 
 
 
@@ -596,7 +574,7 @@ This method converts the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} object 
 
 
 
-Definition at line 799 of file M\+D\+P.\+java.
+Definition at line 810 of file M\+D\+P.\+java.
 
 
 

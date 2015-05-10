@@ -8,9 +8,9 @@ This class contains the source code for the \hyperlink{classmdp_1_1core_1_1_stat
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classmdp_1_1core_1_1_state_ab15662127acf94e1bd1b6890310568e7}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label}, Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions}, boolean \hyperlink{classmdp_1_1core_1_1_state_a06eb4d38e11e4be71c5e072fe9f9bee3}{is\+Inital})
+\hyperlink{classmdp_1_1core_1_1_state_a7454bf82c89c8fbcf1133e8450af5042}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label}, Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions}, float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability})
 \begin{DoxyCompactList}\small\item\em This is a partial paraterized constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. \end{DoxyCompactList}\item 
-\hyperlink{classmdp_1_1core_1_1_state_aee42d71447b8e1df2417e335ef3be5fd}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label}, Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions}, boolean \hyperlink{classmdp_1_1core_1_1_state_a06eb4d38e11e4be71c5e072fe9f9bee3}{is\+Inital}, Linked\+Hash\+Map$<$ String, Integer $>$ \hyperlink{classmdp_1_1core_1_1_state_a56e17de2fde7a7f4ee8b1491c11438d5}{action\+Counts}, String \hyperlink{classmdp_1_1core_1_1_state_aa6f24dca5cb78d028e99f69b9e6ccb2c}{region\+Label}, String \hyperlink{classmdp_1_1core_1_1_state_ac7ca184df7a0ec4141766692290c18ab}{kernel\+Label})
+\hyperlink{classmdp_1_1core_1_1_state_a34f8a7e42ef506e40daa65bce24f258d}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label}, Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions}, float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability}, Linked\+Hash\+Map$<$ String, Integer $>$ \hyperlink{classmdp_1_1core_1_1_state_a56e17de2fde7a7f4ee8b1491c11438d5}{action\+Counts}, String \hyperlink{classmdp_1_1core_1_1_state_aa6f24dca5cb78d028e99f69b9e6ccb2c}{region\+Label}, String \hyperlink{classmdp_1_1core_1_1_state_ac7ca184df7a0ec4141766692290c18ab}{kernel\+Label})
 \begin{DoxyCompactList}\small\item\em This is a complete paraterized constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. \end{DoxyCompactList}\item 
 \hyperlink{classmdp_1_1core_1_1_state_a145a71cda6b5e67d05745c17dd7fc995}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label})
 \begin{DoxyCompactList}\small\item\em This is a default constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. \end{DoxyCompactList}\item 
@@ -32,9 +32,9 @@ Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hype
 \begin{DoxyCompactList}\small\item\em This method is a getter for the \hyperlink{classmdp_1_1core_1_1_transition}{Transition} that start from this \hyperlink{classmdp_1_1core_1_1_state}{State}. \end{DoxyCompactList}\item 
 void \hyperlink{classmdp_1_1core_1_1_state_af9bbbf26a131aa1f43d7fdf7003b5de1}{set\+Transitions} (Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions})
 \begin{DoxyCompactList}\small\item\em This method is a setter for the \hyperlink{classmdp_1_1core_1_1_transition}{Transition} that start from this \hyperlink{classmdp_1_1core_1_1_state}{State}. \end{DoxyCompactList}\item 
-boolean \hyperlink{classmdp_1_1core_1_1_state_a73d705b956da58cfedc4d9adf406a000}{is\+Inital} ()
+float \hyperlink{classmdp_1_1core_1_1_state_adf2467261abc6074a16c27c339a24e8b}{get\+Initial\+Probability} ()
 \begin{DoxyCompactList}\small\item\em This method checks if this \hyperlink{classmdp_1_1core_1_1_state}{State} is the initial state of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. \end{DoxyCompactList}\item 
-void \hyperlink{classmdp_1_1core_1_1_state_a5bee145159ba3ab3bf501682a7d98d01}{set\+Inital} (boolean \hyperlink{classmdp_1_1core_1_1_state_a06eb4d38e11e4be71c5e072fe9f9bee3}{is\+Inital})
+void \hyperlink{classmdp_1_1core_1_1_state_ae2b8a26846dfde87eac8dc536b171355}{set\+Inital} (float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability})
 \begin{DoxyCompactList}\small\item\em This method sets this \hyperlink{classmdp_1_1core_1_1_state}{State} as the initial state of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. \end{DoxyCompactList}\item 
 Map$<$ String, Integer $>$ \hyperlink{classmdp_1_1core_1_1_state_a14947bea4d426d7b8665be0f07ed20c0}{get\+Action\+Counts} ()
 \begin{DoxyCompactList}\small\item\em This method returns the map of Key=action and Value=number of \hyperlink{classmdp_1_1core_1_1_transition}{Transition} with that action. \end{DoxyCompactList}\item 
@@ -57,7 +57,7 @@ String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{
 \item 
 Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions}
 \item 
-boolean \hyperlink{classmdp_1_1core_1_1_state_a06eb4d38e11e4be71c5e072fe9f9bee3}{is\+Inital}
+float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability}
 \item 
 Linked\+Hash\+Map$<$ String, Integer $>$ \hyperlink{classmdp_1_1core_1_1_state_a56e17de2fde7a7f4ee8b1491c11438d5}{action\+Counts}
 \item 
@@ -75,15 +75,15 @@ Definition at line 28 of file State.\+java.
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classmdp_1_1core_1_1_state_ab15662127acf94e1bd1b6890310568e7}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!State@{State}}
+\hypertarget{classmdp_1_1core_1_1_state_a7454bf82c89c8fbcf1133e8450af5042}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!State@{State}}
 \index{State@{State}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
 \subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}mdp.\+core.\+State.\+State (
 \begin{DoxyParamCaption}
 \item[{String}]{label, }
 \item[{Linked\+Hash\+Map$<$ String, {\bf Transition} $>$}]{transitions, }
-\item[{boolean}]{is\+Inital}
+\item[{float}]{initial\+Probability}
 \end{DoxyParamCaption}
-)}\label{classmdp_1_1core_1_1_state_ab15662127acf94e1bd1b6890310568e7}
+)}\label{classmdp_1_1core_1_1_state_a7454bf82c89c8fbcf1133e8450af5042}
 
 
 This is a partial paraterized constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. 
@@ -94,24 +94,24 @@ Definition at line 40 of file State.\+java.
 
 
 
-References mdp.\+core.\+State.\+is\+Inital(), mdp.\+core.\+State.\+label, and mdp.\+core.\+State.\+transitions.
+References mdp.\+core.\+State.\+initial\+Probability, mdp.\+core.\+State.\+label, and mdp.\+core.\+State.\+transitions.
 
 
 
 Referenced by mdp.\+core.\+State.\+equals().
 
-\hypertarget{classmdp_1_1core_1_1_state_aee42d71447b8e1df2417e335ef3be5fd}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!State@{State}}
+\hypertarget{classmdp_1_1core_1_1_state_a34f8a7e42ef506e40daa65bce24f258d}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!State@{State}}
 \index{State@{State}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
 \subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}mdp.\+core.\+State.\+State (
 \begin{DoxyParamCaption}
 \item[{String}]{label, }
 \item[{Linked\+Hash\+Map$<$ String, {\bf Transition} $>$}]{transitions, }
-\item[{boolean}]{is\+Inital, }
+\item[{float}]{initial\+Probability, }
 \item[{Linked\+Hash\+Map$<$ String, Integer $>$}]{action\+Counts, }
 \item[{String}]{region\+Label, }
 \item[{String}]{kernel\+Label}
 \end{DoxyParamCaption}
-)}\label{classmdp_1_1core_1_1_state_aee42d71447b8e1df2417e335ef3be5fd}
+)}\label{classmdp_1_1core_1_1_state_a34f8a7e42ef506e40daa65bce24f258d}
 
 
 This is a complete paraterized constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. 
@@ -122,7 +122,7 @@ Definition at line 54 of file State.\+java.
 
 
 
-References mdp.\+core.\+State.\+action\+Counts, mdp.\+core.\+State.\+is\+Inital(), mdp.\+core.\+State.\+kernel\+Label, mdp.\+core.\+State.\+label, mdp.\+core.\+State.\+region\+Label, and mdp.\+core.\+State.\+transitions.
+References mdp.\+core.\+State.\+action\+Counts, mdp.\+core.\+State.\+initial\+Probability, mdp.\+core.\+State.\+kernel\+Label, mdp.\+core.\+State.\+label, mdp.\+core.\+State.\+region\+Label, and mdp.\+core.\+State.\+transitions.
 
 \hypertarget{classmdp_1_1core_1_1_state_a145a71cda6b5e67d05745c17dd7fc995}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!State@{State}}
 \index{State@{State}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -160,7 +160,7 @@ Definition at line 82 of file State.\+java.
 
 
 
-References mdp.\+core.\+State.\+action\+Counts, mdp.\+core.\+State.\+is\+Inital, mdp.\+core.\+State.\+kernel\+Label, mdp.\+core.\+State.\+label, mdp.\+core.\+State.\+region\+Label, and mdp.\+core.\+State.\+transitions.
+References mdp.\+core.\+State.\+action\+Counts, mdp.\+core.\+State.\+initial\+Probability, mdp.\+core.\+State.\+kernel\+Label, mdp.\+core.\+State.\+label, mdp.\+core.\+State.\+region\+Label, and mdp.\+core.\+State.\+transitions.
 
 
 
@@ -197,11 +197,11 @@ This method is used to check if two \hyperlink{classmdp_1_1core_1_1_state}{State
 
 
 
-Definition at line 280 of file State.\+java.
+Definition at line 285 of file State.\+java.
 
 
 
-References mdp.\+core.\+State.\+action\+Counts, mdp.\+core.\+State.\+is\+Inital, mdp.\+core.\+State.\+label, mdp.\+core.\+State.\+State(), and mdp.\+core.\+State.\+transitions.
+References mdp.\+core.\+State.\+action\+Counts, mdp.\+core.\+State.\+initial\+Probability, mdp.\+core.\+State.\+kernel\+Label, mdp.\+core.\+State.\+label, mdp.\+core.\+State.\+region\+Label, mdp.\+core.\+State.\+State(), and mdp.\+core.\+State.\+transitions.
 
 \hypertarget{classmdp_1_1core_1_1_state_a14947bea4d426d7b8665be0f07ed20c0}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Action\+Counts@{get\+Action\+Counts}}
 \index{get\+Action\+Counts@{get\+Action\+Counts}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -224,7 +224,26 @@ References mdp.\+core.\+State.\+action\+Counts.
 
 
 
-Referenced by mdp.\+core.\+M\+D\+P.\+build\+From\+File(), mdp.\+core.\+M\+D\+P.\+create\+L\+P(), and mdp.\+core.\+M\+D\+P.\+create\+L\+P\+Quick().
+Referenced by mdp.\+core.\+M\+D\+P.\+build\+From\+File(), and mdp.\+core.\+M\+D\+P.\+create\+L\+P().
+
+\hypertarget{classmdp_1_1core_1_1_state_adf2467261abc6074a16c27c339a24e8b}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Initial\+Probability@{get\+Initial\+Probability}}
+\index{get\+Initial\+Probability@{get\+Initial\+Probability}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
+\subsubsection[{get\+Initial\+Probability}]{\setlength{\rightskip}{0pt plus 5cm}float mdp.\+core.\+State.\+get\+Initial\+Probability (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_state_adf2467261abc6074a16c27c339a24e8b}
+
+
+This method checks if this \hyperlink{classmdp_1_1core_1_1_state}{State} is the initial state of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. 
+
+
+
+Definition at line 154 of file State.\+java.
+
+
+
+References mdp.\+core.\+State.\+initial\+Probability.
 
 \hypertarget{classmdp_1_1core_1_1_state_a4711a7ffeeede0edcf72550c1eee52e2}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Kernel\+Label@{get\+Kernel\+Label}}
 \index{get\+Kernel\+Label@{get\+Kernel\+Label}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -266,7 +285,7 @@ References mdp.\+core.\+State.\+label.
 
 
 
-Referenced by mdp.\+core.\+M\+D\+P.\+add\+State(), mdp.\+core.\+M\+D\+P.\+build\+From\+File(), and mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition().
+Referenced by mdp.\+core.\+M\+D\+P.\+add\+State(), mdp.\+core.\+M\+D\+P.\+build\+From\+File(), mdp.\+core.\+M\+D\+P.\+create\+L\+P(), and mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition().
 
 \hypertarget{classmdp_1_1core_1_1_state_afa42873a5a6554333a18a052ec52f59e}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Next\+States@{get\+Next\+States}}
 \index{get\+Next\+States@{get\+Next\+States}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -348,25 +367,6 @@ This method is used to compare two \hyperlink{classmdp_1_1core_1_1_state}{State}
 
 Definition at line 263 of file State.\+java.
 
-\hypertarget{classmdp_1_1core_1_1_state_a73d705b956da58cfedc4d9adf406a000}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!is\+Inital@{is\+Inital}}
-\index{is\+Inital@{is\+Inital}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
-\subsubsection[{is\+Inital}]{\setlength{\rightskip}{0pt plus 5cm}boolean mdp.\+core.\+State.\+is\+Inital (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classmdp_1_1core_1_1_state_a73d705b956da58cfedc4d9adf406a000}
-
-
-This method checks if this \hyperlink{classmdp_1_1core_1_1_state}{State} is the initial state of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. 
-
-
-
-Definition at line 154 of file State.\+java.
-
-
-
-Referenced by mdp.\+core.\+State.\+set\+Inital(), and mdp.\+core.\+State.\+State().
-
 \hypertarget{classmdp_1_1core_1_1_state_aab391f1b09decdee9e3b74a51ad31520}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!set\+Action\+Counts@{set\+Action\+Counts}}
 \index{set\+Action\+Counts@{set\+Action\+Counts}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
 \subsubsection[{set\+Action\+Counts}]{\setlength{\rightskip}{0pt plus 5cm}void mdp.\+core.\+State.\+set\+Action\+Counts (
@@ -386,13 +386,13 @@ Definition at line 177 of file State.\+java.
 
 References mdp.\+core.\+State.\+action\+Counts.
 
-\hypertarget{classmdp_1_1core_1_1_state_a5bee145159ba3ab3bf501682a7d98d01}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!set\+Inital@{set\+Inital}}
+\hypertarget{classmdp_1_1core_1_1_state_ae2b8a26846dfde87eac8dc536b171355}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!set\+Inital@{set\+Inital}}
 \index{set\+Inital@{set\+Inital}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
 \subsubsection[{set\+Inital}]{\setlength{\rightskip}{0pt plus 5cm}void mdp.\+core.\+State.\+set\+Inital (
 \begin{DoxyParamCaption}
-\item[{boolean}]{is\+Inital}
+\item[{float}]{initial\+Probability}
 \end{DoxyParamCaption}
-)}\label{classmdp_1_1core_1_1_state_a5bee145159ba3ab3bf501682a7d98d01}
+)}\label{classmdp_1_1core_1_1_state_ae2b8a26846dfde87eac8dc536b171355}
 
 
 This method sets this \hyperlink{classmdp_1_1core_1_1_state}{State} as the initial state of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. 
@@ -403,7 +403,7 @@ Definition at line 162 of file State.\+java.
 
 
 
-References mdp.\+core.\+State.\+is\+Inital().
+References mdp.\+core.\+State.\+initial\+Probability.
 
 \hypertarget{classmdp_1_1core_1_1_state_ab89e4fdb360297c41b3f5ca27a1978fc}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!set\+Kernel\+Label@{set\+Kernel\+Label}}
 \index{set\+Kernel\+Label@{set\+Kernel\+Label}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -518,16 +518,16 @@ Definition at line 33 of file State.\+java.
 
 Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Action\+Counts(), mdp.\+core.\+State.\+set\+Action\+Counts(), and mdp.\+core.\+State.\+State().
 
-\hypertarget{classmdp_1_1core_1_1_state_a06eb4d38e11e4be71c5e072fe9f9bee3}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!is\+Inital@{is\+Inital}}
-\index{is\+Inital@{is\+Inital}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
-\subsubsection[{is\+Inital}]{\setlength{\rightskip}{0pt plus 5cm}boolean mdp.\+core.\+State.\+is\+Inital\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_a06eb4d38e11e4be71c5e072fe9f9bee3}
+\hypertarget{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!initial\+Probability@{initial\+Probability}}
+\index{initial\+Probability@{initial\+Probability}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
+\subsubsection[{initial\+Probability}]{\setlength{\rightskip}{0pt plus 5cm}float mdp.\+core.\+State.\+initial\+Probability\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}
 
 
 Definition at line 32 of file State.\+java.
 
 
 
-Referenced by mdp.\+core.\+State.\+equals(), and mdp.\+core.\+State.\+State().
+Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Initial\+Probability(), mdp.\+core.\+State.\+set\+Inital(), and mdp.\+core.\+State.\+State().
 
 \hypertarget{classmdp_1_1core_1_1_state_ac7ca184df7a0ec4141766692290c18ab}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!kernel\+Label@{kernel\+Label}}
 \index{kernel\+Label@{kernel\+Label}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -538,7 +538,7 @@ Definition at line 35 of file State.\+java.
 
 
 
-Referenced by mdp.\+core.\+State.\+get\+Kernel\+Label(), mdp.\+core.\+State.\+set\+Kernel\+Label(), and mdp.\+core.\+State.\+State().
+Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Kernel\+Label(), mdp.\+core.\+State.\+set\+Kernel\+Label(), and mdp.\+core.\+State.\+State().
 
 \hypertarget{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!label@{label}}
 \index{label@{label}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -560,7 +560,7 @@ Definition at line 34 of file State.\+java.
 
 
 
-Referenced by mdp.\+core.\+State.\+get\+Region\+Label(), mdp.\+core.\+State.\+set\+Region\+Label(), and mdp.\+core.\+State.\+State().
+Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Region\+Label(), mdp.\+core.\+State.\+set\+Region\+Label(), and mdp.\+core.\+State.\+State().
 
 \hypertarget{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!transitions@{transitions}}
 \index{transitions@{transitions}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}

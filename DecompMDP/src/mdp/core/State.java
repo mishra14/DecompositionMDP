@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-
 /** 
 * @file State.java 
 * 
@@ -29,21 +28,21 @@ public class State
 {
 	private String label;
 	private LinkedHashMap<String, Transition> transitions;
-	private boolean isInital;
-	private LinkedHashMap<String, Integer> actionCounts;
+	private float initialProbability;
+	private LinkedHashMap<String, Action> actionCounts;
 	private String regionLabel;
 	private String kernelLabel;
 	/** 
 	* @brief This is a partial paraterized constructor of the State class
 	* 
 	**/
-	public State(String label, LinkedHashMap<String, Transition> transitions, boolean isInital) 
+	public State(String label, LinkedHashMap<String, Transition> transitions, float initialProbability) 
 	{
 		super();
 		this.label = label;
 		this.transitions = transitions;
-		this.isInital = isInital;
-		this.actionCounts=new LinkedHashMap<String, Integer>();
+		this.initialProbability = initialProbability;
+		this.actionCounts=new LinkedHashMap<String, Action>();
 		this.kernelLabel=new String();
 		this.regionLabel=new String();
 	}
@@ -51,12 +50,12 @@ public class State
 	* @brief This is a complete paraterized constructor of the State class
 	* 
 	**/
-	public State(String label, LinkedHashMap<String, Transition> transitions,boolean isInital, LinkedHashMap<String, Integer> actionCounts, String regionLabel, String kernelLabel) 
+	public State(String label, LinkedHashMap<String, Transition> transitions,float initialProbability, LinkedHashMap<String, Action> actionCounts, String regionLabel, String kernelLabel) 
 	{
 		super();
 		this.label = label;
 		this.transitions = transitions;
-		this.isInital = isInital;
+		this.initialProbability = initialProbability;
 		this.actionCounts = actionCounts;
 		this.kernelLabel=kernelLabel;
 		this.regionLabel=regionLabel;
@@ -70,8 +69,8 @@ public class State
 		super();
 		this.label = label;
 		this.transitions=new LinkedHashMap<String, Transition>();
-		this.isInital=false;
-		this.actionCounts=new LinkedHashMap<String, Integer>();
+		this.initialProbability=0;
+		this.actionCounts=new LinkedHashMap<String, Action>();
 		this.kernelLabel=new String();
 		this.regionLabel=new String();
 	}
@@ -84,7 +83,7 @@ public class State
 		super();
 		this.label = state.label;
 		this.transitions = state.transitions;
-		this.isInital = state.isInital;
+		this.initialProbability = state.initialProbability;
 		this.actionCounts = state.actionCounts;
 		this.kernelLabel=state.kernelLabel;
 		this.regionLabel=state.regionLabel;
@@ -151,30 +150,30 @@ public class State
 	* @brief This method checks if this State is the initial state of the MDP
 	* 
 	**/
-	public boolean isInital() 
+	public float getInitialProbability() 
 	{
-		return isInital;
+		return initialProbability;
 	}
 	/** 
 	* @brief This method sets this State as the initial state of the MDP
 	* 
 	**/
-	public void setInital(boolean isInital) 
+	public void setInital(float initialProbability) 
 	{
-		this.isInital = isInital;
+		this.initialProbability = initialProbability;
 	}
 	/** 
 	* @brief This method returns the map of Key=action and Value=number of Transition with that action
 	* 
 	**/
-	public Map<String, Integer> getActionCounts() {
+	public Map<String, Action> getActionCounts() {
 		return actionCounts;
 	}
 	/** 
 	* @brief This method sets the map of Key=action and Value=number of Transition with that action
 	* 
 	**/
-	public void setActionCounts(LinkedHashMap<String, Integer> actionCounts) {
+	public void setActionCounts(LinkedHashMap<String, Action> actionCounts) {
 		this.actionCounts = actionCounts;
 	}
 	/** 
@@ -224,7 +223,7 @@ public class State
 	{
 		if(actionCounts.containsKey(actionLabel))
 		{
-			return (float)actionCounts.get(actionLabel)/transitions.size();
+			return (float)actionCounts.get(actionLabel).getCount()/transitions.size();
 		}
 		return 0;
 	}
@@ -245,16 +244,30 @@ public class State
 		}
 		return nextStates;
 	}
-	
 	/** 
-	* @brief This method converts the STate object to a String for displaying on the console/GUI.
+	* @brief This method is used to print the data structure that holds the action counts
+	* 
+	**/
+	public String printActionCount()
+	{
+		String result="[ ";
+		for(Map.Entry<String, Action> action : actionCounts.entrySet())
+		{
+			result+=" [ "+action.getKey()+", count = "+action.getValue().getCount()+", reward = "+action.getValue().getReward()+" ] ";
+		}
+		result+=" ]";
+		return result;
+	}
+	/** 
+	* @brief This method converts the State object to a String for displaying on the console/GUI.
 	* 
 	**/
 	@Override
-	public String toString() {
-		return "State [label=" + label + ", isInital=" + isInital + ", actionCounts=" + actionCounts + ", \nRegionLabel="+regionLabel+" KernelLabel="+ kernelLabel +", \ntransitions=" + printAllTransitions() + "]\n";
+	public String toString() 
+	{
+		return "State [label=" + label + ", initialProbability=" + initialProbability + ", actionCounts=" + printActionCount() + ", \nRegionLabel="+regionLabel+" KernelLabel="+ kernelLabel +", \ntransitions=" + printAllTransitions() + "]\n";
 	}
-
+	
 	/** 
 	* @brief This method is used to compare two State objects
 	* 
@@ -265,13 +278,18 @@ public class State
 		int result = 1;
 		result = prime * result
 				+ ((actionCounts == null) ? 0 : actionCounts.hashCode());
-		result = prime * result + (isInital ? 1231 : 1237);
+		result = prime * result + Float.floatToIntBits(initialProbability);
+		result = prime * result
+				+ ((kernelLabel == null) ? 0 : kernelLabel.hashCode());
 		result = prime * result + ((label == null) ? 0 : label.hashCode());
+		result = prime * result
+				+ ((regionLabel == null) ? 0 : regionLabel.hashCode());
 		result = prime * result
 				+ ((transitions == null) ? 0 : transitions.hashCode());
 		return result;
 	}
-
+	
+	
 	/** 
 	* @brief This method is used to check if two State objects are equal or not
 	* 
@@ -290,12 +308,23 @@ public class State
 				return false;
 		} else if (!actionCounts.equals(other.actionCounts))
 			return false;
-		if (isInital != other.isInital)
+		if (Float.floatToIntBits(initialProbability) != Float
+				.floatToIntBits(other.initialProbability))
+			return false;
+		if (kernelLabel == null) {
+			if (other.kernelLabel != null)
+				return false;
+		} else if (!kernelLabel.equals(other.kernelLabel))
 			return false;
 		if (label == null) {
 			if (other.label != null)
 				return false;
 		} else if (!label.equals(other.label))
+			return false;
+		if (regionLabel == null) {
+			if (other.regionLabel != null)
+				return false;
+		} else if (!regionLabel.equals(other.regionLabel))
 			return false;
 		if (transitions == null) {
 			if (other.transitions != null)
@@ -305,4 +334,6 @@ public class State
 		return true;
 	}
 
+
+	
 }

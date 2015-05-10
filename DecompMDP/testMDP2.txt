@@ -1,4 +1,11 @@
 states {s0, s1, s2}
+
+initial
+{s0, 0.75}
+{s1, 0.2}
+{s2, 0.05}
+end
+
 transitions
 {s0, a, 0.7, s1}
 {s0, a, 0.3, s0}
@@ -9,6 +16,15 @@ transitions
 {s2, b, 0.5, s2}
 {s2, b, 0.5, s1}
 end 
+
+rewards
+{s0,a,0}
+{s0,b,0}
+{s1,a,-0.7}
+{s1,b,0}
+{s2,b,-0.5}
+end
+
 regions=2
 r1 = {s0,s1}
 r2 = {s2}

@@ -45,6 +45,9 @@ public class MDP
 	private SparseMatrixHolder A;
 	private final float gamma=(float)0.9;
 	private int regionCount;
+	private Map<String, LinkedHashSet<String>> xVector;
+	private Map<String, LinkedHashMap<String,Float>> bVector;
+	private Map<String, LinkedHashMap<String,Float>> cVector;
 	/** 
 	* @brief This is a default constructor of the MDP class
 	* 
@@ -57,6 +60,9 @@ public class MDP
 		kernels=new LinkedHashMap<String,  LinkedHashSet<String>>();
 		actions=new ArrayList<String>();
 		regionCount=0;
+		xVector=new LinkedHashMap<String,  LinkedHashSet<String>>();
+		bVector=new LinkedHashMap<String, LinkedHashMap<String,Float>>();
+		cVector=new LinkedHashMap<String, LinkedHashMap<String,Float>>();
 	}
 	/** 
 	* @brief This is a copy constructor of the MDP class that creates a new MDP object which is a deep copy of the first argument
@@ -70,6 +76,9 @@ public class MDP
 		kernels=mdp.kernels;
 		actions=mdp.actions;
 		regionCount=mdp.regionCount;
+		xVector=mdp.xVector;
+		bVector=mdp.bVector;
+		cVector=mdp.cVector;
 	}
 	/** 
 	* @brief This method is a getter for the number of regions in the decomposition
@@ -203,7 +212,8 @@ public class MDP
 	{
 		BufferedReader in;
 		String line, ss[];
-
+		String maxState ="";
+		float maxProbability=0;
 		try 
 		{
 			// Open file
@@ -235,6 +245,40 @@ public class MDP
 					System.out.println(stateLabel+" Already present");
 				}
 			}
+			
+			//code for reding initial probability distribution
+			while(line.contains("//") || ( line != null && line.isEmpty()) || (!line.toLowerCase().contains("initial")))	//ignore initial set of comments
+			{
+				line=in.readLine();
+			}
+			//create transitions
+			while(!(line = in.readLine()).toLowerCase().contains("end")) 
+			{
+
+				line=line.replaceAll("\\s+","");
+		        ss=line.subSequence(line.indexOf("{")+1, line.indexOf("}")).toString().split(",");
+		        if(!states.containsKey(ss[0]))
+		        {
+		        	System.out.println("Undeclared state initialized - "+ss[0]);		 
+		        }
+		        else
+		        {
+		        	if(ss.length<2)
+		        	{
+		        		System.out.println("State initialization to 0 probability - "+ss[0]);
+		        	}
+		        	else
+		        	{
+		        		states.get(ss[0]).setInital(Float.parseFloat(ss[1]));
+		        		if(Float.parseFloat(ss[1])>maxProbability)
+		        		{
+		        			maxState=ss[0];
+		        			maxProbability=Float.parseFloat(ss[1]);
+		        		}
+		        	}
+		        }
+			}
+			
 			while(line.contains("//") || ( line != null && line.isEmpty()) || (!line.toLowerCase().contains("transitions")))	//ignore initial set of comments
 			{
 				line=in.readLine();
@@ -256,20 +300,51 @@ public class MDP
 		        {
 		        	s.getTransitions().put(t.toString(),t);
 		        	//System.out.println(t+" Added");
-		        	if(s.getActionCounts().containsKey(ss[1]))
-		        	{
-		        		s.getActionCounts().put(ss[1], s.getActionCounts().get(ss[1]).intValue()+1);
-		        	}
-		        	else
-		        	{
-		        		s.getActionCounts().put(ss[1], 1);
-		        	}
+	        		if(!s.getActionCounts().containsKey(ss[1]))
+	        		{
+	        			Action a=new Action();
+	        			a.setCount(1);
+	        			s.getActionCounts().put(ss[1], a);
+	        		}
+	        		else
+	        		{
+	        			s.getActionCounts().get(ss[1]).setCount(s.getActionCounts().get(ss[1]).getCount()+1);
+	        		}
+
 		        }
 		        else
 		        {
 		        	System.out.println(t+" Already Present");
 		        }
 		    }
+			
+			while(line.contains("//") || ( line != null && line.isEmpty()) || (!line.toLowerCase().contains("rewards")))	//ignore initial set of comments
+			{
+				line=in.readLine();
+			}
+			//create transitions
+			while(!(line = in.readLine()).toLowerCase().contains("end")) 
+			{
+				line=line.replaceAll("\\s+","");
+		        ss=line.subSequence(line.indexOf("{")+1, line.indexOf("}")).toString().split(",");
+		        if(!states.containsKey(ss[0]))
+		        {
+		        	System.out.println("Reward for undeclraed state - "+ss[0]);		  
+		        }
+		        else
+		        {
+		        	if(!states.get(ss[0]).getActionCounts().containsKey(ss[1]))
+		        	{
+		        		System.out.println("Reward for unknown action - "+ss[0]+" "+ss[1]);
+		        	}
+		        	else
+		        	{
+		        		states.get(ss[0]).getActionCounts().get(ss[1]).setReward(Float.parseFloat(ss[2]));
+		        	}
+		        }
+			}
+			
+			
 			while(line.contains("//") || ( line != null && line.isEmpty()) || (!line.toLowerCase().contains("regions")))	//ignore initial set of comments
 			{
 				line=in.readLine();
@@ -297,8 +372,9 @@ public class MDP
 				}
 				System.out.println(regionCount);
 				//create regions
+				System.out.println("Max State  - "+maxState);
 				PlanarSeparator.init();							//reset the static variables for Planar Separator 
-				PlanarSeparator.DFSDecomposition("s0", this, 1);	// create regions // TODO remove hard coding of s0
+				PlanarSeparator.DFSDecomposition(maxState, this, 1);	// create regions // TODO remove hard coding of s0
 				regions=PlanarSeparator.getLayers();
 				System.out.println(regions);
 				createKernels();				//create kernels based on the regions generated
@@ -412,7 +488,7 @@ public class MDP
 			    }
 			}
 			createKernels();				//create kernels based on the improved regions generated
-			
+			createXBCVector();
 		    
 			// Close file
 			in.close();
@@ -536,6 +612,52 @@ public class MDP
 	* where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.
 	* 
 	**/
+	public void createXBCVector()
+	{
+		for(Map.Entry<String, LinkedHashSet<String>> ki : kernels.entrySet())
+		{
+			LinkedHashSet<String> xSet=new LinkedHashSet<String>();
+			LinkedHashMap<String, Float> bMap=new LinkedHashMap<String, Float>();
+			LinkedHashMap<String, Float> cMap=new LinkedHashMap<String, Float>();
+			for(String stateKi : ki.getValue())
+			{
+				State s=states.get(stateKi);
+				bMap.put(stateKi, s.getInitialProbability());
+				for(Map.Entry<String, Action> action : s.getActionCounts().entrySet())
+				{
+					xSet.add(stateKi+action.getKey());
+					cMap.put(stateKi+action.getKey(),action.getValue().getReward());
+				}
+			}
+			if(!xSet.isEmpty())
+				xVector.put("x"+ki.getKey().substring(1), xSet);
+			if(!bMap.isEmpty())
+				bVector.put("b"+ki.getKey().substring(1), bMap);
+			if(!cMap.isEmpty())
+				cVector.put("c"+ki.getKey().substring(1), cMap);
+		}
+		System.out.println("X Vector ");
+		for(Map.Entry<String, LinkedHashSet<String>> xSet : xVector.entrySet())
+		{
+			System.out.println(xSet.getKey());
+			for(String value : xSet.getValue())
+			{
+				System.out.print(value+ "\t");
+			}
+			System.out.println();
+		}
+		System.out.println("B Vector ");
+		for(Map.Entry<String, LinkedHashMap<String,Float>> bMap : bVector.entrySet())
+		{
+			System.out.println(bMap.getKey());
+			for(Map.Entry<String, Float> value : bMap.getValue().entrySet())
+			{
+				System.out.print(value+ "\t");
+			}
+			System.out.println();
+		}
+	}
+	
 	public void createLP()
 	{
 		//create f(i,a) = (prob of taking action a from state i) for each state
@@ -564,7 +686,7 @@ public class MDP
 						for(String stateKj : kj.getValue())
 						{
 							State s= states.get(stateKj);
-							for(Map.Entry<String, Integer> action : s.getActionCounts().entrySet())
+							for(Map.Entry<String, Action> action : s.getActionCounts().entrySet())
 							{
 								/*System.out.println("\n\nstateKi : "+stateKi);
 								System.out.println("stateKj : "+stateKj);
@@ -574,13 +696,13 @@ public class MDP
 								//n++;
 								if(stateKi.equals(stateKj)) 
 								{
-									//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
-									temp.put(stateKi+action.getKey()+stateKj,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
+									//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKj+action.getKey()+stateKi);
+									temp.put(stateKj+action.getKey()+stateKi,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
 								}
 								else
 								{
-									//System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
-									temp.put(stateKi+action.getKey()+stateKj,(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
+									//System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKj+action.getKey()+stateKi);
+									temp.put(stateKj+action.getKey()+stateKi,(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
 								}
 							}
 						}
@@ -590,14 +712,6 @@ public class MDP
 						A.getMatrixHolder().put((ki.getKey()+kj.getKey()), temp);
 					}
 				}
-/*				if( !ki.getKey().equals("k0") && !kj.getKey().equals("k0") && !ki.getKey().equals(kj.getKey()))
-				{
-
-				}
-				else
-				{
-				}*/
-				
 			}
 			//System.out.println();
 		}
@@ -612,65 +726,6 @@ public class MDP
 		System.out.println(count*states.size());*/
 	}
 	
-	/** 
-	* @brief This method is used to create A sparse matrix which is used to solve the MDP via LP
-	* 
-	* This method creates a SparseMatrixHolder to hold the A matrix for the LP of the MDP. The SparseMatrixHolder is created such that it has a map of maps,
-	* where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.<br>
-	* This method replaces createLP() method as an optimized method.
-	* 
-	**/
-	public void createLPQuick()
-	{
-
-		//create f(i,a) = (prob of taking action a from state i) for each state
-		//done under State-action count
-		//f(i,a)=(State(i).getActionCounts().getValue(key=a))/(State(i).getActionCounts.count());
-		
-		//create pij(a) = (prob of reaching state j from i on taking action i) for each state
-		//pij(a) = State(i).getTransitions().getTransitions(j) where action=a;
-		
-		//create pfij(a) = sum over all a in A(i) (f(i,a)*pfij(a))\
-				
-		A=new SparseMatrixHolder();
-		
-		for(Map.Entry<String, LinkedHashSet<String>> ki : kernels.entrySet())
-		{
-			for(Map.Entry<String, LinkedHashSet<String>> kj : kernels.entrySet())
-			{
-				LinkedHashMap<String,Float> temp=new LinkedHashMap<String,Float>();
-				for(String stateKi : ki.getValue())
-				{
-					for(String stateKj : kj.getValue())
-					{
-						State s= states.get(stateKj);
-						for(Map.Entry<String, Integer> action : s.getActionCounts().entrySet())
-						{
-							/*System.out.println("\n\nstateKi : "+stateKi);
-							System.out.println("stateKj : "+stateKj);
-							System.out.println("Action : "+action.getKey());
-							System.out.println("transition from "+s.getLabel()+" to "+stateKi);*/
-							if(stateKi.equals(stateKj))
-							{
-								//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
-								temp.put(stateKi+action.getKey()+stateKj,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
-							}
-							else
-							{
-								//System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKi+action.getKey()+stateKj);
-								temp.put(stateKi+action.getKey()+stateKj,(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
-							}
-						}
-					}
-				}
-				if(!temp.isEmpty())
-				{
-					A.getMatrixHolder().put((ki.getKey()+kj.getKey()), temp);
-				}
-			}
-		}		
-	
-	}
 	/** 
 	* @brief This method returns the number of integer count of the number of state-action pairs in a kernel.
 	* 
@@ -691,7 +746,7 @@ public class MDP
 	**/
 	public void createAMatrix()
 	{
-		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
+		ArrayList<MLArray> AList = new ArrayList<MLArray>();	// List that has to be added to the Mat file
 		for(Map.Entry<String, LinkedHashMap<String, Float>> matrix : A.getMatrixHolder().entrySet() )
 		{
 			String Ki,Kj;
@@ -717,11 +772,11 @@ public class MDP
 				}
 			}
 			MLDouble mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2),src);
-			list.add(mlDouble);
+			AList.add(mlDouble);
 		}
 		try 
 		{
-			new MatFileWriter( "A.mat", list );
+			new MatFileWriter( "A.mat", AList );
 		} 
 		catch (IOException e) 
 		{
@@ -735,6 +790,7 @@ public class MDP
 	public void createSparseAMatrix()
 	{
 		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
+		
 		for(Map.Entry<String, LinkedHashMap<String, Float>> matrix : A.getMatrixHolder().entrySet() )
 		{
 			String Ki,Kj;
@@ -750,11 +806,12 @@ public class MDP
 					size++;
 				}
 			}
-			double[] rowVector=new double[size];
+			double rowVector[]=new double[size];
 			double columnVector[]=new double[size];
 			double valueVector[]=new double[size];
 			double rowCount[]=new double[1];
 			double columnCount[]=new double[1];
+			String xVector[]=new String [size];
 			rowCount[0]=m;
 			columnCount[0]=n;
 			int i,j,k;
@@ -770,6 +827,7 @@ public class MDP
 					valueVector[k]= entry.getValue();
 					//System.out.println(valueVector[k]+" "+rowVector[k]+" "+columnVector[k]);
 					//System.out.println(entry.getValue()+" "+i+" "+j+" "+k);
+					xVector[k]=entry.getKey().substring(0,3);
 					k++;
 
 				}
@@ -783,7 +841,7 @@ public class MDP
 					i++;
 				}
 			}		
-			/*System.out.println("A"+Ki.substring(1,2)+Kj.substring(1,2) + " m*n = "+(m*n)+" k = "+k);
+			System.out.println("A"+Ki.substring(1,2)+Kj.substring(1,2) + " m*n = "+(m*n)+" k = "+k);
 			System.out.print("Row Vector : ");
 			for(int l=0;l<k;l++)
 			{
@@ -801,7 +859,13 @@ public class MDP
 			{
 				System.out.print(valueVector[l]+"\t");
 			}
-			System.out.println();*/
+			System.out.println();
+			System.out.print("X Vector : ");
+			for(int l=0;l<k;l++)
+			{
+				System.out.print(xVector[l]+"\t");
+			}
+			System.out.println();
 			//System.out.println("m * n = "+(m*n)+"\t k = "+k);
 			MLDouble mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"i",rowVector,1);
 			list.add(mlDouble);
@@ -813,10 +877,41 @@ public class MDP
 			list.add(mlDouble);
 			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"col",columnCount,1);
 			list.add(mlDouble);
+			
+/*			for(Map.Entry<String, LinkedHashSet<String>> xSet : this.xVector.entrySet())
+			{
+				for(String value : xSet.getValue())
+				{
+					System.out.print(value+ "\t");
+				}
+			}*/
+			for(Map.Entry<String, LinkedHashMap<String,Float>> bMap : bVector.entrySet())
+			{
+				double bVector[]=new double[bMap.getValue().size()];
+				i=0;
+				for(Map.Entry<String, Float> value : bMap.getValue().entrySet())
+				{
+					bVector[i++]=value.getValue();
+				}
+				mlDouble = new MLDouble("B"+bMap.getKey().substring(1,2),bVector,1);
+				list.add(mlDouble);
+			}
+			for(Map.Entry<String, LinkedHashMap<String,Float>> cMap : cVector.entrySet())
+			{
+				double cVector[]=new double[cMap.getValue().size()];
+				i=0;
+				for(Map.Entry<String, Float> value : cMap.getValue().entrySet())
+				{
+					cVector[i++]=value.getValue();
+				}
+				mlDouble = new MLDouble("C"+cMap.getKey().substring(1,2),cVector,1);
+				list.add(mlDouble);
+			}
+			
 		}
 		try 
 		{
-			new MatFileWriter( "A.mat", list );
+			new MatFileWriter( "A_B_C_X.mat", list );
 		} 
 		catch (IOException e) 
 		{

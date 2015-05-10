@@ -178,9 +178,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab2c6f9846cf9362a472f66e1c7fe4117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ab2c6f9846cf9362a472f66e1c7fe4117">createLP</a> ()</td></tr>
 <tr class="memdesc:ab2c6f9846cf9362a472f66e1c7fe4117"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a cpoy constructor of the <a class="el" href="classmdp_1_1core_1_1_m_d_p.html" title="This class contains the source code for the MDP bean and Util methods. ">MDP</a> class s.  <a href="#ab2c6f9846cf9362a472f66e1c7fe4117">More...</a><br /></td></tr>
 <tr class="separator:ab2c6f9846cf9362a472f66e1c7fe4117"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa964b87d7f54679adc323141cd99bebc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmdp_1_1core_1_1_m_d_p.html#aa964b87d7f54679adc323141cd99bebc">createLPQuick</a> ()</td></tr>
-<tr class="memdesc:aa964b87d7f54679adc323141cd99bebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to create A sparse matrix which is used to solve the <a class="el" href="classmdp_1_1core_1_1_m_d_p.html" title="This class contains the source code for the MDP bean and Util methods. ">MDP</a> via LP.  <a href="#aa964b87d7f54679adc323141cd99bebc">More...</a><br /></td></tr>
-<tr class="separator:aa964b87d7f54679adc323141cd99bebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a597956fa2391fdd8ff1a3266d5e48688"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a597956fa2391fdd8ff1a3266d5e48688">getStateActionPairCount</a> (String kernel)</td></tr>
 <tr class="memdesc:a597956fa2391fdd8ff1a3266d5e48688"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the number of integer count of the number of state-action pairs in a kernel.  <a href="#a597956fa2391fdd8ff1a3266d5e48688">More...</a><br /></td></tr>
 <tr class="separator:a597956fa2391fdd8ff1a3266d5e48688"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -324,7 +321,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00202">202</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
 
-<p>References <a class="el" href="_m_d_p_8java_source.html#l00428">mdp.core.MDP.createKernels()</a>, <a class="el" href="_planar_separator_8java_source.html#l00143">mdp.util.PlanarSeparator.DFSDecomposition()</a>, <a class="el" href="_state_8java_source.html#l00170">mdp.core.State.getActionCounts()</a>, <a class="el" href="_state_8java_source.html#l00096">mdp.core.State.getLabel()</a>, <a class="el" href="_planar_separator_8java_source.html#l00055">mdp.util.PlanarSeparator.getLayers()</a>, <a class="el" href="_state_8java_source.html#l00140">mdp.core.State.getTransitions()</a>, <a class="el" href="_planar_separator_8java_source.html#l00191">mdp.util.PlanarSeparator.improveDecomposition()</a>, <a class="el" href="_planar_separator_8java_source.html#l00083">mdp.util.PlanarSeparator.init()</a>, <a class="el" href="_m_d_p_8java_source.html#l00052">mdp.core.MDP.MDP()</a>, <a class="el" href="_transition_8java_source.html#l00088">mdp.core.Transition.toString()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00799">mdp.core.MDP.toString()</a>.</p>
+<p>References <a class="el" href="_m_d_p_8java_source.html#l00471">mdp.core.MDP.createKernels()</a>, <a class="el" href="_planar_separator_8java_source.html#l00143">mdp.util.PlanarSeparator.DFSDecomposition()</a>, <a class="el" href="_state_8java_source.html#l00170">mdp.core.State.getActionCounts()</a>, <a class="el" href="_state_8java_source.html#l00096">mdp.core.State.getLabel()</a>, <a class="el" href="_planar_separator_8java_source.html#l00055">mdp.util.PlanarSeparator.getLayers()</a>, <a class="el" href="_state_8java_source.html#l00140">mdp.core.State.getTransitions()</a>, <a class="el" href="_planar_separator_8java_source.html#l00191">mdp.util.PlanarSeparator.improveDecomposition()</a>, <a class="el" href="_planar_separator_8java_source.html#l00083">mdp.util.PlanarSeparator.init()</a>, <a class="el" href="_m_d_p_8java_source.html#l00052">mdp.core.MDP.MDP()</a>, <a class="el" href="_transition_8java_source.html#l00088">mdp.core.Transition.toString()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00810">mdp.core.MDP.toString()</a>.</p>
 
 <p>Referenced by <a class="el" href="_main_8java_source.html#l00057">mdp.main.Main.main()</a>.</p>
 
@@ -345,9 +342,9 @@ Private Attributes</h2></td></tr>
 
 <p>This method converts the SparseMatrixHolder A into a .Mat file. </p>
 
-<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00659">659</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
+<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00661">661</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
 
-<p>References <a class="el" href="_sparse_matrix_holder_8java_source.html#l00039">mdp.util.SparseMatrixHolder.getMatrixHolder()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00645">mdp.core.MDP.getStateActionPairCount()</a>.</p>
+<p>References <a class="el" href="_sparse_matrix_holder_8java_source.html#l00039">mdp.util.SparseMatrixHolder.getMatrixHolder()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00647">mdp.core.MDP.getStateActionPairCount()</a>.</p>
 
 </div>
 </div>
@@ -368,7 +365,7 @@ Private Attributes</h2></td></tr>
  But each state that has incoming transitions from any other region besides its own regions is removed from its original kernel and placed into a base kernel <b>K0</b>.<br />
  </p>
 
-<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00428">428</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
+<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00471">471</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
 
 <p>References <a class="el" href="_state_8java_source.html#l00140">mdp.core.State.getTransitions()</a>.</p>
 
@@ -393,34 +390,11 @@ Private Attributes</h2></td></tr>
 <p>This method is used to create A sparse matrix which is used to solve the <a class="el" href="classmdp_1_1core_1_1_m_d_p.html" title="This class contains the source code for the MDP bean and Util methods. ">MDP</a> via LP</p>
 <p>This method creates a SparseMatrixHolder to hold the A matrix for the LP of the <a class="el" href="classmdp_1_1core_1_1_m_d_p.html" title="This class contains the source code for the MDP bean and Util methods. ">MDP</a>. The SparseMatrixHolder is created such that it has a map of maps, where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix. </p>
 
-<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00532">532</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
+<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00575">575</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
 
-<p>References <a class="el" href="_state_8java_source.html#l00170">mdp.core.State.getActionCounts()</a>, and <a class="el" href="_sparse_matrix_holder_8java_source.html#l00039">mdp.util.SparseMatrixHolder.getMatrixHolder()</a>.</p>
+<p>References <a class="el" href="_state_8java_source.html#l00170">mdp.core.State.getActionCounts()</a>, <a class="el" href="_state_8java_source.html#l00096">mdp.core.State.getLabel()</a>, and <a class="el" href="_sparse_matrix_holder_8java_source.html#l00039">mdp.util.SparseMatrixHolder.getMatrixHolder()</a>.</p>
 
 <p>Referenced by <a class="el" href="_main_8java_source.html#l00057">mdp.main.Main.main()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa964b87d7f54679adc323141cd99bebc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void mdp.core.MDP.createLPQuick </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This method is used to create A sparse matrix which is used to solve the <a class="el" href="classmdp_1_1core_1_1_m_d_p.html" title="This class contains the source code for the MDP bean and Util methods. ">MDP</a> via LP. </p>
-<p>This method creates a SparseMatrixHolder to hold the A matrix for the LP of the <a class="el" href="classmdp_1_1core_1_1_m_d_p.html" title="This class contains the source code for the MDP bean and Util methods. ">MDP</a>. The SparseMatrixHolder is created such that it has a map of maps, where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.<br />
- This method replaces <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ab2c6f9846cf9362a472f66e1c7fe4117" title="This is a cpoy constructor of the MDP class s. ">createLP()</a> method as an optimized method. </p>
-
-<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00590">590</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
-
-<p>References <a class="el" href="_state_8java_source.html#l00170">mdp.core.State.getActionCounts()</a>, and <a class="el" href="_sparse_matrix_holder_8java_source.html#l00039">mdp.util.SparseMatrixHolder.getMatrixHolder()</a>.</p>
 
 </div>
 </div>
@@ -439,9 +413,9 @@ Private Attributes</h2></td></tr>
 
 <p>This method converts the SparseMatrixHolder A into a .Mat file with sparse matrix representation used in MATLAB. </p>
 
-<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00702">702</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
+<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00704">704</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
 
-<p>References <a class="el" href="_sparse_matrix_holder_8java_source.html#l00039">mdp.util.SparseMatrixHolder.getMatrixHolder()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00645">mdp.core.MDP.getStateActionPairCount()</a>.</p>
+<p>References <a class="el" href="_sparse_matrix_holder_8java_source.html#l00039">mdp.util.SparseMatrixHolder.getMatrixHolder()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00647">mdp.core.MDP.getStateActionPairCount()</a>.</p>
 
 <p>Referenced by <a class="el" href="_main_8java_source.html#l00057">mdp.main.Main.main()</a>.</p>
 
@@ -595,9 +569,9 @@ Private Attributes</h2></td></tr>
 
 <p>This method returns the number of integer count of the number of state-action pairs in a kernel. </p>
 
-<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00645">645</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
+<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00647">647</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
 
-<p>Referenced by <a class="el" href="_m_d_p_8java_source.html#l00659">mdp.core.MDP.createAMatrix()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00702">mdp.core.MDP.createSparseAMatrix()</a>.</p>
+<p>Referenced by <a class="el" href="_m_d_p_8java_source.html#l00661">mdp.core.MDP.createAMatrix()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00704">mdp.core.MDP.createSparseAMatrix()</a>.</p>
 
 </div>
 </div>
@@ -769,7 +743,7 @@ Private Attributes</h2></td></tr>
 
 <p>This method converts the <a class="el" href="classmdp_1_1core_1_1_m_d_p.html" title="This class contains the source code for the MDP bean and Util methods. ">MDP</a> object into a String object for convinient displaying on the console/GUI. </p>
 
-<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00799">799</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
+<p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00810">810</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
 
 <p>References <a class="el" href="_m_d_p_8java_source.html#l00044">mdp.core.MDP.actions</a>.</p>
 
@@ -822,7 +796,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_m_d_p_8java_source.html#l00044">44</a> of file <a class="el" href="_m_d_p_8java_source.html">MDP.java</a>.</p>
 
-<p>Referenced by <a class="el" href="_m_d_p_8java_source.html#l00143">mdp.core.MDP.getActions()</a>, <a class="el" href="_m_d_p_8java_source.html#l00065">mdp.core.MDP.MDP()</a>, <a class="el" href="_m_d_p_8java_source.html#l00150">mdp.core.MDP.setActions()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00799">mdp.core.MDP.toString()</a>.</p>
+<p>Referenced by <a class="el" href="_m_d_p_8java_source.html#l00143">mdp.core.MDP.getActions()</a>, <a class="el" href="_m_d_p_8java_source.html#l00065">mdp.core.MDP.MDP()</a>, <a class="el" href="_m_d_p_8java_source.html#l00150">mdp.core.MDP.setActions()</a>, and <a class="el" href="_m_d_p_8java_source.html#l00810">mdp.core.MDP.toString()</a>.</p>
 
 </div>
 </div>
@@ -955,7 +929,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemdp.html">mdp</a></li><li class="navelem"><a class="el" href="namespacemdp_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classmdp_1_1core_1_1_m_d_p.html">MDP</a></li>
-    <li class="footer">Generated on Sun Apr 19 2015 16:34:46 for MDPDecomposition by
+    <li class="footer">Generated on Sun May 10 2015 14:30:36 for MDPDecomposition by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

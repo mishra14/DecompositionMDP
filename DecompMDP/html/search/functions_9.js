@@ -4,7 +4,7 @@ var searchData=
   ['setaction',['setAction',['../classmdp_1_1core_1_1_transition.html#a1113b616a2d05a3d7c79764a55c385b9',1,'mdp::core::Transition']]],
   ['setactioncounts',['setActionCounts',['../classmdp_1_1core_1_1_state.html#aab391f1b09decdee9e3b74a51ad31520',1,'mdp::core::State']]],
   ['setactions',['setActions',['../classmdp_1_1core_1_1_m_d_p.html#a43bd240ed95657570b53b11bed0fa4a5',1,'mdp::core::MDP']]],
-  ['setinital',['setInital',['../classmdp_1_1core_1_1_state.html#a5bee145159ba3ab3bf501682a7d98d01',1,'mdp::core::State']]],
+  ['setinital',['setInital',['../classmdp_1_1core_1_1_state.html#ae2b8a26846dfde87eac8dc536b171355',1,'mdp::core::State']]],
   ['setkernellabel',['setKernelLabel',['../classmdp_1_1core_1_1_state.html#ab89e4fdb360297c41b3f5ca27a1978fc',1,'mdp::core::State']]],
   ['setkernels',['setKernels',['../classmdp_1_1core_1_1_m_d_p.html#ad087ba3ecc5aac90d25b9022882ebdeb',1,'mdp::core::MDP']]],
   ['setlabel',['setLabel',['../classmdp_1_1core_1_1_state.html#a0757d224557cb46cd981fd527545b2a9',1,'mdp::core::State']]],
@@ -20,5 +20,5 @@ var searchData=
   ['settostate',['setToState',['../classmdp_1_1core_1_1_transition.html#a33f909b166d36a9b648df8ee1f3c8abd',1,'mdp::core::Transition']]],
   ['settransitions',['setTransitions',['../classmdp_1_1core_1_1_state.html#af9bbbf26a131aa1f43d7fdf7003b5de1',1,'mdp::core::State']]],
   ['sparsematrixholder',['SparseMatrixHolder',['../classmdp_1_1util_1_1_sparse_matrix_holder.html#a684bbebe963a3cfcb5cb6b32907c3260',1,'mdp::util::SparseMatrixHolder']]],
-  ['state',['State',['../classmdp_1_1core_1_1_state.html#ab15662127acf94e1bd1b6890310568e7',1,'mdp.core.State.State(String label, LinkedHashMap&lt; String, Transition &gt; transitions, boolean isInital)'],['../classmdp_1_1core_1_1_state.html#aee42d71447b8e1df2417e335ef3be5fd',1,'mdp.core.State.State(String label, LinkedHashMap&lt; String, Transition &gt; transitions, boolean isInital, LinkedHashMap&lt; String, Integer &gt; actionCounts, String regionLabel, String kernelLabel)'],['../classmdp_1_1core_1_1_state.html#a145a71cda6b5e67d05745c17dd7fc995',1,'mdp.core.State.State(String label)'],['../classmdp_1_1core_1_1_state.html#aeea557e31f354038b7aa0633c5236738',1,'mdp.core.State.State(State state)']]]
+  ['state',['State',['../classmdp_1_1core_1_1_state.html#a7454bf82c89c8fbcf1133e8450af5042',1,'mdp.core.State.State(String label, LinkedHashMap&lt; String, Transition &gt; transitions, float initialProbability)'],['../classmdp_1_1core_1_1_state.html#a34f8a7e42ef506e40daa65bce24f258d',1,'mdp.core.State.State(String label, LinkedHashMap&lt; String, Transition &gt; transitions, float initialProbability, LinkedHashMap&lt; String, Integer &gt; actionCounts, String regionLabel, String kernelLabel)'],['../classmdp_1_1core_1_1_state.html#a145a71cda6b5e67d05745c17dd7fc995',1,'mdp.core.State.State(String label)'],['../classmdp_1_1core_1_1_state.html#aeea557e31f354038b7aa0633c5236738',1,'mdp.core.State.State(State state)']]]
 ];
