@@ -1,5 +1,13 @@
 package mdp.core;
 
+/** 
+* @class Action 
+* 
+* @brief This class contains the source code for the Action bean
+* 
+**/
+
+
 public class Action 
 {
 	private int count;

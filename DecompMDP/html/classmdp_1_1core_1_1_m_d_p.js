@@ -8,6 +8,7 @@ var classmdp_1_1core_1_1_m_d_p =
     [ "createKernels", "classmdp_1_1core_1_1_m_d_p.html#aa3d7c9f10aff03c993322d3ff7129dfb", null ],
     [ "createLP", "classmdp_1_1core_1_1_m_d_p.html#ab2c6f9846cf9362a472f66e1c7fe4117", null ],
     [ "createSparseAMatrix", "classmdp_1_1core_1_1_m_d_p.html#ab378c6028d8b83259ee5f630736d183e", null ],
+    [ "createXBCVector", "classmdp_1_1core_1_1_m_d_p.html#a669984bc260c8c4fb4c600fb7260030c", null ],
     [ "getA", "classmdp_1_1core_1_1_m_d_p.html#a7a940b009dbcc9f3e19794b7b315f47f", null ],
     [ "getActions", "classmdp_1_1core_1_1_m_d_p.html#a0e455b23780dd74403e1a610c2262652", null ],
     [ "getGamma", "classmdp_1_1core_1_1_m_d_p.html#af18af128ccbdc7b958e438660abe967c", null ],
@@ -25,9 +26,12 @@ var classmdp_1_1core_1_1_m_d_p =
     [ "toString", "classmdp_1_1core_1_1_m_d_p.html#aeeeba49692fd6972b6833f511e07621b", null ],
     [ "A", "classmdp_1_1core_1_1_m_d_p.html#ac75a611d9f5186893b70b8072bfa0804", null ],
     [ "actions", "classmdp_1_1core_1_1_m_d_p.html#a9da06680f73a486a6ee65c8208151e70", null ],
+    [ "bVector", "classmdp_1_1core_1_1_m_d_p.html#a16eff8bad86554cc9f97f674b1625c66", null ],
+    [ "cVector", "classmdp_1_1core_1_1_m_d_p.html#a80af7879a4ff33ac43034eaa934c480f", null ],
     [ "gamma", "classmdp_1_1core_1_1_m_d_p.html#ab240c1d97d39d6f66cff0c8d06a57a69", null ],
     [ "kernels", "classmdp_1_1core_1_1_m_d_p.html#ac185a95b0c9eb78b9d5a00b214696191", null ],
     [ "regionCount", "classmdp_1_1core_1_1_m_d_p.html#ae2644b9387e09a5c2ab096c0bb519f8d", null ],
     [ "regions", "classmdp_1_1core_1_1_m_d_p.html#a79761e7b3bb0d7a083bee7183c992893", null ],
-    [ "states", "classmdp_1_1core_1_1_m_d_p.html#a62bf7674d88162db7d00cfd82603b24f", null ]
+    [ "states", "classmdp_1_1core_1_1_m_d_p.html#a62bf7674d88162db7d00cfd82603b24f", null ],
+    [ "xVector", "classmdp_1_1core_1_1_m_d_p.html#a073e9c6d6e349ae034c3cf220d754324", null ]
 ];

@@ -98,7 +98,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
-      <li class="current"><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li class="current"><a href="#index_x"><span>x</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -137,11 +138,14 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>A
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ac75a611d9f5186893b70b8072bfa0804">mdp.core.MDP</a>
 </li>
+<li>Action()
+: <a class="el" href="classmdp_1_1core_1_1_action.html#ae776304d635d82a34178963ec012959c">mdp.core.Action</a>
+</li>
 <li>action
 : <a class="el" href="classmdp_1_1core_1_1_transition.html#ab7b1be5b4717075dfd6e40d62d2a25ca">mdp.core.Transition</a>
 </li>
 <li>actionCounts
-: <a class="el" href="classmdp_1_1core_1_1_state.html#a56e17de2fde7a7f4ee8b1491c11438d5">mdp.core.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a8c44f739b3fe71dd166fc6ab59087d4f">mdp.core.State</a>
 </li>
 <li>actions
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a9da06680f73a486a6ee65c8208151e70">mdp.core.MDP</a>
@@ -162,10 +166,16 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>buildFromFile()
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a0565cd0a84c836dd11ba0d13e1eb5ffb">mdp.core.MDP</a>
 </li>
+<li>bVector
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a16eff8bad86554cc9f97f674b1625c66">mdp.core.MDP</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>count
+: <a class="el" href="classmdp_1_1core_1_1_action.html#a3fd6370ee73fdac8ec8e84e12f02f261">mdp.core.Action</a>
+</li>
 <li>createAMatrix()
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#aab4fc6ad8c299f88d6619cfd059b3931">mdp.core.MDP</a>
 </li>
@@ -177,6 +187,12 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>createSparseAMatrix()
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ab378c6028d8b83259ee5f630736d183e">mdp.core.MDP</a>
+</li>
+<li>createXBCVector()
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a669984bc260c8c4fb4c600fb7260030c">mdp.core.MDP</a>
+</li>
+<li>cVector
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a80af7879a4ff33ac43034eaa934c480f">mdp.core.MDP</a>
 </li>
 </ul>
 
@@ -207,10 +223,13 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classmdp_1_1core_1_1_transition.html#aa326dda42cf7a74864153108cebf410e">mdp.core.Transition</a>
 </li>
 <li>getActionCounts()
-: <a class="el" href="classmdp_1_1core_1_1_state.html#a14947bea4d426d7b8665be0f07ed20c0">mdp.core.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#ac4ee428e57bd594d203de402e196cbba">mdp.core.State</a>
 </li>
 <li>getActions()
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a0e455b23780dd74403e1a610c2262652">mdp.core.MDP</a>
+</li>
+<li>getCount()
+: <a class="el" href="classmdp_1_1core_1_1_action.html#a2d864cc0d1815571004f7f4c15e47430">mdp.core.Action</a>
 </li>
 <li>getElementCount()
 : <a class="el" href="classmdp_1_1util_1_1_sparse_matrix_holder.html#a775e2b85bd7441c7ec315034644cfbdf">mdp.util.SparseMatrixHolder</a>
@@ -253,6 +272,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>getRegions()
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a59a4fec8be7362cdbb9cdfaf52a4d185">mdp.core.MDP</a>
+</li>
+<li>getReward()
+: <a class="el" href="classmdp_1_1core_1_1_action.html#a867d1be997c0e7452a555911f0dfabd4">mdp.core.Action</a>
 </li>
 <li>getSeenStates()
 : <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#ac3598afe245825249dbd664802be6227">mdp.util.PlanarSeparator</a>
@@ -330,6 +352,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>printActionCount()
+: <a class="el" href="classmdp_1_1core_1_1_state.html#ae39579d8d8329b02e53b38673f8af724">mdp.core.State</a>
+</li>
 <li>probability
 : <a class="el" href="classmdp_1_1core_1_1_transition.html#a59ef462524ddda89b23c6974461a3ad5">mdp.core.Transition</a>
 </li>
@@ -346,6 +371,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>regions
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a79761e7b3bb0d7a083bee7183c992893">mdp.core.MDP</a>
 </li>
+<li>reward
+: <a class="el" href="classmdp_1_1core_1_1_action.html#a6eb542e734aab31ad3c0af8eb7c6f92f">mdp.core.Action</a>
+</li>
 </ul>
 
 
@@ -360,10 +388,13 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classmdp_1_1core_1_1_transition.html#a1113b616a2d05a3d7c79764a55c385b9">mdp.core.Transition</a>
 </li>
 <li>setActionCounts()
-: <a class="el" href="classmdp_1_1core_1_1_state.html#aab391f1b09decdee9e3b74a51ad31520">mdp.core.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a38fcd3a67282bf66c86456ed88b065cf">mdp.core.State</a>
 </li>
 <li>setActions()
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a43bd240ed95657570b53b11bed0fa4a5">mdp.core.MDP</a>
+</li>
+<li>setCount()
+: <a class="el" href="classmdp_1_1core_1_1_action.html#a7b61c6ae38dbe01e17a62ee965c5eba0">mdp.core.Action</a>
 </li>
 <li>setInital()
 : <a class="el" href="classmdp_1_1core_1_1_state.html#ae2b8a26846dfde87eac8dc536b171355">mdp.core.State</a>
@@ -398,6 +429,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>setRegions()
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#ae1e690f17a3fd4af8cbf50c8d258f8c5">mdp.core.MDP</a>
 </li>
+<li>setReward()
+: <a class="el" href="classmdp_1_1core_1_1_action.html#a32a1af29ce7ea67f2776ffc9c17cb56b">mdp.core.Action</a>
+</li>
 <li>setSeenStates()
 : <a class="el" href="classmdp_1_1util_1_1_planar_separator.html#aabe861ae900f6aa09a2f0acbe14b1eae">mdp.util.PlanarSeparator</a>
 </li>
@@ -414,7 +448,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classmdp_1_1util_1_1_sparse_matrix_holder.html#a684bbebe963a3cfcb5cb6b32907c3260">mdp.util.SparseMatrixHolder</a>
 </li>
 <li>State()
-: <a class="el" href="classmdp_1_1core_1_1_state.html#aeea557e31f354038b7aa0633c5236738">mdp.core.State</a>
+: <a class="el" href="classmdp_1_1core_1_1_state.html#a7454bf82c89c8fbcf1133e8450af5042">mdp.core.State</a>
 </li>
 <li>states
 : <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a62bf7674d88162db7d00cfd82603b24f">mdp.core.MDP</a>
@@ -439,12 +473,19 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classmdp_1_1core_1_1_state.html#a3c9b563199f7e235fe083b0d16da8cf3">mdp.core.State</a>
 </li>
 </ul>
+
+
+<h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
+<li>xVector
+: <a class="el" href="classmdp_1_1core_1_1_m_d_p.html#a073e9c6d6e349ae034c3cf220d754324">mdp.core.MDP</a>
+</li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 10 2015 14:30:36 for MDPDecomposition by
+    <li class="footer">Generated on Thu May 14 2015 14:06:36 for MDPDecomposition by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

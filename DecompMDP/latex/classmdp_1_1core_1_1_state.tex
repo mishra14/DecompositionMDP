@@ -10,7 +10,7 @@ This class contains the source code for the \hyperlink{classmdp_1_1core_1_1_stat
 \item 
 \hyperlink{classmdp_1_1core_1_1_state_a7454bf82c89c8fbcf1133e8450af5042}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label}, Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions}, float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability})
 \begin{DoxyCompactList}\small\item\em This is a partial paraterized constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. \end{DoxyCompactList}\item 
-\hyperlink{classmdp_1_1core_1_1_state_a34f8a7e42ef506e40daa65bce24f258d}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label}, Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions}, float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability}, Linked\+Hash\+Map$<$ String, Integer $>$ \hyperlink{classmdp_1_1core_1_1_state_a56e17de2fde7a7f4ee8b1491c11438d5}{action\+Counts}, String \hyperlink{classmdp_1_1core_1_1_state_aa6f24dca5cb78d028e99f69b9e6ccb2c}{region\+Label}, String \hyperlink{classmdp_1_1core_1_1_state_ac7ca184df7a0ec4141766692290c18ab}{kernel\+Label})
+\hyperlink{classmdp_1_1core_1_1_state_a5e137332befa3d6f57255172bf40ac97}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label}, Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transition} $>$ \hyperlink{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}{transitions}, float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability}, Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_action}{Action} $>$ \hyperlink{classmdp_1_1core_1_1_state_a8c44f739b3fe71dd166fc6ab59087d4f}{action\+Counts}, String \hyperlink{classmdp_1_1core_1_1_state_aa6f24dca5cb78d028e99f69b9e6ccb2c}{region\+Label}, String \hyperlink{classmdp_1_1core_1_1_state_ac7ca184df7a0ec4141766692290c18ab}{kernel\+Label})
 \begin{DoxyCompactList}\small\item\em This is a complete paraterized constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. \end{DoxyCompactList}\item 
 \hyperlink{classmdp_1_1core_1_1_state_a145a71cda6b5e67d05745c17dd7fc995}{State} (String \hyperlink{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}{label})
 \begin{DoxyCompactList}\small\item\em This is a default constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. \end{DoxyCompactList}\item 
@@ -36,16 +36,18 @@ float \hyperlink{classmdp_1_1core_1_1_state_adf2467261abc6074a16c27c339a24e8b}{g
 \begin{DoxyCompactList}\small\item\em This method checks if this \hyperlink{classmdp_1_1core_1_1_state}{State} is the initial state of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. \end{DoxyCompactList}\item 
 void \hyperlink{classmdp_1_1core_1_1_state_ae2b8a26846dfde87eac8dc536b171355}{set\+Inital} (float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability})
 \begin{DoxyCompactList}\small\item\em This method sets this \hyperlink{classmdp_1_1core_1_1_state}{State} as the initial state of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. \end{DoxyCompactList}\item 
-Map$<$ String, Integer $>$ \hyperlink{classmdp_1_1core_1_1_state_a14947bea4d426d7b8665be0f07ed20c0}{get\+Action\+Counts} ()
+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_action}{Action} $>$ \hyperlink{classmdp_1_1core_1_1_state_ac4ee428e57bd594d203de402e196cbba}{get\+Action\+Counts} ()
 \begin{DoxyCompactList}\small\item\em This method returns the map of Key=action and Value=number of \hyperlink{classmdp_1_1core_1_1_transition}{Transition} with that action. \end{DoxyCompactList}\item 
-void \hyperlink{classmdp_1_1core_1_1_state_aab391f1b09decdee9e3b74a51ad31520}{set\+Action\+Counts} (Linked\+Hash\+Map$<$ String, Integer $>$ \hyperlink{classmdp_1_1core_1_1_state_a56e17de2fde7a7f4ee8b1491c11438d5}{action\+Counts})
+void \hyperlink{classmdp_1_1core_1_1_state_a38fcd3a67282bf66c86456ed88b065cf}{set\+Action\+Counts} (Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_action}{Action} $>$ \hyperlink{classmdp_1_1core_1_1_state_a8c44f739b3fe71dd166fc6ab59087d4f}{action\+Counts})
 \begin{DoxyCompactList}\small\item\em This method sets the map of Key=action and Value=number of \hyperlink{classmdp_1_1core_1_1_transition}{Transition} with that action. \end{DoxyCompactList}\item 
 \hyperlink{classmdp_1_1core_1_1_transition}{Transition} \hyperlink{classmdp_1_1core_1_1_state_acc75ae62e5e0fe543bf49b616f88359c}{add\+Transition} (\hyperlink{classmdp_1_1core_1_1_transition}{Transition} t)
 \begin{DoxyCompactList}\small\item\em This method adds a \hyperlink{classmdp_1_1core_1_1_transition}{Transition} to the \hyperlink{classmdp_1_1core_1_1_transition}{Transition} Map of this \hyperlink{classmdp_1_1core_1_1_state}{State}. \end{DoxyCompactList}\item 
 Set$<$ String $>$ \hyperlink{classmdp_1_1core_1_1_state_afa42873a5a6554333a18a052ec52f59e}{get\+Next\+States} ()
 \begin{DoxyCompactList}\small\item\em This is a default constructor of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} class. \end{DoxyCompactList}\item 
+String \hyperlink{classmdp_1_1core_1_1_state_ae39579d8d8329b02e53b38673f8af724}{print\+Action\+Count} ()
+\begin{DoxyCompactList}\small\item\em This method is used to print the data structure that holds the action counts. \end{DoxyCompactList}\item 
 String \hyperlink{classmdp_1_1core_1_1_state_a4118e0f9a6d4b0b3cc32a3f0250f7bc9}{to\+String} ()
-\begin{DoxyCompactList}\small\item\em This method converts the S\+Tate object to a String for displaying on the console/\+G\+U\+I. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This method converts the \hyperlink{classmdp_1_1core_1_1_state}{State} object to a String for displaying on the console/\+G\+U\+I. \end{DoxyCompactList}\item 
 int \hyperlink{classmdp_1_1core_1_1_state_aad74bf43336ba40cc3555f15387219d4}{hash\+Code} ()
 \begin{DoxyCompactList}\small\item\em This method is used to compare two \hyperlink{classmdp_1_1core_1_1_state}{State} objects. \end{DoxyCompactList}\item 
 boolean \hyperlink{classmdp_1_1core_1_1_state_adfe8841b55dcba54efd73e50f47b3cfc}{equals} (Object obj)
@@ -59,7 +61,7 @@ Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_transition}{Transit
 \item 
 float \hyperlink{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}{initial\+Probability}
 \item 
-Linked\+Hash\+Map$<$ String, Integer $>$ \hyperlink{classmdp_1_1core_1_1_state_a56e17de2fde7a7f4ee8b1491c11438d5}{action\+Counts}
+Linked\+Hash\+Map$<$ String, \hyperlink{classmdp_1_1core_1_1_action}{Action} $>$ \hyperlink{classmdp_1_1core_1_1_state_a8c44f739b3fe71dd166fc6ab59087d4f}{action\+Counts}
 \item 
 String \hyperlink{classmdp_1_1core_1_1_state_aa6f24dca5cb78d028e99f69b9e6ccb2c}{region\+Label}
 \item 
@@ -70,7 +72,7 @@ String \hyperlink{classmdp_1_1core_1_1_state_ac7ca184df7a0ec4141766692290c18ab}{
 \subsection{Detailed Description}
 This class contains the source code for the \hyperlink{classmdp_1_1core_1_1_state}{State} bean and Util methods. 
 
-Definition at line 28 of file State.\+java.
+Definition at line 27 of file State.\+java.
 
 
 
@@ -90,7 +92,7 @@ This is a partial paraterized constructor of the \hyperlink{classmdp_1_1core_1_1
 
 
 
-Definition at line 40 of file State.\+java.
+Definition at line 39 of file State.\+java.
 
 
 
@@ -100,25 +102,25 @@ References mdp.\+core.\+State.\+initial\+Probability, mdp.\+core.\+State.\+label
 
 Referenced by mdp.\+core.\+State.\+equals().
 
-\hypertarget{classmdp_1_1core_1_1_state_a34f8a7e42ef506e40daa65bce24f258d}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!State@{State}}
+\hypertarget{classmdp_1_1core_1_1_state_a5e137332befa3d6f57255172bf40ac97}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!State@{State}}
 \index{State@{State}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
 \subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}mdp.\+core.\+State.\+State (
 \begin{DoxyParamCaption}
 \item[{String}]{label, }
 \item[{Linked\+Hash\+Map$<$ String, {\bf Transition} $>$}]{transitions, }
 \item[{float}]{initial\+Probability, }
-\item[{Linked\+Hash\+Map$<$ String, Integer $>$}]{action\+Counts, }
+\item[{Linked\+Hash\+Map$<$ String, {\bf Action} $>$}]{action\+Counts, }
 \item[{String}]{region\+Label, }
 \item[{String}]{kernel\+Label}
 \end{DoxyParamCaption}
-)}\label{classmdp_1_1core_1_1_state_a34f8a7e42ef506e40daa65bce24f258d}
+)}\label{classmdp_1_1core_1_1_state_a5e137332befa3d6f57255172bf40ac97}
 
 
 This is a complete paraterized constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} class. 
 
 
 
-Definition at line 54 of file State.\+java.
+Definition at line 53 of file State.\+java.
 
 
 
@@ -137,7 +139,7 @@ This is a default constructor of the \hyperlink{classmdp_1_1core_1_1_state}{Stat
 
 
 
-Definition at line 68 of file State.\+java.
+Definition at line 67 of file State.\+java.
 
 
 
@@ -156,7 +158,7 @@ This is a copy constructor of the \hyperlink{classmdp_1_1core_1_1_state}{State} 
 
 
 
-Definition at line 82 of file State.\+java.
+Definition at line 81 of file State.\+java.
 
 
 
@@ -178,7 +180,7 @@ This method adds a \hyperlink{classmdp_1_1core_1_1_transition}{Transition} to th
 
 
 
-Definition at line 184 of file State.\+java.
+Definition at line 183 of file State.\+java.
 
 
 
@@ -197,26 +199,26 @@ This method is used to check if two \hyperlink{classmdp_1_1core_1_1_state}{State
 
 
 
-Definition at line 285 of file State.\+java.
+Definition at line 298 of file State.\+java.
 
 
 
 References mdp.\+core.\+State.\+action\+Counts, mdp.\+core.\+State.\+initial\+Probability, mdp.\+core.\+State.\+kernel\+Label, mdp.\+core.\+State.\+label, mdp.\+core.\+State.\+region\+Label, mdp.\+core.\+State.\+State(), and mdp.\+core.\+State.\+transitions.
 
-\hypertarget{classmdp_1_1core_1_1_state_a14947bea4d426d7b8665be0f07ed20c0}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Action\+Counts@{get\+Action\+Counts}}
+\hypertarget{classmdp_1_1core_1_1_state_ac4ee428e57bd594d203de402e196cbba}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Action\+Counts@{get\+Action\+Counts}}
 \index{get\+Action\+Counts@{get\+Action\+Counts}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
-\subsubsection[{get\+Action\+Counts}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Integer$>$ mdp.\+core.\+State.\+get\+Action\+Counts (
+\subsubsection[{get\+Action\+Counts}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, {\bf Action}$>$ mdp.\+core.\+State.\+get\+Action\+Counts (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classmdp_1_1core_1_1_state_a14947bea4d426d7b8665be0f07ed20c0}
+)}\label{classmdp_1_1core_1_1_state_ac4ee428e57bd594d203de402e196cbba}
 
 
 This method returns the map of Key=action and Value=number of \hyperlink{classmdp_1_1core_1_1_transition}{Transition} with that action. 
 
 
 
-Definition at line 170 of file State.\+java.
+Definition at line 169 of file State.\+java.
 
 
 
@@ -224,7 +226,7 @@ References mdp.\+core.\+State.\+action\+Counts.
 
 
 
-Referenced by mdp.\+core.\+M\+D\+P.\+build\+From\+File(), and mdp.\+core.\+M\+D\+P.\+create\+L\+P().
+Referenced by mdp.\+core.\+M\+D\+P.\+build\+From\+File(), mdp.\+core.\+M\+D\+P.\+create\+L\+P(), and mdp.\+core.\+M\+D\+P.\+create\+X\+B\+C\+Vector().
 
 \hypertarget{classmdp_1_1core_1_1_state_adf2467261abc6074a16c27c339a24e8b}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Initial\+Probability@{get\+Initial\+Probability}}
 \index{get\+Initial\+Probability@{get\+Initial\+Probability}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -239,11 +241,15 @@ This method checks if this \hyperlink{classmdp_1_1core_1_1_state}{State} is the 
 
 
 
-Definition at line 154 of file State.\+java.
+Definition at line 153 of file State.\+java.
 
 
 
 References mdp.\+core.\+State.\+initial\+Probability.
+
+
+
+Referenced by mdp.\+core.\+M\+D\+P.\+create\+X\+B\+C\+Vector().
 
 \hypertarget{classmdp_1_1core_1_1_state_a4711a7ffeeede0edcf72550c1eee52e2}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Kernel\+Label@{get\+Kernel\+Label}}
 \index{get\+Kernel\+Label@{get\+Kernel\+Label}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -258,7 +264,7 @@ This method is a getter for the Kernel Label to which the \hyperlink{classmdp_1_
 
 
 
-Definition at line 126 of file State.\+java.
+Definition at line 125 of file State.\+java.
 
 
 
@@ -277,7 +283,7 @@ This method is a getter for the \hyperlink{classmdp_1_1core_1_1_state}{State} la
 
 
 
-Definition at line 96 of file State.\+java.
+Definition at line 95 of file State.\+java.
 
 
 
@@ -285,7 +291,7 @@ References mdp.\+core.\+State.\+label.
 
 
 
-Referenced by mdp.\+core.\+M\+D\+P.\+add\+State(), mdp.\+core.\+M\+D\+P.\+build\+From\+File(), mdp.\+core.\+M\+D\+P.\+create\+L\+P(), and mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition().
+Referenced by mdp.\+core.\+M\+D\+P.\+add\+State(), mdp.\+core.\+M\+D\+P.\+build\+From\+File(), and mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition().
 
 \hypertarget{classmdp_1_1core_1_1_state_afa42873a5a6554333a18a052ec52f59e}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!get\+Next\+States@{get\+Next\+States}}
 \index{get\+Next\+States@{get\+Next\+States}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
@@ -300,7 +306,7 @@ This is a default constructor of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D
 
 
 
-Definition at line 236 of file State.\+java.
+Definition at line 235 of file State.\+java.
 
 
 
@@ -319,7 +325,7 @@ This method is a getter for the Region Label to which the \hyperlink{classmdp_1_
 
 
 
-Definition at line 112 of file State.\+java.
+Definition at line 111 of file State.\+java.
 
 
 
@@ -342,7 +348,7 @@ This method is a getter for the \hyperlink{classmdp_1_1core_1_1_transition}{Tran
 
 
 
-Definition at line 140 of file State.\+java.
+Definition at line 139 of file State.\+java.
 
 
 
@@ -365,22 +371,41 @@ This method is used to compare two \hyperlink{classmdp_1_1core_1_1_state}{State}
 
 
 
-Definition at line 263 of file State.\+java.
+Definition at line 276 of file State.\+java.
 
-\hypertarget{classmdp_1_1core_1_1_state_aab391f1b09decdee9e3b74a51ad31520}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!set\+Action\+Counts@{set\+Action\+Counts}}
+\hypertarget{classmdp_1_1core_1_1_state_ae39579d8d8329b02e53b38673f8af724}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!print\+Action\+Count@{print\+Action\+Count}}
+\index{print\+Action\+Count@{print\+Action\+Count}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
+\subsubsection[{print\+Action\+Count}]{\setlength{\rightskip}{0pt plus 5cm}String mdp.\+core.\+State.\+print\+Action\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_state_ae39579d8d8329b02e53b38673f8af724}
+
+
+This method is used to print the data structure that holds the action counts. 
+
+
+
+Definition at line 251 of file State.\+java.
+
+
+
+Referenced by mdp.\+core.\+State.\+to\+String().
+
+\hypertarget{classmdp_1_1core_1_1_state_a38fcd3a67282bf66c86456ed88b065cf}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!set\+Action\+Counts@{set\+Action\+Counts}}
 \index{set\+Action\+Counts@{set\+Action\+Counts}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
 \subsubsection[{set\+Action\+Counts}]{\setlength{\rightskip}{0pt plus 5cm}void mdp.\+core.\+State.\+set\+Action\+Counts (
 \begin{DoxyParamCaption}
-\item[{Linked\+Hash\+Map$<$ String, Integer $>$}]{action\+Counts}
+\item[{Linked\+Hash\+Map$<$ String, {\bf Action} $>$}]{action\+Counts}
 \end{DoxyParamCaption}
-)}\label{classmdp_1_1core_1_1_state_aab391f1b09decdee9e3b74a51ad31520}
+)}\label{classmdp_1_1core_1_1_state_a38fcd3a67282bf66c86456ed88b065cf}
 
 
 This method sets the map of Key=action and Value=number of \hyperlink{classmdp_1_1core_1_1_transition}{Transition} with that action. 
 
 
 
-Definition at line 177 of file State.\+java.
+Definition at line 176 of file State.\+java.
 
 
 
@@ -399,7 +424,7 @@ This method sets this \hyperlink{classmdp_1_1core_1_1_state}{State} as the initi
 
 
 
-Definition at line 162 of file State.\+java.
+Definition at line 161 of file State.\+java.
 
 
 
@@ -418,7 +443,7 @@ This method is a setter for the Kernel Label to which the \hyperlink{classmdp_1_
 
 
 
-Definition at line 133 of file State.\+java.
+Definition at line 132 of file State.\+java.
 
 
 
@@ -441,7 +466,7 @@ This method is a setter for the \hyperlink{classmdp_1_1core_1_1_state}{State} la
 
 
 
-Definition at line 104 of file State.\+java.
+Definition at line 103 of file State.\+java.
 
 
 
@@ -460,7 +485,7 @@ This method is a setter for the Region Label to which the \hyperlink{classmdp_1_
 
 
 
-Definition at line 119 of file State.\+java.
+Definition at line 118 of file State.\+java.
 
 
 
@@ -483,7 +508,7 @@ This method is a setter for the \hyperlink{classmdp_1_1core_1_1_transition}{Tran
 
 
 
-Definition at line 147 of file State.\+java.
+Definition at line 146 of file State.\+java.
 
 
 
@@ -498,21 +523,25 @@ References mdp.\+core.\+State.\+transitions.
 )}\label{classmdp_1_1core_1_1_state_a4118e0f9a6d4b0b3cc32a3f0250f7bc9}
 
 
-This method converts the S\+Tate object to a String for displaying on the console/\+G\+U\+I. 
+This method converts the \hyperlink{classmdp_1_1core_1_1_state}{State} object to a String for displaying on the console/\+G\+U\+I. 
 
 
 
-Definition at line 254 of file State.\+java.
+Definition at line 266 of file State.\+java.
+
+
+
+References mdp.\+core.\+State.\+print\+Action\+Count().
 
 
 
 \subsection{Member Data Documentation}
-\hypertarget{classmdp_1_1core_1_1_state_a56e17de2fde7a7f4ee8b1491c11438d5}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!action\+Counts@{action\+Counts}}
+\hypertarget{classmdp_1_1core_1_1_state_a8c44f739b3fe71dd166fc6ab59087d4f}{}\index{mdp\+::core\+::\+State@{mdp\+::core\+::\+State}!action\+Counts@{action\+Counts}}
 \index{action\+Counts@{action\+Counts}!mdp\+::core\+::\+State@{mdp\+::core\+::\+State}}
-\subsubsection[{action\+Counts}]{\setlength{\rightskip}{0pt plus 5cm}Linked\+Hash\+Map$<$String, Integer$>$ mdp.\+core.\+State.\+action\+Counts\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_a56e17de2fde7a7f4ee8b1491c11438d5}
+\subsubsection[{action\+Counts}]{\setlength{\rightskip}{0pt plus 5cm}Linked\+Hash\+Map$<$String, {\bf Action}$>$ mdp.\+core.\+State.\+action\+Counts\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_a8c44f739b3fe71dd166fc6ab59087d4f}
 
 
-Definition at line 33 of file State.\+java.
+Definition at line 32 of file State.\+java.
 
 
 
@@ -523,7 +552,7 @@ Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Action\+C
 \subsubsection[{initial\+Probability}]{\setlength{\rightskip}{0pt plus 5cm}float mdp.\+core.\+State.\+initial\+Probability\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_a237d2d5f81db0553a2180cf66a20472b}
 
 
-Definition at line 32 of file State.\+java.
+Definition at line 31 of file State.\+java.
 
 
 
@@ -534,7 +563,7 @@ Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Initial\+
 \subsubsection[{kernel\+Label}]{\setlength{\rightskip}{0pt plus 5cm}String mdp.\+core.\+State.\+kernel\+Label\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_ac7ca184df7a0ec4141766692290c18ab}
 
 
-Definition at line 35 of file State.\+java.
+Definition at line 34 of file State.\+java.
 
 
 
@@ -545,7 +574,7 @@ Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Kernel\+L
 \subsubsection[{label}]{\setlength{\rightskip}{0pt plus 5cm}String mdp.\+core.\+State.\+label\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_a40b54cc46e175c748d5ce129aba70633}
 
 
-Definition at line 30 of file State.\+java.
+Definition at line 29 of file State.\+java.
 
 
 
@@ -556,7 +585,7 @@ Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Label(), 
 \subsubsection[{region\+Label}]{\setlength{\rightskip}{0pt plus 5cm}String mdp.\+core.\+State.\+region\+Label\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_aa6f24dca5cb78d028e99f69b9e6ccb2c}
 
 
-Definition at line 34 of file State.\+java.
+Definition at line 33 of file State.\+java.
 
 
 
@@ -567,7 +596,7 @@ Referenced by mdp.\+core.\+State.\+equals(), mdp.\+core.\+State.\+get\+Region\+L
 \subsubsection[{transitions}]{\setlength{\rightskip}{0pt plus 5cm}Linked\+Hash\+Map$<$String, {\bf Transition}$>$ mdp.\+core.\+State.\+transitions\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_state_a3c9b563199f7e235fe083b0d16da8cf3}
 
 
-Definition at line 31 of file State.\+java.
+Definition at line 30 of file State.\+java.
 
 
 

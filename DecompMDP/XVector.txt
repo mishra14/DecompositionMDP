@@ -1,0 +1,5 @@
+X Vector - 
+x0
+(s2,b)	(s1,a)	(s1,b)	
+x1
+(s0,a)	(s0,b)	

@@ -2,8 +2,11 @@ package mdp.core;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -625,7 +628,7 @@ public class MDP
 				bMap.put(stateKi, s.getInitialProbability());
 				for(Map.Entry<String, Action> action : s.getActionCounts().entrySet())
 				{
-					xSet.add(stateKi+action.getKey());
+					xSet.add("("+stateKi+","+action.getKey()+")");
 					cMap.put(stateKi+action.getKey(),action.getValue().getReward());
 				}
 			}
@@ -877,14 +880,34 @@ public class MDP
 			list.add(mlDouble);
 			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"col",columnCount,1);
 			list.add(mlDouble);
-			
-/*			for(Map.Entry<String, LinkedHashSet<String>> xSet : this.xVector.entrySet())
+			PrintWriter writer;
+			try 
 			{
-				for(String value : xSet.getValue())
+				writer = new PrintWriter("XVector.txt", "UTF-8");
+				writer.println("X Vector - ");
+				for(Map.Entry<String, LinkedHashSet<String>> xSet : this.xVector.entrySet())
 				{
-					System.out.print(value+ "\t");
+					writer.println(xSet.getKey());
+					for(String value : xSet.getValue())
+					{
+						writer.print(value+ "\t");
+					}
+					writer.println();
 				}
-			}*/
+				writer.close();
+			} 
+			catch (FileNotFoundException e) 
+			{
+				e.printStackTrace();
+			} 
+			catch (UnsupportedEncodingException e) 
+			{
+				e.printStackTrace();
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 			for(Map.Entry<String, LinkedHashMap<String,Float>> bMap : bVector.entrySet())
 			{
 				double bVector[]=new double[bMap.getValue().size()];
