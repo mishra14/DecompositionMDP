@@ -1,5 +1,6 @@
 package mdp.util;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -94,8 +95,8 @@ public class PlanarSeparator
 	public static void BFSLayerGeneration(String initialState, MDP mdp)
 	{
 		init();
-		int vertexCount=mdp.getStates().size();
-		int currentCount=0;
+		long vertexCount=mdp.getStates().size();
+		long currentCount=0;
 		LinkedHashSet<String> current=new LinkedHashSet<String>();
 		LinkedHashSet<String> next=new LinkedHashSet<String>();
 		seenStates=new HashSet<String>();
@@ -140,10 +141,11 @@ public class PlanarSeparator
 	* When the State count inthe current region exceeds the total of Vertex Count / Region Count, then the Region count is incremented.<br>
 	* This process is continued till all the states are explored via DFS and placed in a region. The final decomposition is placed in the Layers.
 	**/	
-	public static void DFSDecomposition(String initialState, MDP mdp, int region)
+	public static void DFSDecomposition(String initialState, MDP mdp, long region)
 	{
 		Set<String> next=new TreeSet<String>();
-		if(!mdp.getStates().containsKey(initialState))
+		Map <String,State> mdpStates=mdp.getStates();
+		if(!mdpStates.containsKey(initialState))
 		{
 			return; 		//TODO return with error
 		}
@@ -151,23 +153,24 @@ public class PlanarSeparator
 		next=s.getNextStates();
 		seenStates.add(initialState);
 		//System.out.println(initialState);
-		if(layers.containsKey("r"+region) && layers.get("r"+region).size()>mdp.getStates().size()/mdp.getRegionCount())
+		String regionKey="r"+region;
+		if(layers.containsKey(regionKey) && layers.get(regionKey).size()>mdp.getStates().size()/mdp.getRegionCount())
 		{
 			region++;
+			regionKey="r"+region;
 		}
-		if(layers.containsKey("r"+region))
+		if(layers.containsKey(regionKey))
 		{
-			
-			layers.get("r"+region).add(initialState);
-			s.setRegionLabel("r"+region);
+			layers.get(regionKey).add(initialState);
+			s.setRegionLabel(regionKey);
 			s.setKernelLabel("k"+region);
 			//layers.get((layers.get(region).size()>(mdp.getStates().size()/2))?region:++region).add(initialState);
 		}
 		else
 		{
-			layers.put("r"+region, new LinkedHashSet<String>());
-			layers.get("r"+region).add(initialState);
-			s.setRegionLabel("r"+region);
+			layers.put(regionKey, new LinkedHashSet<String>());
+			layers.get(regionKey).add(initialState);
+			s.setRegionLabel(regionKey);
 			s.setKernelLabel("k"+region);
 		}
 		for(String state:next)
@@ -176,6 +179,53 @@ public class PlanarSeparator
 			{
 				DFSDecomposition(state, mdp, region);
 				//System.out.println("returned from " +state);
+			}
+		}
+		System.out.println(layers);
+	}
+	
+	public static void DFSDecompositionIterative(String initialState, MDP mdp)
+	{
+		int region=1;
+		Map <String,State> mdpStates=mdp.getStates();
+		if(!mdpStates.containsKey(initialState))
+		{
+			return; 		//TODO return with error
+		}
+		ArrayList<String> nextStates=new ArrayList<String>();
+		nextStates.add(initialState);
+		while(!nextStates.isEmpty())
+		{
+			//System.out.println(nextStates);
+			if(!seenStates.contains(nextStates.get(0)))
+			{
+				//System.out.println("Exploring - "+nextStates.get(0));
+				State s=mdpStates.get(nextStates.get(0));
+				seenStates.add(s.getLabel());
+				//System.out.println("SeenStates - "+seenStates);
+				nextStates.addAll(0, s.getNextStates());
+				nextStates.removeAll(seenStates);
+				//System.out.println("nextStates - "+nextStates);
+				String regionKey="r"+region;
+				if(layers.containsKey(regionKey) && layers.get(regionKey).size()>mdpStates.size()/mdp.getRegionCount())
+				{
+					region++;
+					regionKey="r"+region;
+				}
+				if(layers.containsKey(regionKey))
+				{
+					layers.get(regionKey).add(s.getLabel());
+					s.setRegionLabel(regionKey);
+					s.setKernelLabel("k"+region);
+					//layers.get((layers.get(region).size()>(mdp.getStates().size()/2))?region:++region).add(initialState);
+				}
+				else
+				{
+					layers.put(regionKey, new LinkedHashSet<String>());
+					layers.get(regionKey).add(s.getLabel());
+					s.setRegionLabel(regionKey);
+					s.setKernelLabel("k"+region);
+				}
 			}
 		}
 		//System.out.println(layers);
@@ -245,7 +295,7 @@ public class PlanarSeparator
 		for(Map.Entry<String, LinkedHashMap<String,Integer>>state: stateReachability.entrySet())
 		{
 			LinkedHashMap<String, Integer> temp =new LinkedHashMap<String, Integer>();
-			System.out.print(state.getKey()+" - Region = "+mdp.getStates().get(state.getKey()).getRegionLabel()+" ");
+			//System.out.print(state.getKey()+" - Region = "+mdp.getStates().get(state.getKey()).getRegionLabel()+" ");
 			for(Map.Entry<String, Integer> regionCounter : state.getValue().entrySet())
 			{
 				if(temp.containsKey(regionCounter.getKey().subSequence(0, 2)))
@@ -260,7 +310,7 @@ public class PlanarSeparator
 			
 			if(!stateReachabilitySmall.containsKey(state.getKey()))
 			{
-				System.out.println(temp);
+				//System.out.println(temp);
 				stateReachabilitySmall.put(state.getKey(), temp);
 				int max=0;
 				String maxRegion="";
@@ -274,15 +324,15 @@ public class PlanarSeparator
 				}
 				if(!maxRegion.equalsIgnoreCase(mdp.getStates().get(state.getKey()).getRegionLabel()) && !(mdp.getRegions().get(mdp.getStates().get(state.getKey()).getRegionLabel()).size()<=1))
 				{	
-					System.out.println("Changing region from "+mdp.getStates().get(state.getKey()).getRegionLabel()+" to "+maxRegion);
+					//System.out.println("Changing region from "+mdp.getStates().get(state.getKey()).getRegionLabel()+" to "+maxRegion);
 					newRegions.get(mdp.getStates().get(state.getKey()).getRegionLabel()).remove(state.getKey());
 					newRegions.get(maxRegion).add(state.getKey());
 					mdp.getStates().get(state.getKey()).setRegionLabel(maxRegion);
 				}
 			}
 		}
-		System.out.println("Original"+mdp.getRegions());
-		System.out.println("New"+newRegions);
+		//System.out.println("Original"+mdp.getRegions());
+		//System.out.println("New"+newRegions);
 		//System.out.println(stateReachabilitySmall);
 		return newRegions;
 	}

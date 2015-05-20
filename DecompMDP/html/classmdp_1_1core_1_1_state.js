@@ -10,7 +10,7 @@ var classmdp_1_1core_1_1_state =
     [ "getInitialProbability", "classmdp_1_1core_1_1_state.html#adf2467261abc6074a16c27c339a24e8b", null ],
     [ "getKernelLabel", "classmdp_1_1core_1_1_state.html#a4711a7ffeeede0edcf72550c1eee52e2", null ],
     [ "getLabel", "classmdp_1_1core_1_1_state.html#af3bb33b1a7d6de482338e2b584a72c61", null ],
-    [ "getNextStates", "classmdp_1_1core_1_1_state.html#afa42873a5a6554333a18a052ec52f59e", null ],
+    [ "getNextStates", "classmdp_1_1core_1_1_state.html#a3719f4b74033b89c33a756cee4e2b322", null ],
     [ "getRegionLabel", "classmdp_1_1core_1_1_state.html#a36812356307dc97bf793b2974a650583", null ],
     [ "getTransitions", "classmdp_1_1core_1_1_state.html#ac681391ac0108f110904ed170911b3e1", null ],
     [ "hashCode", "classmdp_1_1core_1_1_state.html#aad74bf43336ba40cc3555f15387219d4", null ],

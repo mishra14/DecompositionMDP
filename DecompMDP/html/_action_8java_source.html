@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('_action_8java_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classmdp_1_1core_1_1_action.html">   11</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classmdp_1_1core_1_1_action.html">Action</a> </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classmdp_1_1core_1_1_action.html#a3fd6370ee73fdac8ec8e84e12f02f261">   13</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="classmdp_1_1core_1_1_action.html#a3fd6370ee73fdac8ec8e84e12f02f261">count</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classmdp_1_1core_1_1_action.html#a3fd6370ee73fdac8ec8e84e12f02f261">   13</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="classmdp_1_1core_1_1_action.html#a3fd6370ee73fdac8ec8e84e12f02f261">count</a>;              <span class="comment">//TODO - find the purpose of this variable</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classmdp_1_1core_1_1_action.html#a6eb542e734aab31ad3c0af8eb7c6f92f">   14</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">float</span> <a class="code" href="classmdp_1_1core_1_1_action.html#a6eb542e734aab31ad3c0af8eb7c6f92f">reward</a>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classmdp_1_1core_1_1_action.html#a52ceea87b2870ea2dc87caa3c241475a">   16</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classmdp_1_1core_1_1_action.html#a52ceea87b2870ea2dc87caa3c241475a">Action</a>(<span class="keywordtype">int</span> count, <span class="keywordtype">float</span> reward) </div>
@@ -143,10 +143,36 @@ $(document).ready(function(){initNavTree('_action_8java_source.html','');});
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classmdp_1_1core_1_1_action.html#a32a1af29ce7ea67f2776ffc9c17cb56b">   42</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classmdp_1_1core_1_1_action.html#a32a1af29ce7ea67f2776ffc9c17cb56b">setReward</a>(<span class="keywordtype">float</span> reward) {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        this.reward = <a class="code" href="classmdp_1_1core_1_1_action.html#a6eb542e734aab31ad3c0af8eb7c6f92f">reward</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    @Override</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classmdp_1_1core_1_1_action.html#a21a678468db1eca61d7f84fea8b6b4b7">   47</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classmdp_1_1core_1_1_action.html#a21a678468db1eca61d7f84fea8b6b4b7">hashCode</a>() {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">final</span> <span class="keywordtype">int</span> prime = 31;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">int</span> result = 1;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        result = prime * result + <a class="code" href="classmdp_1_1core_1_1_action.html#a3fd6370ee73fdac8ec8e84e12f02f261">count</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        result = prime * result + Float.floatToIntBits(reward);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    @Override</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classmdp_1_1core_1_1_action.html#a8cdf2be8e32f579a1fa9d324330c99e2">   56</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classmdp_1_1core_1_1_action.html#a8cdf2be8e32f579a1fa9d324330c99e2">equals</a>(Object obj) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> == obj)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (obj == null)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> (getClass() != obj.getClass())</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classmdp_1_1core_1_1_action.html">Action</a> other = (<a class="code" href="classmdp_1_1core_1_1_action.html#ae776304d635d82a34178963ec012959c">Action</a>) obj;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (count != other.<a class="code" href="classmdp_1_1core_1_1_action.html#a3fd6370ee73fdac8ec8e84e12f02f261">count</a>)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> (Float.floatToIntBits(reward) != Float.floatToIntBits(other.<a class="code" href="classmdp_1_1core_1_1_action.html#a6eb542e734aab31ad3c0af8eb7c6f92f">reward</a>))</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
 <div class="ttc" id="classmdp_1_1core_1_1_action_html_a52ceea87b2870ea2dc87caa3c241475a"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html#a52ceea87b2870ea2dc87caa3c241475a">mdp.core.Action.Action</a></div><div class="ttdeci">Action(int count, float reward)</div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00016">Action.java:16</a></div></div>
+<div class="ttc" id="classmdp_1_1core_1_1_action_html_a8cdf2be8e32f579a1fa9d324330c99e2"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html#a8cdf2be8e32f579a1fa9d324330c99e2">mdp.core.Action.equals</a></div><div class="ttdeci">boolean equals(Object obj)</div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00056">Action.java:56</a></div></div>
 <div class="ttc" id="classmdp_1_1core_1_1_action_html_a3fd6370ee73fdac8ec8e84e12f02f261"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html#a3fd6370ee73fdac8ec8e84e12f02f261">mdp.core.Action.count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00013">Action.java:13</a></div></div>
 <div class="ttc" id="classmdp_1_1core_1_1_action_html_ae776304d635d82a34178963ec012959c"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html#ae776304d635d82a34178963ec012959c">mdp.core.Action.Action</a></div><div class="ttdeci">Action()</div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00023">Action.java:23</a></div></div>
 <div class="ttc" id="classmdp_1_1core_1_1_action_html_a32a1af29ce7ea67f2776ffc9c17cb56b"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html#a32a1af29ce7ea67f2776ffc9c17cb56b">mdp.core.Action.setReward</a></div><div class="ttdeci">void setReward(float reward)</div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00042">Action.java:42</a></div></div>
@@ -155,13 +181,14 @@ $(document).ready(function(){initNavTree('_action_8java_source.html','');});
 <div class="ttc" id="classmdp_1_1core_1_1_action_html_a2d864cc0d1815571004f7f4c15e47430"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html#a2d864cc0d1815571004f7f4c15e47430">mdp.core.Action.getCount</a></div><div class="ttdeci">int getCount()</div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00030">Action.java:30</a></div></div>
 <div class="ttc" id="classmdp_1_1core_1_1_action_html_a867d1be997c0e7452a555911f0dfabd4"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html#a867d1be997c0e7452a555911f0dfabd4">mdp.core.Action.getReward</a></div><div class="ttdeci">float getReward()</div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00038">Action.java:38</a></div></div>
 <div class="ttc" id="classmdp_1_1core_1_1_action_html"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html">mdp.core.Action</a></div><div class="ttdoc">This class contains the source code for the Action bean. </div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00011">Action.java:11</a></div></div>
+<div class="ttc" id="classmdp_1_1core_1_1_action_html_a21a678468db1eca61d7f84fea8b6b4b7"><div class="ttname"><a href="classmdp_1_1core_1_1_action.html#a21a678468db1eca61d7f84fea8b6b4b7">mdp.core.Action.hashCode</a></div><div class="ttdeci">int hashCode()</div><div class="ttdef"><b>Definition:</b> <a href="_action_8java_source.html#l00047">Action.java:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_02e299c19a8500551fa72d696b64fdf0.html">mdp</a></li><li class="navelem"><a class="el" href="dir_f05190388ef216dba6b7cb85aff74dff.html">core</a></li><li class="navelem"><a class="el" href="_action_8java.html">Action.java</a></li>
-    <li class="footer">Generated on Thu May 14 2015 14:06:36 for MDPDecomposition by
+    <li class="footer">Generated on Wed May 20 2015 13:21:38 for MDPDecomposition by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

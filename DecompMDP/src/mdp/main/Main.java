@@ -1,8 +1,8 @@
 package mdp.main;
 
 import java.util.Scanner;
-
 import mdp.core.MDP;
+import mdp.test.TestMDP;
 
 
 /** 
@@ -57,34 +57,47 @@ public class Main
 	public static void main(String[] args) 
 	{
 		MDP testMDP=new MDP();  
-		String filename=new String("testMDP2.txt");
+		String filename=new String("testMDP4.txt");
 		try 
 		{
 			//read the filename from the console
-			System.out.println("Please enter the MDP source file name : ");
+			System.out.println("Please enter the MDP source file name or enter Grid(n,r) to run on a gridworld problem : ");
 			Scanner scanIn = new Scanner(System.in);
-			//filename = scanIn.nextLine();
+			filename = scanIn.nextLine();
 		    scanIn.close();            
-
+		    if(filename.contains("Grid"))
+		    {
+		    	int n,r;
+		    	filename=filename.replaceAll("\\s+","");
+		    	n=Integer.parseInt(filename.substring(filename.indexOf("(")+1, filename.indexOf(",")));
+		    	r=Integer.parseInt(filename.substring(filename.indexOf(",")+1, filename.indexOf(")")));
+		    	TestMDP.createMDP(n,r);
+		    	filename="testMDP4.txt";
+		    }
+		    long start=System.currentTimeMillis();
 		    testMDP.buildFromFile(filename);
-			System.out.println(testMDP);
+			//System.out.println(testMDP);
 			
-			long start=System.nanoTime();
 			testMDP.createLP();				//creating Sparse A Matrix
 			
-			System.out.println("\nA matrix : (index format - toThenFrom) \n"+testMDP.getA()); 
+			//System.out.println("\nA matrix : (index format - toThenFrom) \n"+testMDP.getA()); 
 			
 			testMDP.createSparseAMatrix();		//Convert A Matrix into Sparse Mat File
 			
-			long end=System.nanoTime();
-			System.out.println("Time taken for LP creation : "+(float)((end-start)/(1000))+" uSec");
-			
+			long end=System.currentTimeMillis();
+			System.out.println("\nCreated LP - ");
+			System.out.println("Grid World Source MDP - testMDP4.txt");
+			System.out.println("Xvector - XVector.txt");
+			System.out.println("A, B, C Vectors - A_B_C.mat");
+			System.out.println("Time taken for LP creation : "+((end-start))+" mSec");
+			System.out.println("-----------------------------------------------------");
 						
 		}
 		catch (Exception e) 
 		{
 			e.printStackTrace();
 		}
+		
 	}
 
 }

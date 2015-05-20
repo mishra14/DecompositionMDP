@@ -19,6 +19,10 @@ void \hyperlink{classmdp_1_1core_1_1_action_a7b61c6ae38dbe01e17a62ee965c5eba0}{s
 float \hyperlink{classmdp_1_1core_1_1_action_a867d1be997c0e7452a555911f0dfabd4}{get\+Reward} ()
 \item 
 void \hyperlink{classmdp_1_1core_1_1_action_a32a1af29ce7ea67f2776ffc9c17cb56b}{set\+Reward} (float \hyperlink{classmdp_1_1core_1_1_action_a6eb542e734aab31ad3c0af8eb7c6f92f}{reward})
+\item 
+int \hyperlink{classmdp_1_1core_1_1_action_a21a678468db1eca61d7f84fea8b6b4b7}{hash\+Code} ()
+\item 
+boolean \hyperlink{classmdp_1_1core_1_1_action_a8cdf2be8e32f579a1fa9d324330c99e2}{equals} (Object obj)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -66,7 +70,26 @@ Definition at line 23 of file Action.\+java.
 
 
 
+Referenced by mdp.\+core.\+Action.\+equals().
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{classmdp_1_1core_1_1_action_a8cdf2be8e32f579a1fa9d324330c99e2}{}\index{mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}!equals@{equals}}
+\index{equals@{equals}!mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean mdp.\+core.\+Action.\+equals (
+\begin{DoxyParamCaption}
+\item[{Object}]{obj}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_action_a8cdf2be8e32f579a1fa9d324330c99e2}
+
+
+Definition at line 56 of file Action.\+java.
+
+
+
+References mdp.\+core.\+Action.\+Action(), mdp.\+core.\+Action.\+count, and mdp.\+core.\+Action.\+reward.
+
 \hypertarget{classmdp_1_1core_1_1_action_a2d864cc0d1815571004f7f4c15e47430}{}\index{mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}!get\+Count@{get\+Count}}
 \index{get\+Count@{get\+Count}!mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}}
 \subsubsection[{get\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int mdp.\+core.\+Action.\+get\+Count (
@@ -96,6 +119,21 @@ Definition at line 38 of file Action.\+java.
 
 
 References mdp.\+core.\+Action.\+reward.
+
+\hypertarget{classmdp_1_1core_1_1_action_a21a678468db1eca61d7f84fea8b6b4b7}{}\index{mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}!hash\+Code@{hash\+Code}}
+\index{hash\+Code@{hash\+Code}!mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}}
+\subsubsection[{hash\+Code}]{\setlength{\rightskip}{0pt plus 5cm}int mdp.\+core.\+Action.\+hash\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_action_a21a678468db1eca61d7f84fea8b6b4b7}
+
+
+Definition at line 47 of file Action.\+java.
+
+
+
+References mdp.\+core.\+Action.\+count.
 
 \hypertarget{classmdp_1_1core_1_1_action_a7b61c6ae38dbe01e17a62ee965c5eba0}{}\index{mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}!set\+Count@{set\+Count}}
 \index{set\+Count@{set\+Count}!mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}}
@@ -143,7 +181,7 @@ Definition at line 13 of file Action.\+java.
 
 
 
-Referenced by mdp.\+core.\+Action.\+Action(), mdp.\+core.\+Action.\+get\+Count(), and mdp.\+core.\+Action.\+set\+Count().
+Referenced by mdp.\+core.\+Action.\+Action(), mdp.\+core.\+Action.\+equals(), mdp.\+core.\+Action.\+get\+Count(), mdp.\+core.\+Action.\+hash\+Code(), and mdp.\+core.\+Action.\+set\+Count().
 
 \hypertarget{classmdp_1_1core_1_1_action_a6eb542e734aab31ad3c0af8eb7c6f92f}{}\index{mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}!reward@{reward}}
 \index{reward@{reward}!mdp\+::core\+::\+Action@{mdp\+::core\+::\+Action}}
@@ -154,7 +192,7 @@ Definition at line 14 of file Action.\+java.
 
 
 
-Referenced by mdp.\+core.\+Action.\+Action(), mdp.\+core.\+Action.\+get\+Reward(), and mdp.\+core.\+Action.\+set\+Reward().
+Referenced by mdp.\+core.\+Action.\+Action(), mdp.\+core.\+Action.\+equals(), mdp.\+core.\+Action.\+get\+Reward(), and mdp.\+core.\+Action.\+set\+Reward().
 
 
 

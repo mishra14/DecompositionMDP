@@ -1,7 +1,8 @@
 var classmdp_1_1util_1_1_planar_separator =
 [
     [ "BFSLayerGeneration", "classmdp_1_1util_1_1_planar_separator.html#aa254f547af1e7d496f52956e647c96a1", null ],
-    [ "DFSDecomposition", "classmdp_1_1util_1_1_planar_separator.html#aed22231e85648a3dc2bd94b6523e985a", null ],
+    [ "DFSDecomposition", "classmdp_1_1util_1_1_planar_separator.html#a86c2fe96ed9a110f3fec27ffd6fa2a6f", null ],
+    [ "DFSDecompositionIterative", "classmdp_1_1util_1_1_planar_separator.html#aa4f2e3c6ac82a2585232f0a0b617e792", null ],
     [ "getLayerCount", "classmdp_1_1util_1_1_planar_separator.html#acec7d2aef5d6f3871e3881b46d09ef50", null ],
     [ "getLayers", "classmdp_1_1util_1_1_planar_separator.html#a487dad33c51e930d2dcdcc6498f55b23", null ],
     [ "getSeenStates", "classmdp_1_1util_1_1_planar_separator.html#ac3598afe245825249dbd664802be6227", null ],

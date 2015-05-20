@@ -86,7 +86,7 @@ Map$<$ String, Linked\+Hash\+Map$<$ String, Float $>$ $>$ \hyperlink{classmdp_1_
 \subsection{Detailed Description}
 This class contains the source code for the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} bean and Util methods. 
 
-Definition at line 42 of file M\+D\+P.\+java.
+Definition at line 41 of file M\+D\+P.\+java.
 
 
 
@@ -104,7 +104,7 @@ This is a default constructor of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D
 
 
 
-Definition at line 58 of file M\+D\+P.\+java.
+Definition at line 57 of file M\+D\+P.\+java.
 
 
 
@@ -123,7 +123,7 @@ This is a copy constructor of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P
 
 
 
-Definition at line 74 of file M\+D\+P.\+java.
+Definition at line 73 of file M\+D\+P.\+java.
 
 
 
@@ -145,7 +145,7 @@ This method adds the argument \hyperlink{classmdp_1_1core_1_1_state}{State} s in
 
 
 
-Definition at line 185 of file M\+D\+P.\+java.
+Definition at line 184 of file M\+D\+P.\+java.
 
 
 
@@ -189,11 +189,11 @@ Initially the txt file is parsed till the keyword {\bfseries States} is encounte
  At last the txt file is closed.~\newline
  
 
-Definition at line 214 of file M\+D\+P.\+java.
+Definition at line 213 of file M\+D\+P.\+java.
 
 
 
-References mdp.\+core.\+M\+D\+P.\+create\+Kernels(), mdp.\+core.\+M\+D\+P.\+create\+X\+B\+C\+Vector(), mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition(), mdp.\+core.\+State.\+get\+Action\+Counts(), mdp.\+core.\+State.\+get\+Label(), mdp.\+util.\+Planar\+Separator.\+get\+Layers(), mdp.\+core.\+State.\+get\+Transitions(), mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition(), mdp.\+util.\+Planar\+Separator.\+init(), mdp.\+core.\+M\+D\+P.\+M\+D\+P(), mdp.\+core.\+Action.\+set\+Count(), mdp.\+core.\+Transition.\+to\+String(), and mdp.\+core.\+M\+D\+P.\+to\+String().
+References mdp.\+core.\+M\+D\+P.\+create\+Kernels(), mdp.\+core.\+M\+D\+P.\+create\+X\+B\+C\+Vector(), mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition\+Iterative(), mdp.\+core.\+State.\+get\+Action\+Counts(), mdp.\+core.\+State.\+get\+Label(), mdp.\+util.\+Planar\+Separator.\+get\+Layers(), mdp.\+core.\+State.\+get\+Transitions(), mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition(), mdp.\+util.\+Planar\+Separator.\+init(), mdp.\+core.\+M\+D\+P.\+M\+D\+P(), mdp.\+core.\+Action.\+set\+Count(), mdp.\+core.\+Transition.\+to\+String(), and mdp.\+core.\+M\+D\+P.\+to\+String().
 
 
 
@@ -212,7 +212,7 @@ This method converts the Sparse\+Matrix\+Holder A into a .Mat file.
 
 
 
-Definition at line 750 of file M\+D\+P.\+java.
+Definition at line 760 of file M\+D\+P.\+java.
 
 
 
@@ -233,7 +233,7 @@ This method creates Kernels based on the Decomposition of the \hyperlink{classmd
 
 
 
-Definition at line 514 of file M\+D\+P.\+java.
+Definition at line 516 of file M\+D\+P.\+java.
 
 
 
@@ -252,11 +252,11 @@ Referenced by mdp.\+core.\+M\+D\+P.\+build\+From\+File().
 )}\label{classmdp_1_1core_1_1_m_d_p_ab2c6f9846cf9362a472f66e1c7fe4117}
 
 
-Definition at line 664 of file M\+D\+P.\+java.
+Definition at line 666 of file M\+D\+P.\+java.
 
 
 
-References mdp.\+core.\+State.\+get\+Action\+Counts(), and mdp.\+util.\+Sparse\+Matrix\+Holder.\+get\+Matrix\+Holder().
+References mdp.\+util.\+Sparse\+Matrix\+Holder.\+get\+Matrix\+Holder().
 
 
 
@@ -275,7 +275,7 @@ This method converts the Sparse\+Matrix\+Holder A into a .Mat file with sparse m
 
 
 
-Definition at line 793 of file M\+D\+P.\+java.
+Definition at line 803 of file M\+D\+P.\+java.
 
 
 
@@ -300,7 +300,7 @@ This method is used to create A sparse matrix which is used to solve the \hyperl
 
 This method creates a Sparse\+Matrix\+Holder to hold the A matrix for the L\+P of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. The Sparse\+Matrix\+Holder is created such that it has a map of maps, where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix. 
 
-Definition at line 618 of file M\+D\+P.\+java.
+Definition at line 620 of file M\+D\+P.\+java.
 
 
 
@@ -323,15 +323,11 @@ This method is a getter for the sparse matrix A used for the L\+P bsed solution 
 
 
 
-Definition at line 169 of file M\+D\+P.\+java.
+Definition at line 168 of file M\+D\+P.\+java.
 
 
 
 References mdp.\+core.\+M\+D\+P.\+A.
-
-
-
-Referenced by mdp.\+main.\+Main.\+main().
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_a0e455b23780dd74403e1a610c2262652}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!get\+Actions@{get\+Actions}}
 \index{get\+Actions@{get\+Actions}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -346,7 +342,7 @@ This method is a getter for the action set in the \hyperlink{classmdp_1_1core_1_
 
 
 
-Definition at line 155 of file M\+D\+P.\+java.
+Definition at line 154 of file M\+D\+P.\+java.
 
 
 
@@ -365,7 +361,7 @@ This method is a getter for gamma variable.
 
 
 
-Definition at line 104 of file M\+D\+P.\+java.
+Definition at line 103 of file M\+D\+P.\+java.
 
 
 
@@ -384,7 +380,7 @@ This method is a getter for the generated kernels in the decomposition of the \h
 
 
 
-Definition at line 141 of file M\+D\+P.\+java.
+Definition at line 140 of file M\+D\+P.\+java.
 
 
 
@@ -403,7 +399,7 @@ This method is a getter for the number of regions in the decomposition.
 
 
 
-Definition at line 90 of file M\+D\+P.\+java.
+Definition at line 89 of file M\+D\+P.\+java.
 
 
 
@@ -411,7 +407,7 @@ References mdp.\+core.\+M\+D\+P.\+region\+Count.
 
 
 
-Referenced by mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition().
+Referenced by mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition(), and mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition\+Iterative().
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_a59a4fec8be7362cdbb9cdfaf52a4d185}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!get\+Regions@{get\+Regions}}
 \index{get\+Regions@{get\+Regions}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -426,7 +422,7 @@ This method is a getter for the regions in the decomposition of the \hyperlink{c
 
 
 
-Definition at line 127 of file M\+D\+P.\+java.
+Definition at line 126 of file M\+D\+P.\+java.
 
 
 
@@ -449,7 +445,7 @@ This method returns the number of integer count of the number of state-\/action 
 
 
 
-Definition at line 736 of file M\+D\+P.\+java.
+Definition at line 746 of file M\+D\+P.\+java.
 
 
 
@@ -468,7 +464,7 @@ This method is a getter for states in the \hyperlink{classmdp_1_1core_1_1_m_d_p}
 
 
 
-Definition at line 111 of file M\+D\+P.\+java.
+Definition at line 110 of file M\+D\+P.\+java.
 
 
 
@@ -476,7 +472,7 @@ References mdp.\+core.\+M\+D\+P.\+states.
 
 
 
-Referenced by mdp.\+util.\+Planar\+Separator.\+B\+F\+S\+Layer\+Generation(), mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition(), and mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition().
+Referenced by mdp.\+util.\+Planar\+Separator.\+B\+F\+S\+Layer\+Generation(), mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition(), mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition\+Iterative(), and mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition().
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_a6c13511cfe8a2ead9e3b7dfecce5be78}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!set\+A@{set\+A}}
 \index{set\+A@{set\+A}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -491,7 +487,7 @@ This method is a setter for the sparse matrix A used for the L\+P bsed solution 
 
 
 
-Definition at line 176 of file M\+D\+P.\+java.
+Definition at line 175 of file M\+D\+P.\+java.
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_a43bd240ed95657570b53b11bed0fa4a5}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!set\+Actions@{set\+Actions}}
 \index{set\+Actions@{set\+Actions}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -506,7 +502,7 @@ This method is a getter for the action set in the \hyperlink{classmdp_1_1core_1_
 
 
 
-Definition at line 162 of file M\+D\+P.\+java.
+Definition at line 161 of file M\+D\+P.\+java.
 
 
 
@@ -525,7 +521,7 @@ This method is a setter for the generated kernels in the decomposition of the \h
 
 
 
-Definition at line 148 of file M\+D\+P.\+java.
+Definition at line 147 of file M\+D\+P.\+java.
 
 
 
@@ -544,7 +540,7 @@ This method is a setter for the number of regions in the decomposition.
 
 
 
-Definition at line 97 of file M\+D\+P.\+java.
+Definition at line 96 of file M\+D\+P.\+java.
 
 
 
@@ -563,7 +559,7 @@ This method is a setter for the regions in the decomposition of the \hyperlink{c
 
 
 
-Definition at line 134 of file M\+D\+P.\+java.
+Definition at line 133 of file M\+D\+P.\+java.
 
 
 
@@ -582,7 +578,7 @@ This method is a setter for states in the \hyperlink{classmdp_1_1core_1_1_m_d_p}
 
 
 
-Definition at line 119 of file M\+D\+P.\+java.
+Definition at line 118 of file M\+D\+P.\+java.
 
 
 
@@ -601,7 +597,7 @@ This method converts the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} object 
 
 
 
-Definition at line 950 of file M\+D\+P.\+java.
+Definition at line 951 of file M\+D\+P.\+java.
 
 
 
@@ -619,7 +615,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+build\+From\+File().
 \subsubsection[{A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sparse\+Matrix\+Holder} mdp.\+core.\+M\+D\+P.\+A\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_ac75a611d9f5186893b70b8072bfa0804}
 
 
-Definition at line 48 of file M\+D\+P.\+java.
+Definition at line 47 of file M\+D\+P.\+java.
 
 
 
@@ -630,7 +626,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+get\+A().
 \subsubsection[{actions}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<$String$>$ mdp.\+core.\+M\+D\+P.\+actions\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_a9da06680f73a486a6ee65c8208151e70}
 
 
-Definition at line 47 of file M\+D\+P.\+java.
+Definition at line 46 of file M\+D\+P.\+java.
 
 
 
@@ -641,7 +637,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+get\+Actions(), mdp.\+core.\+M\+D\+P.\+M\+D
 \subsubsection[{b\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Linked\+Hash\+Map$<$String,Float$>$ $>$ mdp.\+core.\+M\+D\+P.\+b\+Vector\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_a16eff8bad86554cc9f97f674b1625c66}
 
 
-Definition at line 52 of file M\+D\+P.\+java.
+Definition at line 51 of file M\+D\+P.\+java.
 
 
 
@@ -652,7 +648,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+create\+Sparse\+A\+Matrix(), and mdp.\+core
 \subsubsection[{c\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Linked\+Hash\+Map$<$String,Float$>$ $>$ mdp.\+core.\+M\+D\+P.\+c\+Vector\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_a80af7879a4ff33ac43034eaa934c480f}
 
 
-Definition at line 53 of file M\+D\+P.\+java.
+Definition at line 52 of file M\+D\+P.\+java.
 
 
 
@@ -663,7 +659,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+create\+Sparse\+A\+Matrix(), and mdp.\+core
 \subsubsection[{gamma}]{\setlength{\rightskip}{0pt plus 5cm}final float mdp.\+core.\+M\+D\+P.\+gamma =(float)0.\+9\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_ab240c1d97d39d6f66cff0c8d06a57a69}
 
 
-Definition at line 49 of file M\+D\+P.\+java.
+Definition at line 48 of file M\+D\+P.\+java.
 
 
 
@@ -674,7 +670,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+get\+Gamma().
 \subsubsection[{kernels}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Linked\+Hash\+Set$<$String$>$ $>$ mdp.\+core.\+M\+D\+P.\+kernels\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_ac185a95b0c9eb78b9d5a00b214696191}
 
 
-Definition at line 46 of file M\+D\+P.\+java.
+Definition at line 45 of file M\+D\+P.\+java.
 
 
 
@@ -685,7 +681,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+get\+Kernels(), mdp.\+core.\+M\+D\+P.\+M\+D
 \subsubsection[{region\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int mdp.\+core.\+M\+D\+P.\+region\+Count\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_ae2644b9387e09a5c2ab096c0bb519f8d}
 
 
-Definition at line 50 of file M\+D\+P.\+java.
+Definition at line 49 of file M\+D\+P.\+java.
 
 
 
@@ -696,7 +692,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+get\+Region\+Count(), mdp.\+core.\+M\+D\+P.
 \subsubsection[{regions}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Linked\+Hash\+Set$<$String$>$ $>$ mdp.\+core.\+M\+D\+P.\+regions\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_a79761e7b3bb0d7a083bee7183c992893}
 
 
-Definition at line 45 of file M\+D\+P.\+java.
+Definition at line 44 of file M\+D\+P.\+java.
 
 
 
@@ -707,7 +703,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+get\+Regions(), mdp.\+core.\+M\+D\+P.\+M\+D
 \subsubsection[{states}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, {\bf State}$>$ mdp.\+core.\+M\+D\+P.\+states\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_a62bf7674d88162db7d00cfd82603b24f}
 
 
-Definition at line 44 of file M\+D\+P.\+java.
+Definition at line 43 of file M\+D\+P.\+java.
 
 
 
@@ -718,7 +714,7 @@ Referenced by mdp.\+core.\+M\+D\+P.\+get\+States(), mdp.\+core.\+M\+D\+P.\+M\+D\
 \subsubsection[{x\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Linked\+Hash\+Set$<$String$>$ $>$ mdp.\+core.\+M\+D\+P.\+x\+Vector\hspace{0.3cm}{\ttfamily [private]}}\label{classmdp_1_1core_1_1_m_d_p_a073e9c6d6e349ae034c3cf220d754324}
 
 
-Definition at line 51 of file M\+D\+P.\+java.
+Definition at line 50 of file M\+D\+P.\+java.
 
 
 

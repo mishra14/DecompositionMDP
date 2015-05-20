@@ -1,0 +1,53 @@
+states {s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14}
+
+initial
+{s0,1}
+end
+
+transitions
+{s0, up, 0.8, s4}
+{s0, up, 0.1, s1}
+{s0, up, 0.1, s0}
+{s0, left, 0.8, s1}
+{s0, left, 0.1, s4}
+{s0, left, 0.1, s0}
+
+{s1, up, 0.8, s5}
+{s1, up, 0.1, s2}
+{s1, up, 0.1, s0}
+{s1, left, 0.8, s2}
+{s1, left, 0.1, s5}
+{s1, left, 0.1, s1}
+{s1, right, 0.8, s0}
+{s1, right, 0.1, s5}
+{s1, right, 0.1, s1}
+
+{s2, up, 0.8, s2}
+{s2, up, 0.1, s3}
+{s2, up, 0.1, s1}
+{s2, left, 0.8, s3}
+{s2, left, 0.2, s2}
+{s2, right, 0.8, s1}
+{s2, right, 0.2, s2}
+
+{s3, up, 0.8, s6}
+{s3, up, 0.1, s3}
+{s3, up, 0.1, s2}
+{s3, right, 0.8, s2}
+{s3, right, 0.1, s6}
+{s3, right, 0.1, s3}
+
+{s4, end, 1, s14}
+
+{s5, up, 0.8, s5}
+{s5, up, 0.1, s2}
+{s5, up, 0.1, s0}
+{s5, left, 0.8, s2}
+{s5, left, 0.1, s5}
+{s, left, 0.1, s1}
+{s1, right, 0.8, s0}
+{s1, right, 0.1, s5}
+{s1, right, 0.1, s1}
+
+
+

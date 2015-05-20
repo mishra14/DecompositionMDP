@@ -14,7 +14,7 @@ var searchData=
   ['getlayercount',['getLayerCount',['../classmdp_1_1util_1_1_planar_separator.html#acec7d2aef5d6f3871e3881b46d09ef50',1,'mdp::util::PlanarSeparator']]],
   ['getlayers',['getLayers',['../classmdp_1_1util_1_1_planar_separator.html#a487dad33c51e930d2dcdcc6498f55b23',1,'mdp::util::PlanarSeparator']]],
   ['getmatrixholder',['getMatrixHolder',['../classmdp_1_1util_1_1_sparse_matrix_holder.html#a8ac92ce5890ca5a09f44e336a22dd8e8',1,'mdp::util::SparseMatrixHolder']]],
-  ['getnextstates',['getNextStates',['../classmdp_1_1core_1_1_state.html#afa42873a5a6554333a18a052ec52f59e',1,'mdp::core::State']]],
+  ['getnextstates',['getNextStates',['../classmdp_1_1core_1_1_state.html#a3719f4b74033b89c33a756cee4e2b322',1,'mdp::core::State']]],
   ['getprobability',['getProbability',['../classmdp_1_1core_1_1_transition.html#a95efd6064033a3846334bc951e695613',1,'mdp::core::Transition']]],
   ['getregioncount',['getRegionCount',['../classmdp_1_1core_1_1_m_d_p.html#a657abf1dbe9942a7fe521048884d1a6b',1,'mdp::core::MDP']]],
   ['getregionlabel',['getRegionLabel',['../classmdp_1_1core_1_1_state.html#a36812356307dc97bf793b2974a650583',1,'mdp::core::State']]],

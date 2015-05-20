@@ -24,8 +24,10 @@ static void \hyperlink{classmdp_1_1util_1_1_planar_separator_afe6c25d556ab1c4671
 \begin{DoxyCompactList}\small\item\em This method is used to reset the static variables of the \hyperlink{classmdp_1_1util_1_1_planar_separator}{Planar\+Separator} class. \end{DoxyCompactList}\item 
 static void \hyperlink{classmdp_1_1util_1_1_planar_separator_aa254f547af1e7d496f52956e647c96a1}{B\+F\+S\+Layer\+Generation} (String initial\+State, \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} mdp)
 \begin{DoxyCompactList}\small\item\em This method creates B\+F\+S layers of the given M\+D\+P. \end{DoxyCompactList}\item 
-static void \hyperlink{classmdp_1_1util_1_1_planar_separator_aed22231e85648a3dc2bd94b6523e985a}{D\+F\+S\+Decomposition} (String initial\+State, \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} mdp, int region)
+static void \hyperlink{classmdp_1_1util_1_1_planar_separator_a86c2fe96ed9a110f3fec27ffd6fa2a6f}{D\+F\+S\+Decomposition} (String initial\+State, \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} mdp, long region)
 \begin{DoxyCompactList}\small\item\em This method creates D\+F\+S based decomposition of the given M\+D\+P. \end{DoxyCompactList}\item 
+static void \hyperlink{classmdp_1_1util_1_1_planar_separator_aa4f2e3c6ac82a2585232f0a0b617e792}{D\+F\+S\+Decomposition\+Iterative} (String initial\+State, \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} mdp)
+\item 
 static Map$<$ String, Linked\+Hash\+Set$<$ String $>$ $>$ \hyperlink{classmdp_1_1util_1_1_planar_separator_aeec687e272bec2cc865718530f585932}{improve\+Decomposition} (\hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} mdp)
 \begin{DoxyCompactList}\small\item\em This method improves the basic D\+F\+S/\+B\+F\+S based decomposition of the given M\+D\+P. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Attributes}
@@ -42,7 +44,7 @@ static int \hyperlink{classmdp_1_1util_1_1_planar_separator_ab298670f31704f61810
 \subsection{Detailed Description}
 This class contains the source code for the B\+F\+S and D\+F\+S based M\+D\+P decomposition. 
 
-Definition at line 32 of file Planar\+Separator.\+java.
+Definition at line 33 of file Planar\+Separator.\+java.
 
 
 
@@ -61,21 +63,21 @@ This method creates B\+F\+S layers of the given M\+D\+P.
 
 Note -\/ This method is currently unused. 
 
-Definition at line 94 of file Planar\+Separator.\+java.
+Definition at line 95 of file Planar\+Separator.\+java.
 
 
 
 References mdp.\+core.\+M\+D\+P.\+get\+States(), and mdp.\+util.\+Planar\+Separator.\+init().
 
-\hypertarget{classmdp_1_1util_1_1_planar_separator_aed22231e85648a3dc2bd94b6523e985a}{}\index{mdp\+::util\+::\+Planar\+Separator@{mdp\+::util\+::\+Planar\+Separator}!D\+F\+S\+Decomposition@{D\+F\+S\+Decomposition}}
+\hypertarget{classmdp_1_1util_1_1_planar_separator_a86c2fe96ed9a110f3fec27ffd6fa2a6f}{}\index{mdp\+::util\+::\+Planar\+Separator@{mdp\+::util\+::\+Planar\+Separator}!D\+F\+S\+Decomposition@{D\+F\+S\+Decomposition}}
 \index{D\+F\+S\+Decomposition@{D\+F\+S\+Decomposition}!mdp\+::util\+::\+Planar\+Separator@{mdp\+::util\+::\+Planar\+Separator}}
 \subsubsection[{D\+F\+S\+Decomposition}]{\setlength{\rightskip}{0pt plus 5cm}static void mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition (
 \begin{DoxyParamCaption}
 \item[{String}]{initial\+State, }
 \item[{{\bf M\+D\+P}}]{mdp, }
-\item[{int}]{region}
+\item[{long}]{region}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}\label{classmdp_1_1util_1_1_planar_separator_aed22231e85648a3dc2bd94b6523e985a}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classmdp_1_1util_1_1_planar_separator_a86c2fe96ed9a110f3fec27ffd6fa2a6f}
 
 
 This method creates D\+F\+S based decomposition of the given M\+D\+P. 
@@ -84,11 +86,27 @@ This method creates a decomposition by using a count based heuristic. Starting f
  When the State count inthe current region exceeds the total of Vertex Count / Region Count, then the Region count is incremented.~\newline
  This process is continued till all the states are explored via D\+F\+S and placed in a region. The final decomposition is placed in the Layers. 
 
-Definition at line 143 of file Planar\+Separator.\+java.
+Definition at line 144 of file Planar\+Separator.\+java.
 
 
 
 References mdp.\+core.\+State.\+get\+Next\+States(), mdp.\+core.\+M\+D\+P.\+get\+Region\+Count(), mdp.\+core.\+M\+D\+P.\+get\+States(), mdp.\+core.\+State.\+set\+Kernel\+Label(), and mdp.\+core.\+State.\+set\+Region\+Label().
+
+\hypertarget{classmdp_1_1util_1_1_planar_separator_aa4f2e3c6ac82a2585232f0a0b617e792}{}\index{mdp\+::util\+::\+Planar\+Separator@{mdp\+::util\+::\+Planar\+Separator}!D\+F\+S\+Decomposition\+Iterative@{D\+F\+S\+Decomposition\+Iterative}}
+\index{D\+F\+S\+Decomposition\+Iterative@{D\+F\+S\+Decomposition\+Iterative}!mdp\+::util\+::\+Planar\+Separator@{mdp\+::util\+::\+Planar\+Separator}}
+\subsubsection[{D\+F\+S\+Decomposition\+Iterative}]{\setlength{\rightskip}{0pt plus 5cm}static void mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition\+Iterative (
+\begin{DoxyParamCaption}
+\item[{String}]{initial\+State, }
+\item[{{\bf M\+D\+P}}]{mdp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classmdp_1_1util_1_1_planar_separator_aa4f2e3c6ac82a2585232f0a0b617e792}
+
+
+Definition at line 187 of file Planar\+Separator.\+java.
+
+
+
+References mdp.\+core.\+State.\+get\+Label(), mdp.\+core.\+State.\+get\+Next\+States(), mdp.\+core.\+M\+D\+P.\+get\+Region\+Count(), mdp.\+core.\+M\+D\+P.\+get\+States(), mdp.\+core.\+State.\+set\+Kernel\+Label(), and mdp.\+core.\+State.\+set\+Region\+Label().
 
 
 
@@ -107,7 +125,7 @@ This method is a getter for the Layer Count.
 
 
 
-Definition at line 69 of file Planar\+Separator.\+java.
+Definition at line 70 of file Planar\+Separator.\+java.
 
 
 
@@ -126,7 +144,7 @@ This method is a getter for the Layers Hash\+Map that returns the resultant deco
 
 
 
-Definition at line 55 of file Planar\+Separator.\+java.
+Definition at line 56 of file Planar\+Separator.\+java.
 
 
 
@@ -149,7 +167,7 @@ This method is a getter for the seen\+State Hash\+Map.
 
 
 
-Definition at line 41 of file Planar\+Separator.\+java.
+Definition at line 42 of file Planar\+Separator.\+java.
 
 
 
@@ -170,7 +188,7 @@ This method improves the decomposition by using an heuristic that a State should
  The method goes through each State in the nested Map that contains Key=State and Value=Map of \{Key = Region and Value = Count of Transition to and From that Region to that State\}~\newline
  Then the resultant Map is checked to return the Dominant Region of every State and if the State does not belong to that Region then its Region is changed to that Region. Finally the resultant decomposition is returned to the calling method. 
 
-Definition at line 191 of file Planar\+Separator.\+java.
+Definition at line 241 of file Planar\+Separator.\+java.
 
 
 
@@ -193,7 +211,7 @@ This method is used to reset the static variables of the \hyperlink{classmdp_1_1
 
 
 
-Definition at line 83 of file Planar\+Separator.\+java.
+Definition at line 84 of file Planar\+Separator.\+java.
 
 
 
@@ -212,7 +230,7 @@ This method is a setter for the Layer Count.
 
 
 
-Definition at line 76 of file Planar\+Separator.\+java.
+Definition at line 77 of file Planar\+Separator.\+java.
 
 
 
@@ -231,7 +249,7 @@ This method is a setter for the Layers Hash\+Map.
 
 
 
-Definition at line 62 of file Planar\+Separator.\+java.
+Definition at line 63 of file Planar\+Separator.\+java.
 
 
 
@@ -250,7 +268,7 @@ This method is a setter for the seen\+State Hash\+Map.
 
 
 
-Definition at line 48 of file Planar\+Separator.\+java.
+Definition at line 49 of file Planar\+Separator.\+java.
 
 
 
@@ -264,7 +282,7 @@ References mdp.\+util.\+Planar\+Separator.\+seen\+States.
 \subsubsection[{layer\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int mdp.\+util.\+Planar\+Separator.\+layer\+Count\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classmdp_1_1util_1_1_planar_separator_ab298670f31704f618108ae05b782bdb9}
 
 
-Definition at line 36 of file Planar\+Separator.\+java.
+Definition at line 37 of file Planar\+Separator.\+java.
 
 
 
@@ -275,7 +293,7 @@ Referenced by mdp.\+util.\+Planar\+Separator.\+get\+Layer\+Count(), and mdp.\+ut
 \subsubsection[{layers}]{\setlength{\rightskip}{0pt plus 5cm}Linked\+Hash\+Map$<$String, Linked\+Hash\+Set$<$String$>$ $>$ mdp.\+util.\+Planar\+Separator.\+layers\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classmdp_1_1util_1_1_planar_separator_acb79e999c0d8e484b52978cd3225420e}
 
 
-Definition at line 35 of file Planar\+Separator.\+java.
+Definition at line 36 of file Planar\+Separator.\+java.
 
 
 
@@ -286,7 +304,7 @@ Referenced by mdp.\+util.\+Planar\+Separator.\+get\+Layers(), and mdp.\+util.\+P
 \subsubsection[{seen\+States}]{\setlength{\rightskip}{0pt plus 5cm}Hash\+Set$<$String$>$ mdp.\+util.\+Planar\+Separator.\+seen\+States\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classmdp_1_1util_1_1_planar_separator_a9abf62832f8732e6f6304db702296da9}
 
 
-Definition at line 34 of file Planar\+Separator.\+java.
+Definition at line 35 of file Planar\+Separator.\+java.
 
 
 

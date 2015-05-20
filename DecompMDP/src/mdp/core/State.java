@@ -2,7 +2,6 @@ package mdp.core;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeSet;
 
 /** 
@@ -232,9 +231,9 @@ public class State
 	* @brief This is a default constructor of the MDP class
 	* 
 	**/
-	public Set<String> getNextStates()
+	public TreeSet<String> getNextStates()
 	{
-		Set<String> nextStates =new TreeSet<String>();
+		TreeSet<String> nextStates =new TreeSet<String>();
 		if(!transitions.isEmpty())
 		{
 			for(Map.Entry<String, Transition> transition : transitions.entrySet())
@@ -267,7 +266,6 @@ public class State
 	{
 		return "State [label=" + label + ", initialProbability=" + initialProbability + ", actionCounts=" + printActionCount() + ", \nRegionLabel="+regionLabel+" KernelLabel="+ kernelLabel +", \ntransitions=" + printAllTransitions() + "]\n";
 	}
-	
 	/** 
 	* @brief This method is used to compare two State objects
 	* 
@@ -288,7 +286,6 @@ public class State
 				+ ((transitions == null) ? 0 : transitions.hashCode());
 		return result;
 	}
-	
 	
 	/** 
 	* @brief This method is used to check if two State objects are equal or not

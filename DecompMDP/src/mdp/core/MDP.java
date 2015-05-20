@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.Set;
 
 import mdp.util.PlanarSeparator;
 import mdp.util.SparseMatrixHolder;
@@ -59,11 +58,11 @@ public class MDP
 	{
 		super();
 		states=new LinkedHashMap<String, State>();
-		regions=new LinkedHashMap<String,  LinkedHashSet<String>>();
-		kernels=new LinkedHashMap<String,  LinkedHashSet<String>>();
+		regions=new LinkedHashMap<String, LinkedHashSet<String>>();
+		kernels=new LinkedHashMap<String, LinkedHashSet<String>>();
 		actions=new ArrayList<String>();
 		regionCount=0;
-		xVector=new LinkedHashMap<String,  LinkedHashSet<String>>();
+		xVector=new LinkedHashMap<String, LinkedHashSet<String>>();
 		bVector=new LinkedHashMap<String, LinkedHashMap<String,Float>>();
 		cVector=new LinkedHashMap<String, LinkedHashMap<String,Float>>();
 	}
@@ -249,7 +248,7 @@ public class MDP
 				}
 			}
 			
-			//code for reding initial probability distribution
+			//code for reding initial probability distributions
 			while(line.contains("//") || ( line != null && line.isEmpty()) || (!line.toLowerCase().contains("initial")))	//ignore initial set of comments
 			{
 				line=in.readLine();
@@ -373,16 +372,17 @@ public class MDP
 					System.out.println(e.toString());
 					System.exit(1);
 				}
-				System.out.println(regionCount);
+				//System.out.println(regionCount);
 				//create regions
-				System.out.println("Max State  - "+maxState);
+				//System.out.println("Max State  - "+maxState);
 				PlanarSeparator.init();							//reset the static variables for Planar Separator 
-				PlanarSeparator.DFSDecomposition(maxState, this, 1);	// create regions // TODO remove hard coding of s0
+				//PlanarSeparator.DFSDecomposition(maxState, this, 1);	// create regions
+				PlanarSeparator.DFSDecompositionIterative(maxState, this);	// create regions
 				regions=PlanarSeparator.getLayers();
-				System.out.println(regions);
+				//System.out.println(regions);
 				createKernels();				//create kernels based on the regions generated
-				System.out.println(kernels);
-				
+				//System.out.println(kernels);
+				System.out.println("Original K0 size = "+kernels.get("k0").size());
 				Map<String, LinkedHashSet<String>> newRegionsOne=new LinkedHashMap<String,  LinkedHashSet<String>>();
 				Map<String, LinkedHashSet<String>> newRegionsTwo=new LinkedHashMap<String,  LinkedHashSet<String>>();
 				Map<String, LinkedHashSet<String>> newRegionsThree=new LinkedHashMap<String,  LinkedHashSet<String>>();
@@ -428,6 +428,8 @@ public class MDP
 					}
 					tempMDP.setRegions(newRegionsThree);
 				}
+				//System.out.println(regions);
+				System.out.println("Final K0 size = "+kernels.get("k0").size());
 			}
 			else
 			{
@@ -513,8 +515,8 @@ public class MDP
 	**/
 	public void createKernels()
 	{
-		Set<String> k0=new LinkedHashSet<String>();
-		kernels.put("k0",(LinkedHashSet<String>) k0);
+		LinkedHashSet<String> k0=new LinkedHashSet<String>();
+		kernels.put("k0",k0);
 		String kernelName="";
 		for (Map.Entry<String,  LinkedHashSet<String>> region : regions.entrySet())
 		{
@@ -535,7 +537,7 @@ public class MDP
 						}
 						else
 						{
-							System.out.println("State "+transition.getValue().getToState()+" already in k0");
+							//System.out.println("State "+transition.getValue().getToState()+" already in k0");
 						}
 					}
 				}
@@ -544,14 +546,14 @@ public class MDP
 			kernels.put(kernelName, new LinkedHashSet<String>(region.getValue()));
 			
 		}
-		kernels.put("k0",(LinkedHashSet<String>) k0);
+		kernels.put("k0",k0);
 		
 		for(String state : k0)
 		{
 			for (Map.Entry<String,  LinkedHashSet<String>> region : regions.entrySet())
 			{
 				kernelName=region.getKey().replace('r', 'k');
-				//System.out.println("Kernel : "+kernels.get(kernelName));
+				//System.out.println("Kernel : "+kernelName+" "+kernels.get(kernelName));
 				if(region.getValue().contains(state))
 				{					
 					kernels.get(kernelName).remove(state);
@@ -560,7 +562,7 @@ public class MDP
 				}
 				else
 				{
-					System.out.println(state+" not in "+region.getKey());
+					//System.out.println(state+" not in "+region.getKey());
 				}
 			}
 		}
@@ -639,7 +641,7 @@ public class MDP
 			if(!cMap.isEmpty())
 				cVector.put("c"+ki.getKey().substring(1), cMap);
 		}
-		System.out.println("X Vector ");
+		/*System.out.println("X Vector ");
 		for(Map.Entry<String, LinkedHashSet<String>> xSet : xVector.entrySet())
 		{
 			System.out.println(xSet.getKey());
@@ -658,7 +660,7 @@ public class MDP
 				System.out.print(value+ "\t");
 			}
 			System.out.println();
-		}
+		}*/
 	}
 	
 	public void createLP()
@@ -673,9 +675,14 @@ public class MDP
 		//create pfij(a) = sum over all a in A(i) (f(i,a)*pfij(a))\
 		//int n=0;
 		A=new SparseMatrixHolder();
-		
+		//long t1;
+		LinkedHashMap<String,Float> temp=new LinkedHashMap<String,Float>();
+		/*String actionKey=new String();
+		String stateActionStateKey=new String();*/
+		State s=new State("s0");
 		for(Map.Entry<String, LinkedHashSet<String>> ki : kernels.entrySet())
 		{
+			//t1=System.currentTimeMillis();
 			//System.out.print(ki.getKey()+" - " );
 			for(Map.Entry<String, LinkedHashSet<String>> kj : kernels.entrySet())
 			{
@@ -683,12 +690,12 @@ public class MDP
 				if (ki.getKey().equals("k0") || kj.getKey().equals("k0") || ki.getKey().equals(kj.getKey()))
 				{
 					//System.out.println("calculating for  : "+ki.getKey()+" "+kj.getKey());
-					LinkedHashMap<String,Float> temp=new LinkedHashMap<String,Float>();
+					temp.clear();
 					for(String stateKi : ki.getValue())
 					{
 						for(String stateKj : kj.getValue())
 						{
-							State s= states.get(stateKj);
+							s= states.get(stateKj);
 							for(Map.Entry<String, Action> action : s.getActionCounts().entrySet())
 							{
 								/*System.out.println("\n\nstateKi : "+stateKi);
@@ -697,6 +704,8 @@ public class MDP
 								System.out.println("transition from "+s.getLabel()+" to "+stateKi);
 								*/
 								//n++;
+								/*actionKey=action.getKey();
+								stateActionStateKey=stateKj+action.getKey()+stateKi;*/
 								if(stateKi.equals(stateKj)) 
 								{
 									//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKj+action.getKey()+stateKi);
@@ -717,6 +726,7 @@ public class MDP
 				}
 			}
 			//System.out.println();
+			//System.out.println("loop "+ki.getKey()+" time - "+(System.currentTimeMillis()-t1)+" msec");
 		}
 		/*System.out.println(n);
 		System.out.println("Matrices : "+A.getElementCount(1));
@@ -793,12 +803,11 @@ public class MDP
 	public void createSparseAMatrix()
 	{
 		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
-		
 		for(Map.Entry<String, LinkedHashMap<String, Float>> matrix : A.getMatrixHolder().entrySet() )
 		{
 			String Ki,Kj;
-			Ki=matrix.getKey().substring(0, 2);
-			Kj=matrix.getKey().substring(2);
+			Ki=matrix.getKey().substring(0, matrix.getKey().lastIndexOf('k'));
+			Kj=matrix.getKey().substring(matrix.getKey().lastIndexOf('k'));
 			int m=kernels.get(Ki).size();
 			int n=getStateActionPairCount(Kj);
 			int size=0;
@@ -814,7 +823,6 @@ public class MDP
 			double valueVector[]=new double[size];
 			double rowCount[]=new double[1];
 			double columnCount[]=new double[1];
-			String xVector[]=new String [size];
 			rowCount[0]=m;
 			columnCount[0]=n;
 			int i,j,k;
@@ -830,7 +838,6 @@ public class MDP
 					valueVector[k]= entry.getValue();
 					//System.out.println(valueVector[k]+" "+rowVector[k]+" "+columnVector[k]);
 					//System.out.println(entry.getValue()+" "+i+" "+j+" "+k);
-					xVector[k]=entry.getKey().substring(0,3);
 					k++;
 
 				}
@@ -844,7 +851,7 @@ public class MDP
 					i++;
 				}
 			}		
-			System.out.println("A"+Ki.substring(1,2)+Kj.substring(1,2) + " m*n = "+(m*n)+" k = "+k);
+			/*System.out.println("A"+Ki.substring(1,2)+Kj.substring(1,2) + " m*n = "+(m*n)+" k = "+k);
 			System.out.print("Row Vector : ");
 			for(int l=0;l<k;l++)
 			{
@@ -862,23 +869,17 @@ public class MDP
 			{
 				System.out.print(valueVector[l]+"\t");
 			}
-			System.out.println();
-			System.out.print("X Vector : ");
-			for(int l=0;l<k;l++)
-			{
-				System.out.print(xVector[l]+"\t");
-			}
-			System.out.println();
+			System.out.println();*/
 			//System.out.println("m * n = "+(m*n)+"\t k = "+k);
-			MLDouble mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"i",rowVector,1);
+			MLDouble mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"i",rowVector,1);
 			list.add(mlDouble);
-			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"j",columnVector,1);
+			mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"j",columnVector,1);
 			list.add(mlDouble);
-			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"v",valueVector,1);
+			mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"v",valueVector,1);
 			list.add(mlDouble);
-			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"row",rowCount,1);
+			mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"row",rowCount,1);
 			list.add(mlDouble);
-			mlDouble = new MLDouble("A"+Ki.substring(1,2)+Kj.substring(1,2)+"col",columnCount,1);
+			mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"col",columnCount,1);
 			list.add(mlDouble);
 			PrintWriter writer;
 			try 
@@ -916,7 +917,7 @@ public class MDP
 				{
 					bVector[i++]=value.getValue();
 				}
-				mlDouble = new MLDouble("B"+bMap.getKey().substring(1,2),bVector,1);
+				mlDouble = new MLDouble("B"+bMap.getKey().substring(1),bVector,1);
 				list.add(mlDouble);
 			}
 			for(Map.Entry<String, LinkedHashMap<String,Float>> cMap : cVector.entrySet())
@@ -927,14 +928,14 @@ public class MDP
 				{
 					cVector[i++]=value.getValue();
 				}
-				mlDouble = new MLDouble("C"+cMap.getKey().substring(1,2),cVector,1);
+				mlDouble = new MLDouble("C"+cMap.getKey().substring(1),cVector,1);
 				list.add(mlDouble);
 			}
 			
 		}
 		try 
 		{
-			new MatFileWriter( "A_B_C_X.mat", list );
+			new MatFileWriter( "A_B_C.mat", list );
 		} 
 		catch (IOException e) 
 		{

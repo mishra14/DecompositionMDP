@@ -94,7 +94,8 @@ public class Transition
 	* 
 	**/
 	@Override
-	public int hashCode() {
+	public int hashCode() 
+	{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((action == null) ? 0 : action.hashCode());
@@ -111,46 +112,30 @@ public class Transition
 	public boolean equals(Object obj) 
 	{
 		if (this == obj)
-		{
 			return true;
-		}
 		if (obj == null)
-		{
 			return false;
-		}
 		if (getClass() != obj.getClass())
-		{
 			return false;
-		}
 		Transition other = (Transition) obj;
-		if (action == null) 
-		{
+		if (action == null) {
 			if (other.action != null)
-			{
 				return false;
-			}
-		} 
-		else if (!action.equals(other.action))
-		{
+		} else if (!action.equals(other.action))
 			return false;
-		}
-		if (Float.floatToIntBits(probability) != Float.floatToIntBits(other.probability))
-		{
+		if (Float.floatToIntBits(probability) != Float
+				.floatToIntBits(other.probability))
 			return false;
-		}
-		if (toStateLabel == null) 
-		{
+		if (toStateLabel == null) {
 			if (other.toStateLabel != null)
-			{
 				return false;
-			}
-		} 
-		else if (!toStateLabel.equals(other.toStateLabel))
-		{
+		} else if (!toStateLabel.equals(other.toStateLabel))
 			return false;
-		}
 		return true;
 	}
+
+	
+	
 	
 	
 }

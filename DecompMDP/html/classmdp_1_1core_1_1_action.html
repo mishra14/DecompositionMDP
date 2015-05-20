@@ -131,6 +131,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a867d1be997c0e7452a555911f0dfabd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32a1af29ce7ea67f2776ffc9c17cb56b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmdp_1_1core_1_1_action.html#a32a1af29ce7ea67f2776ffc9c17cb56b">setReward</a> (float <a class="el" href="classmdp_1_1core_1_1_action.html#a6eb542e734aab31ad3c0af8eb7c6f92f">reward</a>)</td></tr>
 <tr class="separator:a32a1af29ce7ea67f2776ffc9c17cb56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a678468db1eca61d7f84fea8b6b4b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmdp_1_1core_1_1_action.html#a21a678468db1eca61d7f84fea8b6b4b7">hashCode</a> ()</td></tr>
+<tr class="separator:a21a678468db1eca61d7f84fea8b6b4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cdf2be8e32f579a1fa9d324330c99e2"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmdp_1_1core_1_1_action.html#a8cdf2be8e32f579a1fa9d324330c99e2">equals</a> (Object obj)</td></tr>
+<tr class="separator:a8cdf2be8e32f579a1fa9d324330c99e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -189,9 +193,31 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_action_8java_source.html#l00023">23</a> of file <a class="el" href="_action_8java_source.html">Action.java</a>.</p>
 
+<p>Referenced by <a class="el" href="_action_8java_source.html#l00056">mdp.core.Action.equals()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8cdf2be8e32f579a1fa9d324330c99e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean mdp.core.Action.equals </td>
+          <td>(</td>
+          <td class="paramtype">Object&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_action_8java_source.html#l00056">56</a> of file <a class="el" href="_action_8java_source.html">Action.java</a>.</p>
+
+<p>References <a class="el" href="_action_8java_source.html#l00023">mdp.core.Action.Action()</a>, <a class="el" href="_action_8java_source.html#l00013">mdp.core.Action.count</a>, and <a class="el" href="_action_8java_source.html#l00014">mdp.core.Action.reward</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a2d864cc0d1815571004f7f4c15e47430"></a>
 <div class="memitem">
 <div class="memproto">
@@ -230,6 +256,25 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a21a678468db1eca61d7f84fea8b6b4b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mdp.core.Action.hashCode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_action_8java_source.html#l00047">47</a> of file <a class="el" href="_action_8java_source.html">Action.java</a>.</p>
+
+<p>References <a class="el" href="_action_8java_source.html#l00013">mdp.core.Action.count</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a7b61c6ae38dbe01e17a62ee965c5eba0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -248,7 +293,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="_action_8java_source.html#l00013">mdp.core.Action.count</a>.</p>
 
-<p>Referenced by <a class="el" href="_m_d_p_8java_source.html#l00214">mdp.core.MDP.buildFromFile()</a>.</p>
+<p>Referenced by <a class="el" href="_m_d_p_8java_source.html#l00213">mdp.core.MDP.buildFromFile()</a>.</p>
 
 </div>
 </div>
@@ -293,7 +338,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_action_8java_source.html#l00013">13</a> of file <a class="el" href="_action_8java_source.html">Action.java</a>.</p>
 
-<p>Referenced by <a class="el" href="_action_8java_source.html#l00016">mdp.core.Action.Action()</a>, <a class="el" href="_action_8java_source.html#l00030">mdp.core.Action.getCount()</a>, and <a class="el" href="_action_8java_source.html#l00034">mdp.core.Action.setCount()</a>.</p>
+<p>Referenced by <a class="el" href="_action_8java_source.html#l00016">mdp.core.Action.Action()</a>, <a class="el" href="_action_8java_source.html#l00056">mdp.core.Action.equals()</a>, <a class="el" href="_action_8java_source.html#l00030">mdp.core.Action.getCount()</a>, <a class="el" href="_action_8java_source.html#l00047">mdp.core.Action.hashCode()</a>, and <a class="el" href="_action_8java_source.html#l00034">mdp.core.Action.setCount()</a>.</p>
 
 </div>
 </div>
@@ -317,7 +362,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_action_8java_source.html#l00014">14</a> of file <a class="el" href="_action_8java_source.html">Action.java</a>.</p>
 
-<p>Referenced by <a class="el" href="_action_8java_source.html#l00016">mdp.core.Action.Action()</a>, <a class="el" href="_action_8java_source.html#l00038">mdp.core.Action.getReward()</a>, and <a class="el" href="_action_8java_source.html#l00042">mdp.core.Action.setReward()</a>.</p>
+<p>Referenced by <a class="el" href="_action_8java_source.html#l00016">mdp.core.Action.Action()</a>, <a class="el" href="_action_8java_source.html#l00056">mdp.core.Action.equals()</a>, <a class="el" href="_action_8java_source.html#l00038">mdp.core.Action.getReward()</a>, and <a class="el" href="_action_8java_source.html#l00042">mdp.core.Action.setReward()</a>.</p>
 
 </div>
 </div>
@@ -330,7 +375,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemdp.html">mdp</a></li><li class="navelem"><a class="el" href="namespacemdp_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classmdp_1_1core_1_1_action.html">Action</a></li>
-    <li class="footer">Generated on Thu May 14 2015 14:06:36 for MDPDecomposition by
+    <li class="footer">Generated on Wed May 20 2015 13:21:38 for MDPDecomposition by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
