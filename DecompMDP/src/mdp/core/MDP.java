@@ -175,6 +175,26 @@ public class MDP
 	public void setA(SparseMatrixHolder a) {
 		A = a;
 	}
+	
+	public Map<String, LinkedHashSet<String>> getxVector() {
+		return xVector;
+	}
+	public void setxVector(Map<String, LinkedHashSet<String>> xVector) {
+		this.xVector = xVector;
+	}
+	public Map<String, LinkedHashMap<String, Float>> getbVector() {
+		return bVector;
+	}
+	public void setbVector(Map<String, LinkedHashMap<String, Float>> bVector) {
+		this.bVector = bVector;
+	}
+	public Map<String, LinkedHashMap<String, Float>> getcVector() {
+		return cVector;
+	}
+	public void setcVector(Map<String, LinkedHashMap<String, Float>> cVector) {
+		this.cVector = cVector;
+	}
+	
 	/** 
 	* @brief This method adds the argument State s in the Map of States of the MDP
 	* 
@@ -185,6 +205,8 @@ public class MDP
 	{
 		return states.put(s.getLabel(),s);
 	}
+	
+	
 	/** 
 	* @brief This method is used to create an MDP object based a txt file
 	* 
@@ -676,7 +698,7 @@ public class MDP
 		//int n=0;
 		A=new SparseMatrixHolder();
 		//long t1;
-		LinkedHashMap<String,Float> temp=new LinkedHashMap<String,Float>();
+		LinkedHashMap<String,Float> temp;
 		/*String actionKey=new String();
 		String stateActionStateKey=new String();*/
 		State s=new State("s0");
@@ -690,7 +712,7 @@ public class MDP
 				if (ki.getKey().equals("k0") || kj.getKey().equals("k0") || ki.getKey().equals(kj.getKey()))
 				{
 					//System.out.println("calculating for  : "+ki.getKey()+" "+kj.getKey());
-					temp.clear();
+					temp=new LinkedHashMap<String,Float>();
 					for(String stateKi : ki.getValue())
 					{
 						for(String stateKj : kj.getValue())
@@ -721,6 +743,7 @@ public class MDP
 					}
 					if(!temp.isEmpty())
 					{ 
+						//System.out.println("Temp - "+temp);
 						A.getMatrixHolder().put((ki.getKey()+kj.getKey()), temp);
 					}
 				}
@@ -738,6 +761,200 @@ public class MDP
 		}
 		System.out.println(count*states.size());*/
 	}
+	
+	public void createLPandMatrix()
+	{
+		//create f(i,a) = (prob of taking action a from state i) for each state
+		//done under State-action count
+		//f(i,a)=(State(i).getActionCounts().getValue(key=a))/(State(i).getActionCounts.count());
+		
+		//create pij(a) = (prob of reaching state j from i on taking action i) for each state
+		//pij(a) = State(i).getTransitions().getTransitions(j) where action=a;
+		
+		//create pfij(a) = sum over all a in A(i) (f(i,a)*pfij(a))\
+		//int n=0;
+		//A=new SparseMatrixHolder();
+		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
+		//long t1;
+		LinkedHashMap<String,Float> temp;
+		/*String actionKey=new String();
+		String stateActionStateKey=new String();*/
+		State s=new State("s0");
+		for(Map.Entry<String, LinkedHashSet<String>> ki : kernels.entrySet())
+		{
+			//t1=System.currentTimeMillis();
+			//System.out.print(ki.getKey()+" - " );
+			for(Map.Entry<String, LinkedHashSet<String>> kj : kernels.entrySet())
+			{
+				//System.out.print(kj.getKey()+" ");
+				if (ki.getKey().equals("k0") || kj.getKey().equals("k0") || ki.getKey().equals(kj.getKey()))
+				{
+					//System.out.println("calculating for  : "+ki.getKey()+" "+kj.getKey());
+					temp=new LinkedHashMap<String,Float>();
+					for(String stateKi : ki.getValue())
+					{
+						for(String stateKj : kj.getValue())
+						{
+							s= states.get(stateKj);
+							for(Map.Entry<String, Action> action : s.getActionCounts().entrySet())
+							{
+								/*System.out.println("\n\nstateKi : "+stateKi);
+								System.out.println("stateKj : "+stateKj);
+								System.out.println("Action : "+action.getKey());
+								System.out.println("transition from "+s.getLabel()+" to "+stateKi);
+								*/
+								//n++;
+								/*actionKey=action.getKey();
+								stateActionStateKey=stateKj+action.getKey()+stateKi;*/
+								if(stateKi.equals(stateKj)) 
+								{
+									//System.out.println("state ki and kj match; writing : "+(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKj+action.getKey()+stateKi);
+									temp.put(stateKj+action.getKey()+stateKi,(1-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
+									
+								}
+								else
+								{
+									//System.out.println("state ki and kj match; writing : "+(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey())))+" at "+stateKj+action.getKey()+stateKi);
+									temp.put(stateKj+action.getKey()+stateKi,(0-(float) (gamma*s.getProbabilityToState(stateKi, action.getKey()))));
+								}
+							}
+						}
+					}
+					if(!temp.isEmpty())
+					{ 
+						//System.out.println("Matrix  - "+matrix);
+						String Ki=ki.getKey();
+						String Kj=kj.getKey();
+						int m=kernels.get(Ki).size();
+						int n=getStateActionPairCount(Kj);
+						int size=0;
+						for(Map.Entry<String, Float> entry : temp.entrySet() )
+						{
+							if(entry.getValue()!=0)
+							{
+								size++;
+							}
+						}
+						double rowVector[]=new double[size];
+						double columnVector[]=new double[size];
+						double valueVector[]=new double[size];
+						double rowCount[]=new double[1];
+						double columnCount[]=new double[1];
+						rowCount[0]=m;
+						columnCount[0]=n;
+						int i,j,k;
+						i=0;
+						j=0;
+						k=0;
+						for(Map.Entry<String, Float> entry : temp.entrySet() )
+						{
+							if(entry.getValue()!=0)
+							{
+								rowVector[k]=i;
+								columnVector[k]=j;
+								valueVector[k]= entry.getValue();
+								//System.out.println(valueVector[k]+" "+rowVector[k]+" "+columnVector[k]);
+								//System.out.println(entry.getValue()+" "+i+" "+j+" "+k);
+								k++;
+
+							}
+							if(j<n-1)
+							{
+								j++;
+							}
+							else
+							{
+								j=0;
+								i++;
+							}
+						}		
+						MLDouble mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"i",rowVector,1);
+						list.add(mlDouble);
+						mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"j",columnVector,1);
+						list.add(mlDouble);
+						mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"v",valueVector,1);
+						list.add(mlDouble);
+						mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"row",rowCount,1);
+						list.add(mlDouble);
+						mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"col",columnCount,1);
+						list.add(mlDouble);
+						//A.getMatrixHolder().put((ki.getKey()+kj.getKey()), temp);
+						
+					}
+				}
+			}
+			//System.out.println();
+			//System.out.println("loop "+ki.getKey()+" time - "+(System.currentTimeMillis()-t1)+" msec");
+		}
+		try 
+		{
+			PrintWriter writer;
+			writer = new PrintWriter("XVector.txt", "UTF-8");
+			writer.println("X Vector - ");
+			for(Map.Entry<String, LinkedHashSet<String>> xSet : this.xVector.entrySet())
+			{
+				writer.println(xSet.getKey());
+				for(String value : xSet.getValue())
+				{
+					writer.print(value+ "\t");
+				}
+				writer.println();
+			}
+			writer.close();
+			
+			MLDouble mlDouble;
+			int i;
+			for(Map.Entry<String, LinkedHashMap<String,Float>> bMap : bVector.entrySet())
+			{
+				double bVector[]=new double[bMap.getValue().size()];
+				i=0;
+				for(Map.Entry<String, Float> value : bMap.getValue().entrySet())
+				{
+					bVector[i++]=value.getValue();
+				}
+				mlDouble = new MLDouble("B"+bMap.getKey().substring(1),bVector,1);
+				list.add(mlDouble);
+			}
+			for(Map.Entry<String, LinkedHashMap<String,Float>> cMap : cVector.entrySet())
+			{
+				double cVector[]=new double[cMap.getValue().size()];
+				i=0;
+				for(Map.Entry<String, Float> value : cMap.getValue().entrySet())
+				{
+					cVector[i++]=value.getValue();
+				}
+				mlDouble = new MLDouble("C"+cMap.getKey().substring(1),cVector,1);
+				list.add(mlDouble);
+			}
+			new MatFileWriter( "A_B_C.mat", list );
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (UnsupportedEncodingException e) 
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		/*System.out.println(n);
+		System.out.println("Matrices : "+A.getElementCount(1));
+		System.out.println("Elements : "+A.getElementCount(2));
+		int count=0;
+		for (Map.Entry<String, State> entry : states.entrySet())
+		{
+			count+=entry.getValue().getTransitions().size();
+		}
+		System.out.println(count*states.size());*/
+	}
+	
 	
 	/** 
 	* @brief This method returns the number of integer count of the number of state-action pairs in a kernel.
@@ -805,6 +1022,7 @@ public class MDP
 		ArrayList<MLArray> list = new ArrayList<MLArray>();	// List that has to be added to the Mat file
 		for(Map.Entry<String, LinkedHashMap<String, Float>> matrix : A.getMatrixHolder().entrySet() )
 		{
+			//System.out.println("Matrix  - "+matrix);
 			String Ki,Kj;
 			Ki=matrix.getKey().substring(0, matrix.getKey().lastIndexOf('k'));
 			Kj=matrix.getKey().substring(matrix.getKey().lastIndexOf('k'));
@@ -881,34 +1099,25 @@ public class MDP
 			list.add(mlDouble);
 			mlDouble = new MLDouble("A"+Ki.substring(1)+Kj.substring(1)+"col",columnCount,1);
 			list.add(mlDouble);
+		}
+		try 
+		{
 			PrintWriter writer;
-			try 
+			writer = new PrintWriter("XVector.txt", "UTF-8");
+			writer.println("X Vector - ");
+			for(Map.Entry<String, LinkedHashSet<String>> xSet : this.xVector.entrySet())
 			{
-				writer = new PrintWriter("XVector.txt", "UTF-8");
-				writer.println("X Vector - ");
-				for(Map.Entry<String, LinkedHashSet<String>> xSet : this.xVector.entrySet())
+				writer.println(xSet.getKey());
+				for(String value : xSet.getValue())
 				{
-					writer.println(xSet.getKey());
-					for(String value : xSet.getValue())
-					{
-						writer.print(value+ "\t");
-					}
-					writer.println();
+					writer.print(value+ "\t");
 				}
-				writer.close();
-			} 
-			catch (FileNotFoundException e) 
-			{
-				e.printStackTrace();
-			} 
-			catch (UnsupportedEncodingException e) 
-			{
-				e.printStackTrace();
+				writer.println();
 			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
+			writer.close();
+			
+			MLDouble mlDouble;
+			int i;
 			for(Map.Entry<String, LinkedHashMap<String,Float>> bMap : bVector.entrySet())
 			{
 				double bVector[]=new double[bMap.getValue().size()];
@@ -931,15 +1140,23 @@ public class MDP
 				mlDouble = new MLDouble("C"+cMap.getKey().substring(1),cVector,1);
 				list.add(mlDouble);
 			}
-			
-		}
-		try 
-		{
 			new MatFileWriter( "A_B_C.mat", list );
 		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (UnsupportedEncodingException e) 
+		{
+			e.printStackTrace();
+		}
 		catch (IOException e) 
 		{
-			System.out.println(e.toString());
+			e.printStackTrace();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
 		}
 	}
 	

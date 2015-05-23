@@ -57,7 +57,8 @@ public class Main
 	public static void main(String[] args) 
 	{
 		MDP testMDP=new MDP();  
-		String filename=new String("testMDP4.txt");
+		String filename=new String("testMDP2.txt");
+		boolean grid=false;
 		try 
 		{
 			//read the filename from the console
@@ -67,6 +68,7 @@ public class Main
 		    scanIn.close();            
 		    if(filename.contains("Grid"))
 		    {
+		    	grid=true;
 		    	int n,r;
 		    	filename=filename.replaceAll("\\s+","");
 		    	n=Integer.parseInt(filename.substring(filename.indexOf("(")+1, filename.indexOf(",")));
@@ -78,17 +80,22 @@ public class Main
 		    testMDP.buildFromFile(filename);
 			//System.out.println(testMDP);
 			
-			testMDP.createLP();				//creating Sparse A Matrix
-			
+			//testMDP.createLP();				//creating Sparse A Matrix
+		    testMDP.createLPandMatrix();
 			//System.out.println("\nA matrix : (index format - toThenFrom) \n"+testMDP.getA()); 
 			
-			testMDP.createSparseAMatrix();		//Convert A Matrix into Sparse Mat File
+			//testMDP.createSparseAMatrix();		//Convert A Matrix into Sparse Mat File
 			
 			long end=System.currentTimeMillis();
 			System.out.println("\nCreated LP - ");
-			System.out.println("Grid World Source MDP - testMDP4.txt");
+			if(grid)
+				System.out.println("Grid World Source MDP - testMDP4.txt");
 			System.out.println("Xvector - XVector.txt");
 			System.out.println("A, B, C Vectors - A_B_C.mat");
+/*			System.out.println("Regions - "+testMDP.getRegions().size());
+			System.out.println("Kernels - "+testMDP.getKernels().size());
+			System.out.println("B - "+testMDP.getbVector().size());
+			System.out.println("C - "+testMDP.getcVector().size());*/
 			System.out.println("Time taken for LP creation : "+((end-start))+" mSec");
 			System.out.println("-----------------------------------------------------");
 						
