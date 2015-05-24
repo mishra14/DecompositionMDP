@@ -532,8 +532,6 @@ public class MDP
 	* Kernels are created such that each region is associated with its own kernel and all the states that are in a region, by default become a part of the corresponding kernel<br>
 	* But each state that has incoming transitions from any other region besides its own regions is removed from its original kernel and placed into a base kernel <b>K0</b>.<br>
 	* 
-	* 
-	* 
 	**/
 	public void createKernels()
 	{
@@ -633,10 +631,9 @@ public class MDP
 //		return states.get(stateName).getActionProbability(actionlabel);
 //	}
 	/** 
-	* @brief This method is used to create A sparse matrix which is used to solve the MDP via LP
+	* @brief This method is used to create X, B and C vectors in the MDP
 	* 
-	* This method creates a SparseMatrixHolder to hold the A matrix for the LP of the MDP. The SparseMatrixHolder is created such that it has a map of maps,
-	* where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.
+	* This method creates a X, B and C vectors based on the ordering of the states and actions in the the MDP.
 	* 
 	**/
 	public void createXBCVector()
@@ -684,7 +681,15 @@ public class MDP
 			System.out.println();
 		}*/
 	}
-	
+	/** 
+	* @brief This method is used to create A sparse matrix which is used to solve the MDP via LP
+	* 
+	* This method creates a SparseMatrixHolder to hold the A matrix for the LP of the MDP. The SparseMatrixHolder is created such that it has a map of maps,
+	* where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.<br>
+	* 
+	* NOTE - This method is currently not used.
+	* 
+	**/
 	public void createLP()
 	{
 		//create f(i,a) = (prob of taking action a from state i) for each state
@@ -761,7 +766,13 @@ public class MDP
 		}
 		System.out.println(count*states.size());*/
 	}
-	
+	/** 
+	* @brief This method is used to create A sparse matrix  and generates the MATLAB file A_B_C.mat which is used to solve the MDP via LP
+	* 
+	* This method creates a SparseMatrixHolder to hold the A matrix for the LP of the MDP. The SparseMatrixHolder is created such that it has a map of maps,
+	* where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix. 
+	* Finally, the values of A SparseMatrixHolder and of B,C and X vectors are written into a .mat file.
+	**/
 	public void createLPandMatrix()
 	{
 		//create f(i,a) = (prob of taking action a from state i) for each state

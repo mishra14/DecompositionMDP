@@ -26,12 +26,27 @@ The \hyperlink{_main_8java}{Main.\+Java} file encapsulates the flow of the tool 
 \item States of the M\+D\+P~\newline
  states \{s0, s1\}~\newline
 
+\item Initial Distribution -\/~\newline
+ initial~\newline
+ \{s0, 1.\+0\}~\newline
+ Where the format is -\/ \{state, probability\}~\newline
+
 \item Transitions in the M\+D\+P~\newline
  transitions~\newline
  \{s0, a, 1, s1\}~\newline
  \{s1, b, 1, s0s\}~\newline
  end~\newline
  Where each transition has the format -\/ \{from\+State, action, probability\+Of\+Transition, Result\+State\}~\newline
+
+\item Rewards -\/ ~\newline
+ rewards~\newline
+ \{s0,a,0\}~\newline
+ \{s0,b,0\}~\newline
+ \{s1,a,-\/0.\+7\}~\newline
+ \{s1,b,0\}~\newline
+ \{s2,b,-\/0.\+5\}~\newline
+ end~\newline
+ Where the format is -\/ \{state, action, reward\}~\newline
 
 \item Decomposition count or decomposition~\newline
  Regions=2~\newline

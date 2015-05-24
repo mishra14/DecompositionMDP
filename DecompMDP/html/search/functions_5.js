@@ -4,7 +4,9 @@ var searchData=
   ['getaction',['getAction',['../classmdp_1_1core_1_1_transition.html#aa326dda42cf7a74864153108cebf410e',1,'mdp::core::Transition']]],
   ['getactioncounts',['getActionCounts',['../classmdp_1_1core_1_1_state.html#ac4ee428e57bd594d203de402e196cbba',1,'mdp::core::State']]],
   ['getactions',['getActions',['../classmdp_1_1core_1_1_m_d_p.html#a0e455b23780dd74403e1a610c2262652',1,'mdp::core::MDP']]],
+  ['getbvector',['getbVector',['../classmdp_1_1core_1_1_m_d_p.html#a3564240f2599adfcdf0fdb76b7b4910b',1,'mdp::core::MDP']]],
   ['getcount',['getCount',['../classmdp_1_1core_1_1_action.html#a2d864cc0d1815571004f7f4c15e47430',1,'mdp::core::Action']]],
+  ['getcvector',['getcVector',['../classmdp_1_1core_1_1_m_d_p.html#a2c2141d2cd5de51e2a35f045b9ebb5da',1,'mdp::core::MDP']]],
   ['getelementcount',['getElementCount',['../classmdp_1_1util_1_1_sparse_matrix_holder.html#a775e2b85bd7441c7ec315034644cfbdf',1,'mdp::util::SparseMatrixHolder']]],
   ['getgamma',['getGamma',['../classmdp_1_1core_1_1_m_d_p.html#af18af128ccbdc7b958e438660abe967c',1,'mdp::core::MDP']]],
   ['getinitialprobability',['getInitialProbability',['../classmdp_1_1core_1_1_state.html#adf2467261abc6074a16c27c339a24e8b',1,'mdp::core::State']]],
@@ -24,5 +26,6 @@ var searchData=
   ['getstateactionpaircount',['getStateActionPairCount',['../classmdp_1_1core_1_1_m_d_p.html#a597956fa2391fdd8ff1a3266d5e48688',1,'mdp::core::MDP']]],
   ['getstates',['getStates',['../classmdp_1_1core_1_1_m_d_p.html#a937094aab736609618fed718de7f6b89',1,'mdp::core::MDP']]],
   ['gettostate',['getToState',['../classmdp_1_1core_1_1_transition.html#ae7ef4a2d92e592e09f1987a90c84be1b',1,'mdp::core::Transition']]],
-  ['gettransitions',['getTransitions',['../classmdp_1_1core_1_1_state.html#ac681391ac0108f110904ed170911b3e1',1,'mdp::core::State']]]
+  ['gettransitions',['getTransitions',['../classmdp_1_1core_1_1_state.html#ac681391ac0108f110904ed170911b3e1',1,'mdp::core::State']]],
+  ['getxvector',['getxVector',['../classmdp_1_1core_1_1_m_d_p.html#a2fc794f6dde7e7425be75ebc82583269',1,'mdp::core::MDP']]]
 ];

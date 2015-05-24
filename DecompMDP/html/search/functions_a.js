@@ -4,7 +4,9 @@ var searchData=
   ['setaction',['setAction',['../classmdp_1_1core_1_1_transition.html#a1113b616a2d05a3d7c79764a55c385b9',1,'mdp::core::Transition']]],
   ['setactioncounts',['setActionCounts',['../classmdp_1_1core_1_1_state.html#a38fcd3a67282bf66c86456ed88b065cf',1,'mdp::core::State']]],
   ['setactions',['setActions',['../classmdp_1_1core_1_1_m_d_p.html#a43bd240ed95657570b53b11bed0fa4a5',1,'mdp::core::MDP']]],
+  ['setbvector',['setbVector',['../classmdp_1_1core_1_1_m_d_p.html#a9f49919894e99485e3929642614b5f15',1,'mdp::core::MDP']]],
   ['setcount',['setCount',['../classmdp_1_1core_1_1_action.html#a7b61c6ae38dbe01e17a62ee965c5eba0',1,'mdp::core::Action']]],
+  ['setcvector',['setcVector',['../classmdp_1_1core_1_1_m_d_p.html#a3b30a91a24ed0db52929343cc4834531',1,'mdp::core::MDP']]],
   ['setinital',['setInital',['../classmdp_1_1core_1_1_state.html#ae2b8a26846dfde87eac8dc536b171355',1,'mdp::core::State']]],
   ['setkernellabel',['setKernelLabel',['../classmdp_1_1core_1_1_state.html#ab89e4fdb360297c41b3f5ca27a1978fc',1,'mdp::core::State']]],
   ['setkernels',['setKernels',['../classmdp_1_1core_1_1_m_d_p.html#ad087ba3ecc5aac90d25b9022882ebdeb',1,'mdp::core::MDP']]],
@@ -21,6 +23,7 @@ var searchData=
   ['setstates',['setStates',['../classmdp_1_1core_1_1_m_d_p.html#ad6e89cf2ed34e858dcbec4324c11884e',1,'mdp::core::MDP']]],
   ['settostate',['setToState',['../classmdp_1_1core_1_1_transition.html#a33f909b166d36a9b648df8ee1f3c8abd',1,'mdp::core::Transition']]],
   ['settransitions',['setTransitions',['../classmdp_1_1core_1_1_state.html#af9bbbf26a131aa1f43d7fdf7003b5de1',1,'mdp::core::State']]],
+  ['setxvector',['setxVector',['../classmdp_1_1core_1_1_m_d_p.html#ad4063dea06a15a73bc20a1e95b137b83',1,'mdp::core::MDP']]],
   ['sparsematrixholder',['SparseMatrixHolder',['../classmdp_1_1util_1_1_sparse_matrix_holder.html#a684bbebe963a3cfcb5cb6b32907c3260',1,'mdp::util::SparseMatrixHolder']]],
   ['state',['State',['../classmdp_1_1core_1_1_state.html#a7454bf82c89c8fbcf1133e8450af5042',1,'mdp.core.State.State(String label, LinkedHashMap&lt; String, Transition &gt; transitions, float initialProbability)'],['../classmdp_1_1core_1_1_state.html#a5e137332befa3d6f57255172bf40ac97',1,'mdp.core.State.State(String label, LinkedHashMap&lt; String, Transition &gt; transitions, float initialProbability, LinkedHashMap&lt; String, Action &gt; actionCounts, String regionLabel, String kernelLabel)'],['../classmdp_1_1core_1_1_state.html#a145a71cda6b5e67d05745c17dd7fc995',1,'mdp.core.State.State(String label)'],['../classmdp_1_1core_1_1_state.html#aeea557e31f354038b7aa0633c5236738',1,'mdp.core.State.State(State state)']]]
 ];

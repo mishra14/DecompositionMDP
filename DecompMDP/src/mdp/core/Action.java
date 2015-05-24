@@ -1,6 +1,18 @@
 package mdp.core;
 
 /** 
+* @file Action.java 
+* 
+* @brief This file contains the source code for the Action bean and Util methods
+* 
+* @author Ankit Mishra
+*
+* @date May, 1 2015
+* 
+**/
+
+
+/** 
 * @class Action 
 * 
 * @brief This class contains the source code for the Action bean

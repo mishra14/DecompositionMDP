@@ -134,12 +134,27 @@ Packages</h2></td></tr>
 <li>States of the MDP<br />
  states {s0, s1}<br />
 </li>
+<li>Initial Distribution -<br />
+ initial<br />
+ {s0, 1.0}<br />
+ Where the format is - {state, probability}<br />
+</li>
 <li>Transitions in the MDP<br />
  transitions<br />
  {s0, a, 1, s1}<br />
  {s1, b, 1, s0s}<br />
  end<br />
  Where each transition has the format - {fromState, action, probabilityOfTransition, ResultState}<br />
+</li>
+<li>Rewards - <br />
+ rewards<br />
+ {s0,a,0}<br />
+ {s0,b,0}<br />
+ {s1,a,-0.7}<br />
+ {s1,b,0}<br />
+ {s2,b,-0.5}<br />
+ end<br />
+ Where the format is - {state, action, reward}<br />
 </li>
 <li>Decomposition count or decomposition<br />
  Regions=2<br />
@@ -159,7 +174,7 @@ Packages</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_02e299c19a8500551fa72d696b64fdf0.html">mdp</a></li><li class="navelem"><a class="el" href="dir_c0af3d29deab59b5b084cbd1f47bd53b.html">main</a></li><li class="navelem"><a class="el" href="_main_8java.html">Main.java</a></li>
-    <li class="footer">Generated on Wed May 20 2015 13:21:38 for MDPDecomposition by
+    <li class="footer">Generated on Sat May 23 2015 23:41:16 for MDPDecomposition by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

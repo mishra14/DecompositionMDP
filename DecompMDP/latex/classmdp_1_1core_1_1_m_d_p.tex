@@ -38,6 +38,18 @@ void \hyperlink{classmdp_1_1core_1_1_m_d_p_a43bd240ed95657570b53b11bed0fa4a5}{se
 \begin{DoxyCompactList}\small\item\em This method is a getter for the sparse matrix A used for the L\+P bsed solution of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. \end{DoxyCompactList}\item 
 void \hyperlink{classmdp_1_1core_1_1_m_d_p_a6c13511cfe8a2ead9e3b7dfecce5be78}{set\+A} (\hyperlink{classmdp_1_1util_1_1_sparse_matrix_holder}{Sparse\+Matrix\+Holder} a)
 \begin{DoxyCompactList}\small\item\em This method is a setter for the sparse matrix A used for the L\+P bsed solution of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. \end{DoxyCompactList}\item 
+Map$<$ String, Linked\+Hash\+Set$<$ String $>$ $>$ \hyperlink{classmdp_1_1core_1_1_m_d_p_a2fc794f6dde7e7425be75ebc82583269}{getx\+Vector} ()
+\item 
+void \hyperlink{classmdp_1_1core_1_1_m_d_p_ad4063dea06a15a73bc20a1e95b137b83}{setx\+Vector} (Map$<$ String, Linked\+Hash\+Set$<$ String $>$$>$ \hyperlink{classmdp_1_1core_1_1_m_d_p_a073e9c6d6e349ae034c3cf220d754324}{x\+Vector})
+\item 
+Map$<$ String, Linked\+Hash\+Map$<$ String, Float $>$ $>$ \hyperlink{classmdp_1_1core_1_1_m_d_p_a3564240f2599adfcdf0fdb76b7b4910b}{getb\+Vector} ()
+\item 
+void \hyperlink{classmdp_1_1core_1_1_m_d_p_a9f49919894e99485e3929642614b5f15}{setb\+Vector} (Map$<$ String, Linked\+Hash\+Map$<$ String, Float $>$$>$ \hyperlink{classmdp_1_1core_1_1_m_d_p_a16eff8bad86554cc9f97f674b1625c66}{b\+Vector})
+\item 
+Map$<$ String, Linked\+Hash\+Map$<$ String, Float $>$ $>$ \hyperlink{classmdp_1_1core_1_1_m_d_p_a2c2141d2cd5de51e2a35f045b9ebb5da}{getc\+Vector} ()
+\item 
+void \hyperlink{classmdp_1_1core_1_1_m_d_p_a3b30a91a24ed0db52929343cc4834531}{setc\+Vector} (Map$<$ String, Linked\+Hash\+Map$<$ String, Float $>$$>$ \hyperlink{classmdp_1_1core_1_1_m_d_p_a80af7879a4ff33ac43034eaa934c480f}{c\+Vector})
+\item 
 \hyperlink{classmdp_1_1core_1_1_state}{State} \hyperlink{classmdp_1_1core_1_1_m_d_p_a0956e730497b8c93b09675990a75f283}{add\+State} (\hyperlink{classmdp_1_1core_1_1_state}{State} s)
 \begin{DoxyCompactList}\small\item\em This method adds the argument \hyperlink{classmdp_1_1core_1_1_state}{State} s in the Map of States of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. \end{DoxyCompactList}\item 
 void \hyperlink{classmdp_1_1core_1_1_m_d_p_a0565cd0a84c836dd11ba0d13e1eb5ffb}{build\+From\+File} (String filename)  throws Exception 	
@@ -49,7 +61,9 @@ void \hyperlink{classmdp_1_1core_1_1_m_d_p_aa3d7c9f10aff03c993322d3ff7129dfb}{cr
 void \hyperlink{classmdp_1_1core_1_1_m_d_p_a669984bc260c8c4fb4c600fb7260030c}{create\+X\+B\+C\+Vector} ()
 \begin{DoxyCompactList}\small\item\em This is a cpoy constructor of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} class s. \end{DoxyCompactList}\item 
 void \hyperlink{classmdp_1_1core_1_1_m_d_p_ab2c6f9846cf9362a472f66e1c7fe4117}{create\+L\+P} ()
-\item 
+\begin{DoxyCompactList}\small\item\em This method is used to create A sparse matrix which is used to solve the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} via L\+P. \end{DoxyCompactList}\item 
+void \hyperlink{classmdp_1_1core_1_1_m_d_p_aea28bc0182d2d4996506017fcd103df6}{create\+L\+Pand\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em This method is used to create A sparse matrix and generates the M\+A\+T\+L\+A\+B file A\+\_\+\+B\+\_\+\+C.\+mat which is used to solve the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} via L\+P. \end{DoxyCompactList}\item 
 int \hyperlink{classmdp_1_1core_1_1_m_d_p_a597956fa2391fdd8ff1a3266d5e48688}{get\+State\+Action\+Pair\+Count} (String kernel)
 \begin{DoxyCompactList}\small\item\em This method returns the number of integer count of the number of state-\/action pairs in a kernel. \end{DoxyCompactList}\item 
 void \hyperlink{classmdp_1_1core_1_1_m_d_p_aab4fc6ad8c299f88d6619cfd059b3931}{create\+A\+Matrix} ()
@@ -145,7 +159,7 @@ This method adds the argument \hyperlink{classmdp_1_1core_1_1_state}{State} s in
 
 
 
-Definition at line 184 of file M\+D\+P.\+java.
+Definition at line 204 of file M\+D\+P.\+java.
 
 
 
@@ -189,7 +203,7 @@ Initially the txt file is parsed till the keyword {\bfseries States} is encounte
  At last the txt file is closed.~\newline
  
 
-Definition at line 213 of file M\+D\+P.\+java.
+Definition at line 235 of file M\+D\+P.\+java.
 
 
 
@@ -212,7 +226,7 @@ This method converts the Sparse\+Matrix\+Holder A into a .Mat file.
 
 
 
-Definition at line 760 of file M\+D\+P.\+java.
+Definition at line 988 of file M\+D\+P.\+java.
 
 
 
@@ -233,7 +247,7 @@ This method creates Kernels based on the Decomposition of the \hyperlink{classmd
 
 
 
-Definition at line 516 of file M\+D\+P.\+java.
+Definition at line 536 of file M\+D\+P.\+java.
 
 
 
@@ -252,11 +266,37 @@ Referenced by mdp.\+core.\+M\+D\+P.\+build\+From\+File().
 )}\label{classmdp_1_1core_1_1_m_d_p_ab2c6f9846cf9362a472f66e1c7fe4117}
 
 
-Definition at line 666 of file M\+D\+P.\+java.
+This method is used to create A sparse matrix which is used to solve the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} via L\+P. 
+
+This method creates a Sparse\+Matrix\+Holder to hold the A matrix for the L\+P of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. The Sparse\+Matrix\+Holder is created such that it has a map of maps, where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix.~\newline
+
+
+N\+O\+T\+E -\/ This method is currently not used. 
+
+Definition at line 693 of file M\+D\+P.\+java.
 
 
 
-References mdp.\+util.\+Sparse\+Matrix\+Holder.\+get\+Matrix\+Holder().
+References mdp.\+core.\+State.\+get\+Action\+Counts(), and mdp.\+util.\+Sparse\+Matrix\+Holder.\+get\+Matrix\+Holder().
+
+\hypertarget{classmdp_1_1core_1_1_m_d_p_aea28bc0182d2d4996506017fcd103df6}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!create\+L\+Pand\+Matrix@{create\+L\+Pand\+Matrix}}
+\index{create\+L\+Pand\+Matrix@{create\+L\+Pand\+Matrix}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
+\subsubsection[{create\+L\+Pand\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mdp.\+core.\+M\+D\+P.\+create\+L\+Pand\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_m_d_p_aea28bc0182d2d4996506017fcd103df6}
+
+
+This method is used to create A sparse matrix and generates the M\+A\+T\+L\+A\+B file A\+\_\+\+B\+\_\+\+C.\+mat which is used to solve the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} via L\+P. 
+
+This method creates a Sparse\+Matrix\+Holder to hold the A matrix for the L\+P of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. The Sparse\+Matrix\+Holder is created such that it has a map of maps, where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix. Finally, the values of A Sparse\+Matrix\+Holder and of B,C and X vectors are written into a .mat file. 
+
+Definition at line 776 of file M\+D\+P.\+java.
+
+
+
+References mdp.\+core.\+M\+D\+P.\+b\+Vector, mdp.\+core.\+M\+D\+P.\+c\+Vector, mdp.\+core.\+State.\+get\+Action\+Counts(), and mdp.\+core.\+M\+D\+P.\+get\+State\+Action\+Pair\+Count().
 
 
 
@@ -275,15 +315,11 @@ This method converts the Sparse\+Matrix\+Holder A into a .Mat file with sparse m
 
 
 
-Definition at line 803 of file M\+D\+P.\+java.
+Definition at line 1031 of file M\+D\+P.\+java.
 
 
 
 References mdp.\+core.\+M\+D\+P.\+b\+Vector, mdp.\+core.\+M\+D\+P.\+c\+Vector, mdp.\+util.\+Sparse\+Matrix\+Holder.\+get\+Matrix\+Holder(), and mdp.\+core.\+M\+D\+P.\+get\+State\+Action\+Pair\+Count().
-
-
-
-Referenced by mdp.\+main.\+Main.\+main().
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_a669984bc260c8c4fb4c600fb7260030c}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!create\+X\+B\+C\+Vector@{create\+X\+B\+C\+Vector}}
 \index{create\+X\+B\+C\+Vector@{create\+X\+B\+C\+Vector}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -296,11 +332,11 @@ Referenced by mdp.\+main.\+Main.\+main().
 
 This is a cpoy constructor of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} class s. 
 
-This method is used to create A sparse matrix which is used to solve the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} via L\+P
+This method is used to create X, B and C vectors in the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}
 
-This method creates a Sparse\+Matrix\+Holder to hold the A matrix for the L\+P of the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. The Sparse\+Matrix\+Holder is created such that it has a map of maps, where each map contains the an Aij for every Ki and Kj if the resultant Aij is a non zero matrix. 
+This method creates a X, B and C vectors based on the ordering of the states and actions in the the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P}. 
 
-Definition at line 620 of file M\+D\+P.\+java.
+Definition at line 639 of file M\+D\+P.\+java.
 
 
 
@@ -347,6 +383,36 @@ Definition at line 154 of file M\+D\+P.\+java.
 
 
 References mdp.\+core.\+M\+D\+P.\+actions.
+
+\hypertarget{classmdp_1_1core_1_1_m_d_p_a3564240f2599adfcdf0fdb76b7b4910b}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!getb\+Vector@{getb\+Vector}}
+\index{getb\+Vector@{getb\+Vector}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
+\subsubsection[{getb\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Linked\+Hash\+Map$<$String, Float$>$ $>$ mdp.\+core.\+M\+D\+P.\+getb\+Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_m_d_p_a3564240f2599adfcdf0fdb76b7b4910b}
+
+
+Definition at line 185 of file M\+D\+P.\+java.
+
+
+
+References mdp.\+core.\+M\+D\+P.\+b\+Vector.
+
+\hypertarget{classmdp_1_1core_1_1_m_d_p_a2c2141d2cd5de51e2a35f045b9ebb5da}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!getc\+Vector@{getc\+Vector}}
+\index{getc\+Vector@{getc\+Vector}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
+\subsubsection[{getc\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Linked\+Hash\+Map$<$String, Float$>$ $>$ mdp.\+core.\+M\+D\+P.\+getc\+Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_m_d_p_a2c2141d2cd5de51e2a35f045b9ebb5da}
+
+
+Definition at line 191 of file M\+D\+P.\+java.
+
+
+
+References mdp.\+core.\+M\+D\+P.\+c\+Vector.
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_af18af128ccbdc7b958e438660abe967c}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!get\+Gamma@{get\+Gamma}}
 \index{get\+Gamma@{get\+Gamma}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -445,11 +511,11 @@ This method returns the number of integer count of the number of state-\/action 
 
 
 
-Definition at line 746 of file M\+D\+P.\+java.
+Definition at line 974 of file M\+D\+P.\+java.
 
 
 
-Referenced by mdp.\+core.\+M\+D\+P.\+create\+A\+Matrix(), and mdp.\+core.\+M\+D\+P.\+create\+Sparse\+A\+Matrix().
+Referenced by mdp.\+core.\+M\+D\+P.\+create\+A\+Matrix(), mdp.\+core.\+M\+D\+P.\+create\+L\+Pand\+Matrix(), and mdp.\+core.\+M\+D\+P.\+create\+Sparse\+A\+Matrix().
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_a937094aab736609618fed718de7f6b89}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!get\+States@{get\+States}}
 \index{get\+States@{get\+States}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -473,6 +539,21 @@ References mdp.\+core.\+M\+D\+P.\+states.
 
 
 Referenced by mdp.\+util.\+Planar\+Separator.\+B\+F\+S\+Layer\+Generation(), mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition(), mdp.\+util.\+Planar\+Separator.\+D\+F\+S\+Decomposition\+Iterative(), and mdp.\+util.\+Planar\+Separator.\+improve\+Decomposition().
+
+\hypertarget{classmdp_1_1core_1_1_m_d_p_a2fc794f6dde7e7425be75ebc82583269}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!getx\+Vector@{getx\+Vector}}
+\index{getx\+Vector@{getx\+Vector}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
+\subsubsection[{getx\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, Linked\+Hash\+Set$<$String$>$ $>$ mdp.\+core.\+M\+D\+P.\+getx\+Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_m_d_p_a2fc794f6dde7e7425be75ebc82583269}
+
+
+Definition at line 179 of file M\+D\+P.\+java.
+
+
+
+References mdp.\+core.\+M\+D\+P.\+x\+Vector.
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_a6c13511cfe8a2ead9e3b7dfecce5be78}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!set\+A@{set\+A}}
 \index{set\+A@{set\+A}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -507,6 +588,36 @@ Definition at line 161 of file M\+D\+P.\+java.
 
 
 References mdp.\+core.\+M\+D\+P.\+actions.
+
+\hypertarget{classmdp_1_1core_1_1_m_d_p_a9f49919894e99485e3929642614b5f15}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!setb\+Vector@{setb\+Vector}}
+\index{setb\+Vector@{setb\+Vector}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
+\subsubsection[{setb\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}void mdp.\+core.\+M\+D\+P.\+setb\+Vector (
+\begin{DoxyParamCaption}
+\item[{Map$<$ String, Linked\+Hash\+Map$<$ String, Float $>$$>$}]{b\+Vector}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_m_d_p_a9f49919894e99485e3929642614b5f15}
+
+
+Definition at line 188 of file M\+D\+P.\+java.
+
+
+
+References mdp.\+core.\+M\+D\+P.\+b\+Vector.
+
+\hypertarget{classmdp_1_1core_1_1_m_d_p_a3b30a91a24ed0db52929343cc4834531}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!setc\+Vector@{setc\+Vector}}
+\index{setc\+Vector@{setc\+Vector}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
+\subsubsection[{setc\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}void mdp.\+core.\+M\+D\+P.\+setc\+Vector (
+\begin{DoxyParamCaption}
+\item[{Map$<$ String, Linked\+Hash\+Map$<$ String, Float $>$$>$}]{c\+Vector}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_m_d_p_a3b30a91a24ed0db52929343cc4834531}
+
+
+Definition at line 194 of file M\+D\+P.\+java.
+
+
+
+References mdp.\+core.\+M\+D\+P.\+c\+Vector.
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_ad087ba3ecc5aac90d25b9022882ebdeb}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!set\+Kernels@{set\+Kernels}}
 \index{set\+Kernels@{set\+Kernels}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -584,6 +695,21 @@ Definition at line 118 of file M\+D\+P.\+java.
 
 References mdp.\+core.\+M\+D\+P.\+states.
 
+\hypertarget{classmdp_1_1core_1_1_m_d_p_ad4063dea06a15a73bc20a1e95b137b83}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!setx\+Vector@{setx\+Vector}}
+\index{setx\+Vector@{setx\+Vector}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
+\subsubsection[{setx\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}void mdp.\+core.\+M\+D\+P.\+setx\+Vector (
+\begin{DoxyParamCaption}
+\item[{Map$<$ String, Linked\+Hash\+Set$<$ String $>$$>$}]{x\+Vector}
+\end{DoxyParamCaption}
+)}\label{classmdp_1_1core_1_1_m_d_p_ad4063dea06a15a73bc20a1e95b137b83}
+
+
+Definition at line 182 of file M\+D\+P.\+java.
+
+
+
+References mdp.\+core.\+M\+D\+P.\+x\+Vector.
+
 \hypertarget{classmdp_1_1core_1_1_m_d_p_aeeeba49692fd6972b6833f511e07621b}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!to\+String@{to\+String}}
 \index{to\+String@{to\+String}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
 \subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}String mdp.\+core.\+M\+D\+P.\+to\+String (
@@ -597,7 +723,7 @@ This method converts the \hyperlink{classmdp_1_1core_1_1_m_d_p}{M\+D\+P} object 
 
 
 
-Definition at line 951 of file M\+D\+P.\+java.
+Definition at line 1179 of file M\+D\+P.\+java.
 
 
 
@@ -641,7 +767,7 @@ Definition at line 51 of file M\+D\+P.\+java.
 
 
 
-Referenced by mdp.\+core.\+M\+D\+P.\+create\+Sparse\+A\+Matrix(), and mdp.\+core.\+M\+D\+P.\+M\+D\+P().
+Referenced by mdp.\+core.\+M\+D\+P.\+create\+L\+Pand\+Matrix(), mdp.\+core.\+M\+D\+P.\+create\+Sparse\+A\+Matrix(), mdp.\+core.\+M\+D\+P.\+getb\+Vector(), mdp.\+core.\+M\+D\+P.\+M\+D\+P(), and mdp.\+core.\+M\+D\+P.\+setb\+Vector().
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_a80af7879a4ff33ac43034eaa934c480f}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!c\+Vector@{c\+Vector}}
 \index{c\+Vector@{c\+Vector}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -652,7 +778,7 @@ Definition at line 52 of file M\+D\+P.\+java.
 
 
 
-Referenced by mdp.\+core.\+M\+D\+P.\+create\+Sparse\+A\+Matrix(), and mdp.\+core.\+M\+D\+P.\+M\+D\+P().
+Referenced by mdp.\+core.\+M\+D\+P.\+create\+L\+Pand\+Matrix(), mdp.\+core.\+M\+D\+P.\+create\+Sparse\+A\+Matrix(), mdp.\+core.\+M\+D\+P.\+getc\+Vector(), mdp.\+core.\+M\+D\+P.\+M\+D\+P(), and mdp.\+core.\+M\+D\+P.\+setc\+Vector().
 
 \hypertarget{classmdp_1_1core_1_1_m_d_p_ab240c1d97d39d6f66cff0c8d06a57a69}{}\index{mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}!gamma@{gamma}}
 \index{gamma@{gamma}!mdp\+::core\+::\+M\+D\+P@{mdp\+::core\+::\+M\+D\+P}}
@@ -718,7 +844,7 @@ Definition at line 50 of file M\+D\+P.\+java.
 
 
 
-Referenced by mdp.\+core.\+M\+D\+P.\+M\+D\+P().
+Referenced by mdp.\+core.\+M\+D\+P.\+getx\+Vector(), mdp.\+core.\+M\+D\+P.\+M\+D\+P(), and mdp.\+core.\+M\+D\+P.\+setx\+Vector().
 
 
 

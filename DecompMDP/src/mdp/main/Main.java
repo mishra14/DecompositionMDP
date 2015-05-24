@@ -21,13 +21,26 @@ import mdp.test.TestMDP;
 * The Main.Java file encapsulates the flow of the tool box. It initially creates an MDP object by reading a txt file of the following format - <br>
 * 1. States of the MDP<br>
 * states {s0, s1}<br>
-* 2. Transitions in the MDP<br>
+* 2. Initial Distribution -<br> 
+* initial<br>
+* {s0, 1.0}<br>
+* Where the format is - {state, probability}<br>
+* 3. Transitions in the MDP<br>
 * transitions<br>
 *{s0, a, 1, s1}<br>
 *{s1, b, 1, s0s}<br>
 *end<br>
 *Where each transition has the format - {fromState, action, probabilityOfTransition, ResultState}<br>
-* 3. Decomposition count or decomposition<br>
+* 4. Rewards - <br>
+* rewards<br>
+* {s0,a,0}<br>
+* {s0,b,0}<br>
+* {s1,a,-0.7}<br>
+* {s1,b,0}<br>
+* {s2,b,-0.5}<br>
+* end<br>
+* Where the format is - {state, action, reward}<br>
+* 5. Decomposition count or decomposition<br>
 * Regions=2<br>
 * or<br>
 * Regions<br>
